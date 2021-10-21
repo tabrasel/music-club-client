@@ -1,0 +1,9 @@
+.RoundIcon {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+img {
+  width: 50%;
+}
