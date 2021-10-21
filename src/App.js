@@ -2,13 +2,15 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
 import NavBar from './NavBar';
-import RoundList from './RoundList';
+import RoundsView from './RoundsView';
 
 function App() {
   return (
     <div className="App">
       <NavBar />
-      <RoundList />
+      <div className="h-100 container-lg">
+        <RoundsView />
+      </div>
     </div>
   );
 }
