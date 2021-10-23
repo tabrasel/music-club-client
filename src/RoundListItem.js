@@ -2,12 +2,14 @@ import './RoundListItem.css';
 
 import RoundIcon from './RoundIcon.js';
 
-function RoundListItem(props) {
-  // TODO: sort albums by poster name
-
+function RoundListItem({number, participants, albums}) {
   return (
-    <div className="RoundListItem">
-      <RoundIcon albums={props.albums}/>
+    <div className="RoundListItem m-3 position-relative">
+      <RoundIcon albums={albums} />
+
+      <div className="round-number-label">
+        <p>{number}</p>
+      </div>
     </div>
   );
 }
