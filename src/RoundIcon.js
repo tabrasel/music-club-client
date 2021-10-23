@@ -6,6 +6,7 @@ function RoundIcon(props) {
       {
         props.albums.map((album) =>
           <img
+            key={album.title}
             src={album.imageUrl}
             alt={album.title + " cover"}
           />
