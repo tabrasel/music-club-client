@@ -1,3 +1,8 @@
 .NavBar {
-  box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 15px 8px;
+  box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 10px 5px;
+}
+
+.navbar-brand {
+  font-size: 1.75rem;
+  padding: 0px;
 }
