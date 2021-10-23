@@ -1,6 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Irish+Grover&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
 
 html, body, #root {
   background-color: #423c50;
-  font-family: 'Irish Grover', cursive;
+  font-family: 'Inter', sans-serif;
 }
