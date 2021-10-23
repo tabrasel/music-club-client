@@ -1,54 +1,67 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import RoundListItem from './RoundListItem.js';
+import { useState, useEffect } from 'react';
 
 function RoundList() {
-  const roundListItemsData = [
-    {
-      round: {
-        albumIds: null,
-        id: "a85a6a7c-c131-4ce1-9d4f-bb24f9f61f5a",
-        number: 1,
-        startDate: "2019-02-20",
-        endDate: "2019-02-27",
-        picksPerParticipant: 3,
-        participantIds: null
-      },
-      albums: [
-        {
-          id: "ebfe7f8f-14d7-4999-b70a-d5432bdec36a",
-          title: "Another Green World",
-          artist: "Brian Eno",
-          trackCount: 14,
-          imageUrl: "https://upload.wikimedia.org/wikipedia/en/9/92/Another_Green_World.jpg",
-          posterId: "96e05653-5e9d-4f86-9b05-fe41ef993587",
-          pickedTracks: null,
-          topTrackNumber: 3
-        }
-      ],
-      participants: [
-        {
-          participatedRoundIds: null,
-          postedAlbumIds: null,
-          id: "96e05653-5e9d-4f86-9b05-fe41ef993587",
-          firstName: "Max",
-          lastName: "Hellen",
-          color: "#e6962e"
-        }
-      ]
-    },
-  ];
+
+  const [roundListItemsData, setRoundListItemsData] = useState([]);
+
+  useEffect(() => {
+    const getRounds = async () => {
+      const rounds = await fetchRounds();
+
+      let tempListItems = [];
+
+      for (let round of rounds) {
+        // Get albums
+        const albumPromises = round.albumIds.map((albumId) => {
+          return fetch('https://tb-music-club.herokuapp.com/api/album?id=' + albumId)
+            .then(response => response.json());
+        });
+        const albums = await Promise.all(albumPromises);
+
+        // Get participants
+        const participantPromises = round.participantIds.map((participantId) => {
+          return fetch('https://tb-music-club.herokuapp.com/api/member?id=' + participantId)
+            .then(response => response.json());
+        });
+        const participants = await Promise.all(participantPromises);
+
+        const roundListItemData = {
+          round: round,
+          participants: participants,
+          albums: albums
+        };
+
+        tempListItems.push(roundListItemData);
+      }
+
+      tempListItems.sort((a, b) => {
+        return b.round.number - a.round.number;
+      });
+
+      setRoundListItemsData(tempListItems);
+    };
+    getRounds();
+  });
+
+  const fetchRounds = async () => {
+    const res = await fetch('https://tb-music-club.herokuapp.com/api/rounds');
+    const rounds = await res.json();
+    return rounds;
+  };
 
   return (
     <div className="RoundList">
-      <div>
+      <div className="d-flex justify-content-center flex-wrap">
         {
           roundListItemsData.map((itemData) =>
             <RoundListItem
               key={itemData.round.id}
               number={itemData.round.number}
-              participants={itemData.participants}
               albums={itemData.albums}
+              participants={itemData.participants}
             />
           )
         }
