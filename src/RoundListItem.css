@@ -16,11 +16,12 @@
   align-items: center;
   border-top-left-radius: 3px;
   border-bottom-right-radius: 10px;
-  background-color: #833434;
+  background-color: black;
   color: white;
   box-shadow: rgba(0, 0, 0, 0.5) 1px 1px 5px;
 }
 
 p {
   margin: 0px;
+  font-size: 18px;
 }
