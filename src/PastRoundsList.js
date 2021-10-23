@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import RoundListItem from './RoundListItem.js';
 import { useState, useEffect } from 'react';
 
-function RoundList() {
+function PastRoundsList() {
 
   const [roundListItemsData, setRoundListItemsData] = useState([]);
 
@@ -70,4 +70,4 @@ function RoundList() {
   );
 }
 
-export default RoundList;
+export default PastRoundsList;

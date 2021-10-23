@@ -1,11 +1,11 @@
 import './RoundsView.css';
 
-import RoundList from './RoundList';
+import PastRoundsList from './PastRoundsList';
 
 function RoundsView() {
   return (
     <div className="RoundsView">
-      <RoundList />
+      <PastRoundsList />
     </div>
   );
 }
