@@ -1,6 +1,6 @@
 .RoundIcon {
   width: 100%;
-  padding: 10px;
+  padding: 8px;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -9,6 +9,6 @@
 }
 
 img {
-  width: 90px;
-  height: 90px;
+  width: 92px;
+  height: 92px;
 }
