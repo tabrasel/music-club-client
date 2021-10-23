@@ -8,7 +8,7 @@ function App() {
   return (
     <div className="App">
       <NavBar />
-      <div className="h-100 container-lg">
+      <div className="h-100 container-lg p-0">
         <RoundsView />
       </div>
     </div>
