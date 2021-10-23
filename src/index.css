@@ -1,4 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Irish+Grover&display=swap');
+
 html, body, #root {
-  width: 100%;
-  height: 100%;
+  background-color: #423c50;
+  font-family: 'Irish Grover', cursive;
 }
