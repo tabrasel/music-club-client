@@ -1,11 +1,14 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import RoundListItem from './RoundListItem.js';
 import { useState, useEffect } from 'react';
+
+import RoundListItem from './RoundListItem.js';
+import Spinner from './Spinner.js';
 
 function PastRoundsList() {
 
   const [roundListItemsData, setRoundListItemsData] = useState([]);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
     const getRounds = async () => {
@@ -41,6 +44,7 @@ function PastRoundsList() {
         return b.round.number - a.round.number;
       });
 
+      setIsLoaded(true);
       setRoundListItemsData(tempListItems);
     };
     getRounds();
@@ -56,7 +60,9 @@ function PastRoundsList() {
     <div className="RoundList">
       <div className="d-flex justify-content-center flex-wrap">
         {
-          roundListItemsData.map((itemData) =>
+          !isLoaded
+          ? <Spinner />
+          : roundListItemsData.map((itemData) =>
             <RoundListItem
               key={itemData.round.id}
               number={itemData.round.number}
