@@ -1,0 +1,14 @@
+.Round {
+  height: 100%;
+  padding: 10px 40px;
+  background-color: #322d3e;
+}
+
+h1 {
+  font-size: calc(3rem + 1.5vw);
+  color: white;
+}
+
+small {
+  color: lightgray;
+}
