@@ -25,11 +25,14 @@ function PastRoundsList() {
         const albums = await Promise.all(albumPromises);
 
         // Get participants
+        /*
         const participantPromises = round.participantIds.map((participantId) => {
           return fetch('https://tb-music-club.herokuapp.com/api/member?id=' + participantId)
             .then(response => response.json());
         });
         const participants = await Promise.all(participantPromises);
+        */
+        const participants = [];
 
         const roundListItemData = {
           round: round,
@@ -48,7 +51,7 @@ function PastRoundsList() {
       setRoundListItemsData(tempListItems);
     };
     getRounds();
-  });
+  }, []);
 
   const fetchRounds = async () => {
     const res = await fetch('https://tb-music-club.herokuapp.com/api/rounds');
@@ -65,7 +68,7 @@ function PastRoundsList() {
           : roundListItemsData.map((itemData) =>
             <RoundListItem
               key={itemData.round.id}
-              number={itemData.round.number}
+              round={itemData.round}
               albums={itemData.albums}
               participants={itemData.participants}
             />
