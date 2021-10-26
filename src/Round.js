@@ -4,12 +4,14 @@ import './Round.css';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
+import RoundAlbumListItem from './RoundAlbumListItem';
+
 function Round() {
 
   const { id } = useParams();
   const [round, setRound] = useState(null);
   const [participants, setParticipants] = useState([]);
-  const [albumListItems, setAlbumListItems] = useState([]);
+  const [albums, setAlbums] = useState([]);
 
   useEffect(() => {
     const getRound = async () => {
@@ -23,6 +25,7 @@ function Round() {
 
       // Get album info
       const albums = await fetchAlbums(round);
+      setAlbums(albums);
     };
 
     getRound();
@@ -37,11 +40,11 @@ function Round() {
   if (round === null) return null;
 
   const participantsList = createParticipantsList(participants);
-  //const albumsList = createAlbumsList(albums);
+  const albumsList = createAlbumsList(albums);
 
   return (
     <div className="Round">
-      <div className="d-flex justify-content-between">
+      <div className="mb-5 d-flex justify-content-between">
         <div>
           <h1>Round {round.number}</h1>
           <small>{round.startDate} to {round.endDate}</small>
@@ -50,7 +53,7 @@ function Round() {
         {participantsList}
       </div>
 
-
+      {albumsList}
     </div>
   );
 }
@@ -85,7 +88,7 @@ function createParticipantsList(participants) {
     <div>
     {
       participants.map((participant) => (
-        <p className="text-right">{participant.firstName + ' ' + participant.lastName}</p>
+        <p className="mb-1 text-right">{participant.firstName + ' ' + participant.lastName}</p>
       ))
     }
     </div>
@@ -95,7 +98,11 @@ function createParticipantsList(participants) {
 function createAlbumsList(albums) {
   return (
     <div>
-
+    {
+      albums.map((album) => (
+        <RoundAlbumListItem album={album} participantsMap={null} />
+      ))
+    }
     </div>
   );
 }

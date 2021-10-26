@@ -1,0 +1,17 @@
+.RoundAlbumListItem img {
+  width: 200px;
+  height: 200px;
+  border-radius: 3px;
+  box-shadow: rgba(0, 0, 0, 0.5) 0px 5px 10px;
+}
+
+h2 {
+  font-size: calc(0.7rem + .8vw);
+  font-style: italic;
+  color: white;
+}
+
+h3 {
+  font-size: calc(0.4rem + .8vw);
+  color: lightgray;
+}
