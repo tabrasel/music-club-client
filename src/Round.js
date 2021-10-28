@@ -44,7 +44,7 @@ function Round() {
 
   return (
     <div className="Round">
-      <div className="mb-5 d-flex justify-content-between">
+      <div className="mb-5 d-flex justify-content-between align-items-center">
         <div>
           <h1>Round {round.number}</h1>
           <small>{round.startDate} to {round.endDate}</small>

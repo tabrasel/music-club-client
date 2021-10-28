@@ -10,8 +10,8 @@ function RoundListItem({round, participants, albums}) {
     <div className="RoundListItem m-3">
       <Link to={'/round/' + round.id}>
         <RoundIcon albums={albums} />
+        <p className="round-label">{round.number}</p>
       </Link>
-      <p className="text-center">{round.number}</p>
     </div>
   );
 }

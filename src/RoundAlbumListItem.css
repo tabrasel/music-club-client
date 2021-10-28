@@ -15,3 +15,7 @@ h3 {
   font-size: calc(0.4rem + .8vw);
   color: lightgray;
 }
+
+.list-group {
+  box-shadow: rgba(0, 0, 0, 0.5) 0px 10px 10px;
+}

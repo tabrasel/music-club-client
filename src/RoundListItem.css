@@ -5,11 +5,29 @@
   border-top-right-radius: 3px;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
-  background-color: #5e5572;;
+  background-color: #5e5572;
+  transition: 0.2s;
+}
+
+.RoundListItem:hover {
+  background-color: #726887;
 }
 
 p {
   margin: 0px;
   font-size: 18px;
   color: white;
+}
+
+a {
+  text-decoration: none;
+}
+
+.interior {
+  cursor: pointer;
+}
+
+.round-label {
+  text-align: center;
+  text-decoration: none;
 }
