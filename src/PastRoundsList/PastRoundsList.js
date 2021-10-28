@@ -2,8 +2,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import { useState, useEffect } from 'react';
 
-import RoundListItem from './RoundListItem.js';
-import Spinner from './Spinner.js';
+import RoundListItem from '../RoundListItem/RoundListItem.js';
+import Spinner from '../Spinner/Spinner.js';
 
 function PastRoundsList() {
 

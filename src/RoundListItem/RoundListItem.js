@@ -3,7 +3,7 @@ import './RoundListItem.css';
 
 import { Link } from 'react-router-dom';
 
-import RoundIcon from './RoundIcon.js';
+import RoundIcon from '../RoundIcon/RoundIcon.js';
 
 function RoundListItem({round, participants, albums}) {
   return (

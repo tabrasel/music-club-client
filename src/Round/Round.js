@@ -4,7 +4,7 @@ import './Round.css';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
-import RoundAlbumListItem from './RoundAlbumListItem';
+import RoundAlbumListItem from '../RoundAlbumListItem/RoundAlbumListItem';
 
 function Round() {
 

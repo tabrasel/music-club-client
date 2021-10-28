@@ -7,9 +7,9 @@ import {
   Route
 } from "react-router-dom";
 
-import NavBar from './NavBar';
-import RoundsView from './RoundsView';
-import Round from './Round';
+import NavBar from '../NavBar/NavBar';
+import RoundsView from '../RoundsView/RoundsView';
+import Round from '../Round/Round';
 
 function App() {
   return (

@@ -1,7 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './RoundAlbumListItem.css';
 
-import PickedTrackListItem from './PickedTrackListItem.js';
+import PickedTrackListItem from '../PickedTrackListItem/PickedTrackListItem.js';
 
 function RoundAlbumListItem({album, participantsMap}) {
 

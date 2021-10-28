@@ -1,6 +1,6 @@
 import './RoundsView.css';
 
-import PastRoundsList from './PastRoundsList';
+import PastRoundsList from '../PastRoundsList/PastRoundsList';
 
 function RoundsView() {
   return (
