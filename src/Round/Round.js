@@ -40,7 +40,7 @@ function Round() {
   if (round === null) return null;
 
   const participantsList = createParticipantsList(participants);
-  const albumsList = createAlbumsList(albums);
+  const albumsList = createAlbumsList(albums, participants);
 
   return (
     <div className="Round">
@@ -88,19 +88,19 @@ function createParticipantsList(participants) {
     <div>
     {
       participants.map((participant) => (
-        <p className="mb-1 text-right">{participant.firstName + ' ' + participant.lastName}</p>
+        <p className="mb-1 text-right" key={participant.id}>{participant.firstName + ' ' + participant.lastName}</p>
       ))
     }
     </div>
   );
 }
 
-function createAlbumsList(albums) {
+function createAlbumsList(albums, participants) {
   return (
     <div>
     {
       albums.map((album) => (
-        <RoundAlbumListItem album={album} participantsMap={null} />
+        <RoundAlbumListItem album={album} participants={participants} key={album.id}/>
       ))
     }
     </div>

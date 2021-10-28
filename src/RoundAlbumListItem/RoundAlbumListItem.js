@@ -3,10 +3,9 @@ import './RoundAlbumListItem.css';
 
 import PickedTrackListItem from '../PickedTrackListItem/PickedTrackListItem.js';
 
-function RoundAlbumListItem({album, participantsMap}) {
+function RoundAlbumListItem({album, participants}) {
 
   const pickedTracks = album.pickedTracks.sort((a, b) => a.trackNumber - b.trackNumber);
-  console.log(album);
 
   return (
     <div className="RoundAlbumListItem mb-5">
@@ -22,9 +21,10 @@ function RoundAlbumListItem({album, participantsMap}) {
         <div className="col">
           <div className="list-group">
             {
-              pickedTracks.map((pickedTrack) => (
-                <PickedTrackListItem pickedTrack={pickedTrack} />
-              ))
+              pickedTracks.map((pickedTrack) => {
+                const pickers = participants.filter((participant) => pickedTrack.pickerIds.includes(participant.id));
+                return (<PickedTrackListItem pickedTrack={pickedTrack} pickers={pickers} key={pickedTrack.trackNumber}/>);
+              })
             }
           </div>
         </div>
