@@ -23,7 +23,7 @@ function RoundAlbumListItem({album, participants}) {
             {
               pickedTracks.map((pickedTrack) => {
                 const pickers = participants.filter((participant) => pickedTrack.pickerIds.includes(participant.id));
-                return (<PickedTrackListItem pickedTrack={pickedTrack} pickers={pickers} key={pickedTrack.trackNumber}/>);
+                return (<PickedTrackListItem key={pickedTrack.trackNumber} pickedTrack={pickedTrack} pickers={pickers} isTopTrack={pickedTrack.trackNumber === album.topTrackNumber}/>);
               })
             }
           </div>
