@@ -10,16 +10,17 @@
 }
 
 .RoundListItem:hover {
-  background-color: #726887;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 10px 8px;
+  background-color: #877c9d;
 }
 
-p {
+.RoundListItem p {
   margin: 0px;
   font-size: 18px;
   color: white;
 }
 
-a {
+.RoundListItem a {
   text-decoration: none;
 }
 
