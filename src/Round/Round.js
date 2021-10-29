@@ -5,6 +5,8 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
 import RoundAlbumListItem from '../RoundAlbumListItem/RoundAlbumListItem';
+import RoundParticipantsKey from '../RoundParticipantsKey/RoundParticipantsKey';
+import PickerIcon from '../PickerIcon/PickerIcon';
 
 function Round() {
 
@@ -38,8 +40,7 @@ function Round() {
   };
 
   if (round === null) return null;
-
-  const participantsList = createParticipantsList(participants);
+  
   const albumsList = createAlbumsList(albums, participants);
 
   return (
@@ -50,7 +51,7 @@ function Round() {
           <small>{round.startDate} to {round.endDate}</small>
         </div>
 
-        {participantsList}
+        <RoundParticipantsKey participants={participants} />
       </div>
 
       {albumsList}
@@ -88,7 +89,10 @@ function createParticipantsList(participants) {
     <div>
     {
       participants.map((participant) => (
-        <p className="mb-1 text-right" key={participant.id}>{participant.firstName + ' ' + participant.lastName}</p>
+        <div className="d-flex align-items-center mb-2">
+          <PickerIcon picker={participant} />
+          <p className="ml-1 mb-1 text-right" key={participant.id}>{participant.firstName + ' ' + participant.lastName}</p>
+        </div>
       ))
     }
     </div>

@@ -4,11 +4,16 @@
   background-color: #322d3e;
 }
 
-h1 {
-  font-size: calc(3rem + 1.5vw);
+.Round h1 {
+  font-size: calc(4rem + 1.5vw);
+  font-weight: bold;
   color: white;
 }
 
-small {
+.Round p {
+  color: lightgray;
+}
+
+.Round small {
   color: lightgray;
 }
