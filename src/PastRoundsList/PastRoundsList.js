@@ -60,21 +60,19 @@ function PastRoundsList() {
   };
 
   return (
-    <div className="RoundList">
-      <div className="d-flex justify-content-center flex-wrap">
-        {
-          !isLoaded
-          ? <Spinner />
-          : roundListItemsData.map((itemData) =>
-            <RoundListItem
-              key={itemData.round.id}
-              round={itemData.round}
-              albums={itemData.albums}
-              participants={itemData.participants}
-            />
-          )
-        }
-      </div>
+    <div className="RoundList d-flex justify-content-center flex-wrap">
+      {
+        !isLoaded
+        ? <Spinner />
+        : roundListItemsData.map((itemData) =>
+          <RoundListItem
+            key={itemData.round.id}
+            round={itemData.round}
+            albums={itemData.albums}
+            participants={itemData.participants}
+          />
+        )
+      }
     </div>
   );
 }

@@ -1,8 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Zen+Old+Mincho&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&display=swap');
 
 html, body, #root {
   background-color: #423c50;
-  /*font-family: 'Inter', sans-serif;*/
-  font-family: 'Zen Old Mincho', serif;
+  /*font-family: 'Inter', sans-serif;
+  font-family: 'Zen Old Mincho', serif;*/
+  font-family: 'Poppins', sans-serif;
 }
