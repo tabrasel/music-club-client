@@ -7,7 +7,7 @@ function NavBar() {
   return (
     <nav className="NavBar navbar sticky-top navbar-expand-sm navbar-dark bg-dark">
       <div className="container-fluid">
-        <a className="navbar-brand" href="#">Music Club</a>
+        <Link className="navbar-brand" to="/">Music Club</Link>
 
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
