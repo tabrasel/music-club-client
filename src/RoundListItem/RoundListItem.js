@@ -7,10 +7,10 @@ import RoundIcon from '../RoundIcon/RoundIcon.js';
 
 function RoundListItem({round, participants, albums}) {
   return (
-    <div className="RoundListItem m-3">
+    <div className="RoundListItem position-relative m-3">
       <Link to={'/round/' + round.id}>
-        <RoundIcon albums={albums} />
-        <p className="round-label m-1">Round {round.number}</p>
+          <RoundIcon round={round} albums={albums} />
+          <div className="round-icon-overlay"></div>
       </Link>
     </div>
   );

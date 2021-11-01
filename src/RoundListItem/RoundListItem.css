@@ -1,34 +1,29 @@
 .RoundListItem {
   width: 200px;
+  height: 200px;
   box-shadow: rgba(0, 0, 0, 0.3) 0px 5px 8px;
-  border-top-left-radius: 3px;
-  border-top-right-radius: 3px;
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
-  background-color: #5e5572;
-  transition: 0.2s;
+  border-radius: 3px;
+  transition: 0.1s;
 }
 
 .RoundListItem:hover {
   box-shadow: rgba(0, 0, 0, 0.3) 0px 10px 8px;
-  background-color: #877c9d;
-}
-
-.RoundListItem p {
-  margin: 0px;
-  font-size: 18px;
-  color: white;
-}
-
-.RoundListItem a {
-  text-decoration: none;
 }
 
 .interior {
   cursor: pointer;
 }
 
-.round-label {
-  text-align: center;
-  text-decoration: none;
+.round-icon-overlay {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0);
+  transition: 0.1s;
+}
+
+.round-icon-overlay:hover {
+  background-color: rgba(0, 0, 0, 0.05);
 }
