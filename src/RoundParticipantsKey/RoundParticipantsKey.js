@@ -8,8 +8,8 @@ function RoundParticipantsKey({participants}) {
     <div className="RoundParticipantsKey d-flex flex-column align-items-end">
     {
       participants.map((participant) => (
-        <div className="d-flex align-items-center mb-2">
-          <p className="fullname ml-1 mb-1" key={participant.id}>{participant.firstName + ' ' + participant.lastName}</p>
+        <div className="d-flex align-items-center mb-2" key={participant.id}>
+          <p className="fullname my-0 mx-2">{participant.firstName} {participant.lastName}</p>
           <PickerIcon picker={participant} />
         </div>
       ))
