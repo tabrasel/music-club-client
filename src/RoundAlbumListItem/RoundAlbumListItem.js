@@ -1,11 +1,10 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './RoundAlbumListItem.css';
 
-import PickedTrackListItem from '../PickedTrackListItem/PickedTrackListItem.js';
+import PickedTrackList from '../PickedTrackList/PickedTrackList';
 
 function RoundAlbumListItem({album, participants}) {
-
-  const pickedTracks = album.pickedTracks.sort((a, b) => a.trackNumber - b.trackNumber);
+  const showPickedTracksList = album.pickedTracks !== null && album.pickedTracks.length > 0;
 
   return (
     <div className="RoundAlbumListItem mb-5">
@@ -19,22 +18,13 @@ function RoundAlbumListItem({album, participants}) {
         </div>
 
         <div className="col-sm-8">
-          <div className="list-group">
-            {
-              pickedTracks.map((pickedTrack) => {
-                const pickers = participants.filter((participant) => pickedTrack.pickerIds.includes(participant.id));
-                const isTopTrack = pickedTrack.trackNumber === album.topTrackNumber;
-                return (
-                  <PickedTrackListItem
-                    key={pickedTrack.trackNumber}
-                    pickedTrack={pickedTrack}
-                    pickers={pickers}
-                    isTopTrack={isTopTrack}
-                  />
-                );
-              })
-            }
-          </div>
+          {
+            showPickedTracksList
+            ? <PickedTrackList
+                album={album}
+                participants={participants} />
+            : <p>Picks not posted</p>
+          }
         </div>
       </div>
     </div>
