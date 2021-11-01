@@ -4,9 +4,8 @@ import './Round.css';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
-import RoundAlbumListItem from '../RoundAlbumListItem/RoundAlbumListItem';
 import RoundParticipantsKey from '../RoundParticipantsKey/RoundParticipantsKey';
-import PickerIcon from '../PickerIcon/PickerIcon';
+import AlbumList from '../AlbumList/AlbumList';
 
 function Round() {
 
@@ -40,21 +39,19 @@ function Round() {
   };
 
   if (round === null) return null;
-  
-  const albumsList = createAlbumsList(albums, participants);
 
   return (
     <div className="Round">
-      <div className="mb-5 d-flex justify-content-between align-items-center">
+      <div className="mt-2 mb-5 d-flex justify-content-between align-items-center">
         <div>
-          <h1>Round {round.number}</h1>
+          <h1 className="m-0">Round {round.number}</h1>
           <small>{round.startDate} to {round.endDate}</small>
         </div>
 
         <RoundParticipantsKey participants={participants} />
       </div>
 
-      {albumsList}
+      <AlbumList albums={albums} participants={participants}/>
     </div>
   );
 }
@@ -73,42 +70,6 @@ function fetchAlbums(round) {
       .then(response => response.json());
   });
   return Promise.all(albumPromises);
-}
-
-function createParticipantsList(participants) {
-  // Sort participants by lastname, firstname
-  participants.sort((a, b) => {
-    if (a.lastName < b.lastName)
-      return -1;
-    else if (a.lastName > b.lastName)
-      return 1;
-    return a.firstName < b.firstName ? -1 : 1;
-  });
-
-  return (
-    <div>
-    {
-      participants.map((participant) => (
-        <div className="d-flex align-items-center mb-2">
-          <PickerIcon picker={participant} />
-          <p className="ml-1 mb-1 text-right" key={participant.id}>{participant.firstName + ' ' + participant.lastName}</p>
-        </div>
-      ))
-    }
-    </div>
-  );
-}
-
-function createAlbumsList(albums, participants) {
-  return (
-    <div>
-    {
-      albums.map((album) => (
-        <RoundAlbumListItem album={album} participants={participants} key={album.id}/>
-      ))
-    }
-    </div>
-  );
 }
 
 export default Round;
