@@ -1,8 +1,0 @@
-.PickedTrackListItem p {
-  font-size: calc(0.75rem + 0.4vw);
-  color: black;
-}
-
-.list-group-item {
-  border: none;
-}

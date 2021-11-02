@@ -1,10 +1,10 @@
-import './PickedTrackListItem.css'
+import styles from './PickedTrackListItem.module.css';
 
 import PickerIcon from '../PickerIcon/PickerIcon';
 
 function PickedTrackListItem({pickedTrack, pickers, isTopTrack}) {
   return (
-    <div className="PickedTrackListItem list-group-item px-3 py-2" style={{backgroundColor: isTopTrack ? '#cde3bb' : 'white'}}>
+    <div className={`${styles.PickedTrackListItem} list-group-item px-3 py-1`} style={{backgroundColor: isTopTrack ? '#cde3bb' : 'white'}}>
 
       <div className="row g-0 h-100">
         <div className="col-9">
