@@ -1,19 +1,17 @@
 .Round {
   height: 100%;
-  padding: 10px 40px;
-  background-color: #322d3e;
 }
 
 .Round h1 {
   font-size: calc(3rem + 2vw);
   font-weight: bold;
-  color: white;
+  color: black;
 }
 
 .Round p {
-  color: lightgray;
+  color: gray;
 }
 
 .Round small {
-  color: lightgray;
+  color: gray;
 }

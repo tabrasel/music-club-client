@@ -1,5 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './Round.css';
+import styles from './Round.module.css';
 
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
@@ -41,8 +41,8 @@ function Round() {
   if (round === null) return null;
 
   return (
-    <div className="Round">
-      <div className="mt-2 mb-5 d-flex justify-content-between align-items-center">
+    <div className={styles.Round}>
+      <div className="mt-3 mb-5 d-flex justify-content-between align-items-center">
         <div>
           <h1 className="m-0">Round {round.number}</h1>
           <small>{round.startDate} to {round.endDate}</small>
