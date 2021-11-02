@@ -17,7 +17,7 @@ function App() {
       <div className="App">
         <NavBar />
 
-        <div className="h-100 container-lg p-0">
+        <div className="h-100 container p-0">
           <Switch>
             <Route path="/" component={RoundsView} exact />
             <Route path="/round/:id" component={Round} exact />
