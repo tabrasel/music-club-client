@@ -1,13 +1,9 @@
 .RoundListItem {
   width: 200px;
   height: 200px;
-  box-shadow: rgba(0, 0, 0, 0.3) 0px 5px 8px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 5px;
   border-radius: 3px;
   transition: 0.1s;
-}
-
-.RoundListItem:hover {
-  box-shadow: rgba(0, 0, 0, 0.3) 0px 10px 8px;
 }
 
 .interior {
@@ -26,4 +22,19 @@
 
 .round-icon-overlay:hover {
   background-color: rgba(0, 0, 0, 0.05);
+}
+
+.disk {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background-color: black;
+  transition: 0.3s;
+}
+
+.RoundListItem:hover > .disk {
+  left: 20px;
 }
