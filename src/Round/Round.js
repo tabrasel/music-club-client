@@ -4,7 +4,7 @@ import styles from './Round.module.css';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
-import RoundParticipantsKey from '../RoundParticipantsKey/RoundParticipantsKey';
+import RoundHeader from '../RoundHeader/RoundHeader';
 import AlbumList from '../AlbumList/AlbumList';
 
 function Round() {
@@ -41,17 +41,12 @@ function Round() {
   if (round === null) return null;
 
   return (
-    <div className={styles.Round}>
-      <div className="mt-3 mb-5 d-flex justify-content-between align-items-center">
-        <div>
-          <h1 className="m-0">Round {round.number}</h1>
-          <small>{round.startDate} to {round.endDate}</small>
-        </div>
+    <div>
+      <RoundHeader round={round} participants={participants} />
 
-        <RoundParticipantsKey participants={participants} />
-      </div>
+      <hr className="mt-3 mb-5" />
 
-      <AlbumList albums={albums} participants={participants}/>
+      <AlbumList albums={albums} participants={participants} />
     </div>
   );
 }
