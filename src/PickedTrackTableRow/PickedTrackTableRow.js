@@ -1,12 +1,12 @@
-import styles from './PickedTrackListItem.module.css';
+import styles from './PickedTrackTableRow.module.css';
 
 import PickerIcon from '../PickerIcon/PickerIcon';
 
-function PickedTrackListItem({pickedTrack, pickers, isTopTrack}) {
+function PickedTrackTableRow({pickedTrack, pickers, isTopTrack}) {
   return (
-    <tr>
+    <tr className={styles.PickedTrackTableRow}>
       <th scope="row">{pickedTrack.trackNumber}</th>
-      <td className="overflow-hidden">{pickedTrack.title}</td>
+      <td>{pickedTrack.title}</td>
       <td>
         <div className="d-flex justify-content-end">
           {
@@ -22,4 +22,4 @@ function PickedTrackListItem({pickedTrack, pickers, isTopTrack}) {
   );
 }
 
-export default PickedTrackListItem;
+export default PickedTrackTableRow;

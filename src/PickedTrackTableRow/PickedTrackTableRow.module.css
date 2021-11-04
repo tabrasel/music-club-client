@@ -1,0 +1,4 @@
+.PickedTrackTableRow {
+  font-size: calc(0.75rem + 0.3vw);
+  color: black;
+}
