@@ -1,3 +1,4 @@
 .RoundParticipantsKey p {
+  font-size: calc(0.5rem + 0.75vw);
   color: black;
 }
