@@ -22,6 +22,13 @@ function Round() {
 
       // Get participant info
       const participants = await fetchParticipants(round);
+      participants.sort((a, b) => {
+        if (a.lastName < b.lastName)
+          return -1;
+        else if (a.lastName > b.lastName)
+          return 1;
+        return a.firstName < b.firstName ? -1 : 1;
+      });
       setParticipants(participants);
 
       // Get album info
