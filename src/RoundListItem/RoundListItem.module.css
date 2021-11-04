@@ -6,11 +6,7 @@
   transition: 0.1s;
 }
 
-.interior {
-  cursor: pointer;
-}
-
-.round-icon-overlay {
+.roundIconOverlay {
   position: absolute;
   left: 0px;
   top: 0px;
@@ -20,8 +16,8 @@
   transition: 0.1s;
 }
 
-.round-icon-overlay:hover {
-  background-color: rgba(0, 0, 0, 0.05);
+.roundIconOverlay:hover {
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 .disk {
@@ -32,9 +28,9 @@
   height: 200px;
   border-radius: 50%;
   background-color: black;
-  transition: 0.3s;
+  transition: 0.2s;
 }
 
 .RoundListItem:hover > .disk {
-  left: 20px;
+  left: 30px;
 }
