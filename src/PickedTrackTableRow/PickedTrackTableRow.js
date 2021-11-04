@@ -4,8 +4,8 @@ import PickerIcon from '../PickerIcon/PickerIcon';
 
 function PickedTrackTableRow({pickedTrack, pickers, isTopTrack}) {
   return (
-    <tr className={styles.PickedTrackTableRow}>
-      <th scope="row">{pickedTrack.trackNumber}</th>
+    <tr className={styles.PickedTrackTableRow} style={{backgroundColor: isTopTrack ? '#cde3bb' : 'white'}}>
+      <th scope="row" style={{textAlign: 'right'}}>{pickedTrack.trackNumber}.</th>
       <td>{pickedTrack.title}</td>
       <td>
         <div className="d-flex justify-content-end">

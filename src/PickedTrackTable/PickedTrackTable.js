@@ -9,7 +9,7 @@ function PickedTrackTable({album, participants}) {
     <table className={`${styles.PickedTrackTable} table`}>
       <thead className="table-dark">
         <tr>
-          <th scope="col" style={{width: '5%'}}>#</th>
+          <th scope="col" style={{width: '5%', textAlign: 'right'}}>#</th>
           <th scope="col">Title</th>
           <th scope="col" style={{width: '25%', textAlign: 'right'}}>Votes</th>
         </tr>
