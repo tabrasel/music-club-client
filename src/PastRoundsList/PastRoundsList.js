@@ -1,4 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
+import styles from './PastRoundsList.module.css';
 
 import { useState, useEffect } from 'react';
 
@@ -60,8 +61,8 @@ function PastRoundsList() {
   };
 
   return (
-    <div className="RoundList d-flex flex-column align-items-center">
-      <h2 className="text-dark mb-3">Past Rounds</h2>
+    <div className={`${styles.PastRoundsList} d-flex flex-column align-items-center`}>
+      <h2 className="mb-3">Past Rounds</h2>
       <div className="d-flex justify-content-center flex-wrap">
         {
           !isLoaded
