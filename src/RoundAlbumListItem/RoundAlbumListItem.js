@@ -1,10 +1,10 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './RoundAlbumListItem.css';
 
-import PickedTrackList from '../PickedTrackList/PickedTrackList';
+import PickedTrackTable from '../PickedTrackTable/PickedTrackTable';
 
 function RoundAlbumListItem({album, participants}) {
-  const showPickedTracksList = album.pickedTracks !== null && album.pickedTracks.length > 0;
+  const showPickedTrackTable = album.pickedTracks !== null && album.pickedTracks.length > 0;
 
   return (
     <div className="RoundAlbumListItem mb-5">
@@ -19,8 +19,8 @@ function RoundAlbumListItem({album, participants}) {
 
         <div className="col-sm-8">
           {
-            showPickedTracksList
-            ? <PickedTrackList
+            showPickedTrackTable
+            ? <PickedTrackTable
                 album={album}
                 participants={participants} />
             : <p>Picks not posted</p>

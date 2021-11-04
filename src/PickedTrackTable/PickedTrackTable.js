@@ -1,12 +1,12 @@
-import styles from './PickedTrackList.module.css';
+import styles from './PickedTrackTable.module.css';
 
-import PickedTrackListItem from '../PickedTrackListItem/PickedTrackListItem';
+import PickedTrackTableRow from '../PickedTrackTableRow/PickedTrackTableRow';
 
-function PickedTrackList({album, participants}) {
+function PickedTrackTable({album, participants}) {
   const pickedTracks = album.pickedTracks.sort((a, b) => a.trackNumber - b.trackNumber);
 
   return (
-    <table className="table">
+    <table className={`${styles.PickedTrackTable} table`}>
       <thead className="table-dark">
         <tr>
           <th scope="col" style={{width: '5%'}}>#</th>
@@ -21,7 +21,7 @@ function PickedTrackList({album, participants}) {
             const isTopTrack = pickedTrack.trackNumber === album.topTrackNumber;
 
             return (
-              <PickedTrackListItem
+              <PickedTrackTableRow
                 key={pickedTrack.trackNumber}
                 pickedTrack={pickedTrack}
                 pickers={pickers}
@@ -35,4 +35,4 @@ function PickedTrackList({album, participants}) {
   );
 }
 
-export default PickedTrackList;
+export default PickedTrackTable;
