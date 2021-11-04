@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 function NavBar() {
   return (
     <nav className="NavBar navbar sticky-top navbar-expand-sm navbar-light">
-      <div className="container p-0">
+      <div className="container px-2">
         <Link className="navbar-brand" to="/">Music Club</Link>
 
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
