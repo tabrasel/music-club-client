@@ -1,5 +1,5 @@
 .CurrentRoundJumbotron {
-  height: 250px;
+  
   background-color: black;
 }
 
@@ -9,6 +9,11 @@
 }
 
 .CurrentRoundJumbotron h1 {
-  font-size: calc(2rem + 2vw);
+  font-size: calc(2rem + 3.5vw);
   color: white;
+}
+
+.currentRoundIcon {
+  width: 200px;
+  height: 200px;
 }

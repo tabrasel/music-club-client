@@ -12,12 +12,18 @@ function PastRoundsList() {
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
-    const getRounds = async () => {
+    const getPastRounds = async () => {
+      // Get club info
+      const club = await fetchClub('04d9a851-61a1-476a-bc87-a3a30fc6a353');
+
       const rounds = await fetchRounds();
 
       let tempListItems = [];
 
       for (let round of rounds) {
+        // Skip the current round
+        if (round.id === club.currentRoundId) continue;
+
         // Get albums
         const albumPromises = round.albumIds.map((albumId) => {
           return fetch('https://tb-music-club.herokuapp.com/api/album?id=' + albumId)
@@ -51,8 +57,14 @@ function PastRoundsList() {
       setIsLoaded(true);
       setRoundListItemsData(tempListItems);
     };
-    getRounds();
+    getPastRounds();
   }, []);
+
+  const fetchClub = async (id) => {
+    const res = await fetch('https://tb-music-club.herokuapp.com/api/club?id=' + id);
+    const club = await res.json();
+    return club;
+  };
 
   const fetchRounds = async () => {
     const res = await fetch('https://tb-music-club.herokuapp.com/api/rounds');
@@ -62,7 +74,7 @@ function PastRoundsList() {
 
   return (
     <div className={`${styles.PastRoundsList} d-flex flex-column align-items-center`}>
-      <h2 className="mb-3">Past Rounds</h2>
+      <h2 className="mb-2">Past Rounds</h2>
       <div className="d-flex justify-content-center flex-wrap">
         {
           !isLoaded
