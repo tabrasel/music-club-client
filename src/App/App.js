@@ -19,8 +19,8 @@ function App() {
 
         <div className="h-100 container px-2">
           <Switch>
-            <Route path="/" component={RoundsView} exact />
-            <Route path="/round/:id" component={Round} exact />
+            <Route exact path="/" component={RoundsView} exact />
+            <Route exact path="/round/:id" component={Round} exact />
           </Switch>
         </div>
       </div>
