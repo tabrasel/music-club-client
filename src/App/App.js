@@ -2,7 +2,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
 import {
-  BrowserRouter as Router,
+  HashRouter,
   Switch,
   Route
 } from "react-router-dom";
@@ -13,7 +13,7 @@ import Round from '../Round/Round';
 
 function App() {
   return (
-    <Router>
+    <HashRouter>
       <div className="App">
         <NavBar />
 
@@ -24,8 +24,7 @@ function App() {
           </Switch>
         </div>
       </div>
-
-    </Router>
+    </HashRouter>
   );
 }
 
