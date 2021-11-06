@@ -62,7 +62,7 @@ function CurrentRoundJumbotron() {
   if (round === null) return null;
 
   return (
-    <div className={`${styles.CurrentRoundJumbotron} jumbotron d-flex justify-content-between mb-5 p-4`}>
+    <div className={`${styles.CurrentRoundJumbotron} jumbotron d-flex justify-content-between mb-5 p-3`}>
       <div>
         <h2 className="m-0">Now playing</h2>
         <h1>Round {round.number}</h1>
