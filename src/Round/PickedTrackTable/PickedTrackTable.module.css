@@ -1,3 +1,7 @@
 .PickedTrackTable {
   box-shadow: rgba(0, 0, 0, 0.3) 0px 5px 10px;
 }
+
+.PickedTrackTable th {
+  font-size: calc(0.75rem + 0.3vw);
+}
