@@ -1,6 +1,6 @@
 import styles from './PickedTrackTableRow.module.css';
 
-import PickerIcon from '../../PickerIcon/PickerIcon';
+import MemberIcon from '../../MemberIcon/MemberIcon';
 
 function PickedTrackTableRow({pickedTrack, pickers, isTopTrack}) {
   return (
@@ -11,9 +11,9 @@ function PickedTrackTableRow({pickedTrack, pickers, isTopTrack}) {
         <div className="d-flex justify-content-end">
           {
             pickers.map((picker) => (
-              <PickerIcon
+              <MemberIcon
                 key={picker.id}
-                picker={picker} />
+                member={picker} />
             ))
           }
         </div>
