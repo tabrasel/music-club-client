@@ -1,7 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import styles from './RoundParticipantsKey.module.css';
 
-import PickerIcon from '../PickerIcon/PickerIcon';
+import PickerIcon from '../../PickerIcon/PickerIcon';
 
 function RoundParticipantsKey({participants}) {
   return (
