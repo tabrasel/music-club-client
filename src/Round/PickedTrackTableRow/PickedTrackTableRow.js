@@ -1,6 +1,6 @@
 import styles from './PickedTrackTableRow.module.css';
 
-import PickerIcon from '../PickerIcon/PickerIcon';
+import PickerIcon from '../../PickerIcon/PickerIcon';
 
 function PickedTrackTableRow({pickedTrack, pickers, isTopTrack}) {
   return (
