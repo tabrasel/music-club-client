@@ -1,7 +1,7 @@
 import './RoundsView.css';
 
-import CurrentRoundJumbotron from '../CurrentRoundJumbotron/CurrentRoundJumbotron';
-import PastRoundsList from '../PastRoundsList/PastRoundsList';
+import CurrentRoundJumbotron from './CurrentRoundJumbotron/CurrentRoundJumbotron';
+import PastRoundsList from './PastRoundsList/PastRoundsList';
 
 function RoundsView() {
   return (
