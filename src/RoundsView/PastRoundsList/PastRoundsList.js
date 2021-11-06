@@ -4,7 +4,7 @@ import styles from './PastRoundsList.module.css';
 import { useState, useEffect } from 'react';
 
 import RoundListItem from '../RoundListItem/RoundListItem.js';
-import Spinner from '../Spinner/Spinner.js';
+import Spinner from '../../Spinner/Spinner.js';
 
 function PastRoundsList() {
 
