@@ -7,7 +7,7 @@ function RoundIcon({round, albums}) {
     <div className="RoundIcon position-relative">
       <div className="round-number-overlay">
         <div className="number-label">
-          <p>{round.number}</p>
+          <p className="m-0">{round.number}</p>
         </div>
       </div>
 

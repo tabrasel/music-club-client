@@ -1,19 +1,18 @@
 .CurrentRoundJumbotron {
-  
   background-color: black;
 }
 
 .CurrentRoundJumbotron h2 {
-  font-size: calc(0.5rem + 1vw);
+  font-size: calc(0.4rem + 1.5vw);
   color: #aaa;
 }
 
 .CurrentRoundJumbotron h1 {
-  font-size: calc(2rem + 3.5vw);
+  font-size: calc(1rem + 5vw);
   color: white;
 }
 
 .currentRoundIcon {
-  width: 200px;
-  height: 200px;
+  width: calc(5rem + 8vw);
+  height: calc(5rem + 8vw);
 }
