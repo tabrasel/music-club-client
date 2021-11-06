@@ -14,6 +14,6 @@
 }
 
 .currentRoundIcon {
-  width: 200px;
-  height: 200px;
+  width: calc(5rem + 8vw);
+  height: calc(5rem + 8vw);
 }
