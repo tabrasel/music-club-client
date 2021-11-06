@@ -1,5 +1,5 @@
 .RoundHeader h1 {
-  font-size: calc(2.5rem + 3.5vw);
+  font-size: calc(1.5rem + 4.5vw);
   font-weight: bold;
   color: black;
 }
@@ -9,6 +9,6 @@
   color: gray;
 }
 
-.RoundHeader small {
-  color: gray;
+.RoundHeader p {
+  font-size: calc(0.5rem + 0.5vw);
 }

@@ -8,9 +8,9 @@ function RoundHeader({round, participants}) {
     <div className={`${styles.RoundHeader} mt-3 d-flex justify-content-between`}>
       <div>
         <h1 className="m-0">Round {round.number}</h1>
-        <h2>{round.startDate} to {round.endDate}</h2>
+        <h2 className="m-0">{round.startDate} to {round.endDate}</h2>
         {
-          round.description ? <p>{ round.description}</p> : null
+          round.description ? <p className="mt-4">{ round.description}</p> : null
         }
       </div>
 
