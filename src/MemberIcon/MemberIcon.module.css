@@ -6,7 +6,7 @@
   margin: 0px calc(0.05rem + 0.1vw);
 }
 
-.MemberIcon p {
+.MemberIcon > p {
   font-size: calc(0.4rem + 0.5vw);
   margin: 0px;
   color: white;

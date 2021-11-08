@@ -1,4 +1,4 @@
-.RoundParticipantsKey p {
+.RoundParticipantsKey .participantName {
   font-size: calc(0.5rem + 0.75vw);
   text-align: right;
   color: black;

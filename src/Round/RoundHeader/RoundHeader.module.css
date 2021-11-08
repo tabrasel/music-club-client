@@ -9,6 +9,6 @@
   color: gray;
 }
 
-.RoundHeader p {
+.roundDescription {
   font-size: calc(0.5rem + 0.5vw);
 }

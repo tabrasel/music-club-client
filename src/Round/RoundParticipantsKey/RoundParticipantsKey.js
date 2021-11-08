@@ -9,7 +9,7 @@ function RoundParticipantsKey({participants}) {
     {
       participants.map((participant) => (
         <div className="d-flex align-items-center mb-2" key={participant.id}>
-          <p className="my-0 mx-2">{participant.firstName} {participant.lastName}</p>
+          <p className={`${styles.participantName} my-0 mx-2`}>{participant.firstName} {participant.lastName}</p>
           <MemberIcon member={participant} />
         </div>
       ))
