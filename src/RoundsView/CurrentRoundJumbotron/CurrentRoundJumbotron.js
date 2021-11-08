@@ -3,11 +3,13 @@ import styles from './CurrentRoundJumbotron.module.css';
 import { useState, useEffect } from 'react';
 
 import RoundIcon from '../RoundIcon/RoundIcon';
+import MemberIcon from '../../MemberIcon/MemberIcon';
 
 function CurrentRoundJumbotron() {
 
   const [round, setRound] = useState(null);
-  const [albums, setAlbums] = useState(null);
+  const [participants, setParticipants] = useState([]);
+  const [albums, setAlbums] = useState([]);
 
   useEffect(() => {
     const getRound = async () => {
@@ -26,9 +28,12 @@ function CurrentRoundJumbotron() {
       const albums = await Promise.all(albumPromises);
       setAlbums(albums);
 
-      /*
       // Get participant info
-      const participants = await fetchParticipants(round);
+      const participantPromises = round.participantIds.map((participantId) => {
+        return fetch('https://tb-music-club.herokuapp.com/api/member?id=' + participantId)
+          .then(response => response.json());
+      });
+      const participants = await Promise.all(participantPromises);
       participants.sort((a, b) => {
         if (a.lastName < b.lastName)
           return -1;
@@ -37,11 +42,6 @@ function CurrentRoundJumbotron() {
         return a.firstName < b.firstName ? -1 : 1;
       });
       setParticipants(participants);
-
-      // Get album info
-      const albums = await fetchAlbums(round);
-      setAlbums(albums);
-      */
     };
 
     getRound();
@@ -63,9 +63,21 @@ function CurrentRoundJumbotron() {
 
   return (
     <div className={`${styles.CurrentRoundJumbotron} jumbotron d-flex justify-content-between mb-5 p-3`}>
-      <div>
-        <h2 className="m-0">Now playing</h2>
-        <h1>Round {round.number}</h1>
+      <div className="d-flex flex-column justify-content-between">
+        <div>
+          <h2 className="m-0">Now playing</h2>
+          <h1>Round {round.number}</h1>
+        </div>
+
+        <div className="d-flex mt-3">
+          {
+            participants.map((participant) => {
+              return (
+                <MemberIcon member={participant} />
+              );
+            })
+          }
+        </div>
       </div>
 
       <div className={styles.currentRoundIcon}>
