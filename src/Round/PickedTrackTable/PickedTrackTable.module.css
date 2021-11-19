@@ -3,5 +3,5 @@
 }
 
 .PickedTrackTable th {
-  font-size: calc(0.75rem + 0.3vw);
+  font-size: min(calc(10px + 0.5vw), 16px);
 }
