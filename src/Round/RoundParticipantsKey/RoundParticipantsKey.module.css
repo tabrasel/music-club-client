@@ -1,5 +1,5 @@
 .RoundParticipantsKey .participantName {
-  font-size: calc(0.5rem + 0.75vw);
+  font-size: min(calc(5px + 1.125vw), 20px);
   text-align: right;
   color: black;
 }

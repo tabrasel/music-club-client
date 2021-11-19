@@ -2,14 +2,14 @@
   background-color: black;
 }
 
-.CurrentRoundJumbotron h2 {
-  font-size: calc(0.4rem + 1.5vw);
-  color: #aaa;
-}
-
 .CurrentRoundJumbotron h1 {
   font-size: calc(1rem + 5vw);
   color: white;
+}
+
+.CurrentRoundJumbotron h2 {
+  font-size: calc(0.4rem + 2vw);
+  color: #aaa;
 }
 
 .currentRoundIcon {

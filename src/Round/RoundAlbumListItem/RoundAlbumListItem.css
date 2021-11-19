@@ -6,12 +6,12 @@
 }
 
 .RoundAlbumListItem h2 {
-  font-size: calc(0.9rem + .7vw);
+  font-size: min(calc(15px + .6vw), 24px);
   font-style: italic;
   color: black;
 }
 
 .RoundAlbumListItem h3 {
-  font-size: calc(0.5rem + .7vw);
+  font-size: min(calc(12.5px + .5vw), 20px);
   color: gray;
 }
