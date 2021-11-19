@@ -1,13 +1,13 @@
 .MemberIcon {
-  min-width: calc(1.4rem + 0.5vw);
-  min-height: calc(1.4rem + 0.5vw);
-  max-width: calc(1.4rem + 0.5vw);
-  max-height: calc(1.4rem + 0.5vw);
+  min-width: min(calc(22px + 0.6vw), 30px);
+  min-height: min(calc(22px + 0.6vw), 30px);
+  max-width: min(calc(22px + 0.6vw), 30px);
+  max-height: min(calc(22px + 0.6vw), 30px);
   margin: 0px calc(0.05rem + 0.1vw);
 }
 
 .MemberIcon > p {
-  font-size: calc(0.4rem + 0.5vw);
+  font-size: min(calc(10.266px + 0.28vw), 14px);
   margin: 0px;
   color: white;
 }
