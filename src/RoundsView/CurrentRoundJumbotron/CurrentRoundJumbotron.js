@@ -62,18 +62,18 @@ function CurrentRoundJumbotron() {
   if (round === null) return null;
 
   return (
-    <div className={`${styles.CurrentRoundJumbotron} jumbotron d-flex justify-content-between mb-5 p-3`}>
+    <div className={`${styles.CurrentRoundJumbotron} jumbotron d-flex justify-content-between mb-5`}>
       <div className="d-flex flex-column justify-content-between">
         <div>
           <h2 className="m-0">Now playing</h2>
-          <h1>Round {round.number}</h1>
+          <h1 className="m-0">Round {round.number}</h1>
         </div>
 
         <div className="d-flex mt-3">
           {
             participants.map((participant) => {
               return (
-                <MemberIcon member={participant} />
+                <MemberIcon key={participant.id} member={participant} />
               );
             })
           }
