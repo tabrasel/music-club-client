@@ -2,7 +2,6 @@ import styles from './CurrentRoundJumbotron.module.css';
 
 import { useState, useEffect } from 'react';
 
-import RoundIcon from '../RoundIcon/RoundIcon';
 import MemberIcon from '../../MemberIcon/MemberIcon';
 
 function CurrentRoundJumbotron() {
@@ -61,28 +60,35 @@ function CurrentRoundJumbotron() {
 
   if (round === null) return null;
 
+  const thumbnailUrl = 'https://tb-music-club.s3.us-west-2.amazonaws.com/round_thumbnails/' + round.id + '.jpeg';
+
   return (
-    <div className={`${styles.CurrentRoundJumbotron} jumbotron d-flex justify-content-between mb-5`}>
-      <div className="d-flex flex-column justify-content-between">
-        <div>
-          <h2 className="m-0">Now playing</h2>
-          <h1 className="m-0">Round {round.number}</h1>
+    <div className={`${styles.CurrentRoundJumbotron} jumbotron d-flex justify-content-center align-items-center mb-5`}>
+
+      <div className="d-flex justify-content-between align-items-center">
+
+        <div className="h-100 d-flex flex-column justify-content-between">
+          <div>
+            <h2 className="m-0">Now playing</h2>
+            <h1 className="m-0">Round {round.number}</h1>
+            <p className={styles.roundDate}>Day 11 since November 11, 2021</p>
+          </div>
+
+          <div className="d-flex mt-3">
+            {
+              participants.map((participant) => {
+                return (
+                  <MemberIcon key={participant.id} member={participant} />
+                );
+              })
+            }
+          </div>
         </div>
 
-        <div className="d-flex mt-3">
-          {
-            participants.map((participant) => {
-              return (
-                <MemberIcon key={participant.id} member={participant} />
-              );
-            })
-          }
-        </div>
+        <div className={styles.currentRoundThumbnail} style={{backgroundImage: 'url(' + thumbnailUrl + ')'}}></div>
+
       </div>
 
-      <div className={styles.currentRoundIcon}>
-        <RoundIcon round={round} albums={albums} />
-      </div>
     </div>
   );
 }

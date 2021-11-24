@@ -17,10 +17,10 @@ function App() {
       <div className="App">
         <NavBar />
 
-        <div className="h-100 container px-2">
+        <div className="h-100 container">
           <Switch>
-            <Route exact path="/" component={RoundsView} exact />
-            <Route exact path="/round/:id" component={Round} exact />
+            <Route exact path="/" component={RoundsView} />
+            <Route exact path="/round/:id" component={Round} />
           </Switch>
         </div>
       </div>
