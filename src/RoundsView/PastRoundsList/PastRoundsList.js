@@ -24,27 +24,8 @@ function PastRoundsList() {
         // Skip the current round
         if (round.id === club.currentRoundId) continue;
 
-        // Get albums
-        const albumPromises = round.albumIds.map((albumId) => {
-          return fetch('https://tb-music-club.herokuapp.com/api/album?id=' + albumId)
-            .then(response => response.json());
-        });
-        const albums = await Promise.all(albumPromises);
-
-        // Get participants
-        /*
-        const participantPromises = round.participantIds.map((participantId) => {
-          return fetch('https://tb-music-club.herokuapp.com/api/member?id=' + participantId)
-            .then(response => response.json());
-        });
-        const participants = await Promise.all(participantPromises);
-        */
-        const participants = [];
-
         const roundListItemData = {
-          round: round,
-          participants: participants,
-          albums: albums
+          round: round
         };
 
         tempListItems.push(roundListItemData);
@@ -83,8 +64,6 @@ function PastRoundsList() {
             <RoundListItem
               key={itemData.round.id}
               round={itemData.round}
-              albums={itemData.albums}
-              participants={itemData.participants}
             />
           )
         }
