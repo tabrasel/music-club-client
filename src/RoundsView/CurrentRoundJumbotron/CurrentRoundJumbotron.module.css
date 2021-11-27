@@ -22,7 +22,6 @@
 .currentRoundThumbnail {
   width: min(calc(90px + 10vw), 225px);
   height: min(calc(90px + 10vw), 225px);
-  margin-left: calc(20px + 8vw);
   border-radius: 3px;
   background-size: cover;
 }
