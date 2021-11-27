@@ -2,6 +2,8 @@ import styles from './CurrentRoundJumbotron.module.css';
 
 import { useState, useEffect } from 'react';
 
+import { DateTime } from 'luxon';
+
 import MemberIcon from '../../MemberIcon/MemberIcon';
 
 function CurrentRoundJumbotron() {
@@ -62,33 +64,31 @@ function CurrentRoundJumbotron() {
 
   const thumbnailUrl = 'https://tb-music-club.s3.us-west-2.amazonaws.com/round_thumbnails/' + round.id + '.jpeg';
 
+  const startDate = DateTime.fromISO(round.startDate);
+  const dayNumber = Math.floor(DateTime.now().diff(startDate, 'days').days);
+  const startDateStr = startDate.toLocaleString(DateTime.DATE_FULL);
+
   return (
-    <div className={`${styles.CurrentRoundJumbotron} jumbotron d-flex justify-content-center align-items-center mb-5`}>
-
-      <div className="d-flex justify-content-between align-items-center">
-
-        <div className="h-100 d-flex flex-column justify-content-between">
-          <div>
-            <h2 className="m-0">Now playing</h2>
-            <h1 className="m-0">Round {round.number}</h1>
-            <p className={styles.roundDate}>Day 11 since November 11, 2021</p>
-          </div>
-
-          <div className="d-flex mt-3">
-            {
-              participants.map((participant) => {
-                return (
-                  <MemberIcon key={participant.id} member={participant} />
-                );
-              })
-            }
-          </div>
+    <div className={`${styles.CurrentRoundJumbotron} jumbotron d-flex justify-content-between mb-5`}>
+      <div className="d-flex flex-column flex-grow-1 justify-content-between">
+        <div>
+          <h2 className="m-0">Now playing</h2>
+          <h1 className="m-0">Round {round.number}</h1>
+          <p className={styles.roundDate}>{ 'Day ' + dayNumber + ' since ' + startDateStr }</p>
         </div>
 
-        <div className={styles.currentRoundThumbnail} style={{backgroundImage: 'url(' + thumbnailUrl + ')'}}></div>
-
+        <div className="d-flex">
+          {
+            participants.map((participant) => {
+              return (
+                <MemberIcon key={participant.id} member={participant} />
+              );
+            })
+          }
+        </div>
       </div>
 
+      <div className={styles.currentRoundThumbnail} style={{backgroundImage: 'url(' + thumbnailUrl + ')'}}></div>
     </div>
   );
 }
