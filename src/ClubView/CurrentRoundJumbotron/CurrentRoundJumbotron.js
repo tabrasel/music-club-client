@@ -10,7 +10,6 @@ function CurrentRoundJumbotron() {
 
   const [round, setRound] = useState(null);
   const [participants, setParticipants] = useState([]);
-  const [albums, setAlbums] = useState([]);
 
   useEffect(() => {
     const getRound = async () => {
@@ -21,13 +20,7 @@ function CurrentRoundJumbotron() {
       const round = await fetchRound(club.currentRoundId);
       setRound(round);
 
-      // Get albums
-      const albumPromises = round.albumIds.map((albumId) => {
-        return fetch('https://tb-music-club.herokuapp.com/api/album?id=' + albumId)
-          .then(response => response.json());
-      });
-      const albums = await Promise.all(albumPromises);
-      setAlbums(albums);
+      if (round === null) return;
 
       // Get participant info
       const participantPromises = round.participantIds.map((participantId) => {

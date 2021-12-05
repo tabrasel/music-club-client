@@ -8,7 +8,7 @@ import {
 } from "react-router-dom";
 
 import NavBar from '../NavBar/NavBar';
-import RoundsView from '../RoundsView/RoundsView';
+import ClubView from '../ClubView/ClubView';
 import Round from '../Round/Round';
 
 function App() {
@@ -19,7 +19,7 @@ function App() {
 
         <div className="h-100 container">
           <Switch>
-            <Route exact path="/" component={RoundsView} />
+            <Route exact path="/" component={ClubView} />
             <Route exact path="/round/:id" component={Round} />
           </Switch>
         </div>
