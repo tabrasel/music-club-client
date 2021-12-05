@@ -1,9 +1,9 @@
-import './RoundsView.css';
+import './ClubView.css';
 
 import CurrentRoundJumbotron from './CurrentRoundJumbotron/CurrentRoundJumbotron';
 import PastRoundsList from './PastRoundsList/PastRoundsList';
 
-function RoundsView() {
+function ClubView() {
   return (
     <div className="h-100">
       <CurrentRoundJumbotron />
@@ -12,4 +12,4 @@ function RoundsView() {
   );
 }
 
-export default RoundsView;
+export default ClubView;
