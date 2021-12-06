@@ -1,0 +1,4 @@
+.ParticipantsList {
+  display: flex;
+  gap: min(calc(1vw), 15px);
+}

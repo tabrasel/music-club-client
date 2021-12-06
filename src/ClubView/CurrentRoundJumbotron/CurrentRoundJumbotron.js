@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 
 import { DateTime } from 'luxon';
 
-import MemberIcon from '../../MemberIcon/MemberIcon';
+import ParticipantsList from '../ParticipantsList/ParticipantsList';
 
 function CurrentRoundJumbotron() {
 
@@ -70,15 +70,7 @@ function CurrentRoundJumbotron() {
           <p className={styles.roundDate}>{ 'Day ' + dayNumber + ' since ' + startDateStr }</p>
         </div>
 
-        <div className="d-flex">
-          {
-            participants.map((participant) => {
-              return (
-                <MemberIcon key={participant.id} member={participant} />
-              );
-            })
-          }
-        </div>
+        <ParticipantsList participants={participants} />
       </div>
 
       <div className={styles.currentRoundThumbnail} style={{backgroundImage: 'url(' + thumbnailUrl + ')'}}></div>
