@@ -1,0 +1,39 @@
+.ParticipantStatusIcon {
+  width: min(calc(33px + 0.9vw), 45px);
+  height: min(calc(33px + 0.9vw), 45px);
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.spinner {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  border-style: solid;
+  border-width: min(calc(2.2px + 0.06vw), 3px);
+  border-color: transparent;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.icon {
+  width: min(calc(22px + 0.6vw), 30px);
+  height: min(calc(22px + 0.6vw), 30px);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon > p {
+  font-size: min(calc(10.266px + 0.28vw), 14px);
+  margin: 0px;
+  color: white;
+}
