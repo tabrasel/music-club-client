@@ -8,7 +8,7 @@ function RoundAlbumListItem({album, participants}) {
 
   return (
     <div className="RoundAlbumListItem">
-      <div className="row gx-5">
+      <div className="row">
         <div className="col-sm-4">
           <div className="d-flex flex-column align-items-center">
             <img className="mb-3" src={album.imageUrl} alt={album.title + ' image'} />
