@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/music-club-client/static/css/main.640f4d02.chunk.css",
-    "main.js": "/music-club-client/static/js/main.87d8620b.chunk.js",
-    "main.js.map": "/music-club-client/static/js/main.87d8620b.chunk.js.map",
+    "main.css": "/music-club-client/static/css/main.1b9afd0e.chunk.css",
+    "main.js": "/music-club-client/static/js/main.0b6cfe9a.chunk.js",
+    "main.js.map": "/music-club-client/static/js/main.0b6cfe9a.chunk.js.map",
     "runtime-main.js": "/music-club-client/static/js/runtime-main.f5af9e1c.js",
     "runtime-main.js.map": "/music-club-client/static/js/runtime-main.f5af9e1c.js.map",
     "static/css/2.0a9ec390.chunk.css": "/music-club-client/static/css/2.0a9ec390.chunk.css",
-    "static/js/2.dd8adaf2.chunk.js": "/music-club-client/static/js/2.dd8adaf2.chunk.js",
-    "static/js/2.dd8adaf2.chunk.js.map": "/music-club-client/static/js/2.dd8adaf2.chunk.js.map",
+    "static/js/2.910e4aa8.chunk.js": "/music-club-client/static/js/2.910e4aa8.chunk.js",
+    "static/js/2.910e4aa8.chunk.js.map": "/music-club-client/static/js/2.910e4aa8.chunk.js.map",
     "index.html": "/music-club-client/index.html",
     "static/css/2.0a9ec390.chunk.css.map": "/music-club-client/static/css/2.0a9ec390.chunk.css.map",
-    "static/css/main.640f4d02.chunk.css.map": "/music-club-client/static/css/main.640f4d02.chunk.css.map",
-    "static/js/2.dd8adaf2.chunk.js.LICENSE.txt": "/music-club-client/static/js/2.dd8adaf2.chunk.js.LICENSE.txt"
+    "static/css/main.1b9afd0e.chunk.css.map": "/music-club-client/static/css/main.1b9afd0e.chunk.css.map",
+    "static/js/2.910e4aa8.chunk.js.LICENSE.txt": "/music-club-client/static/js/2.910e4aa8.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.f5af9e1c.js",
     "static/css/2.0a9ec390.chunk.css",
-    "static/js/2.dd8adaf2.chunk.js",
-    "static/css/main.640f4d02.chunk.css",
-    "static/js/main.87d8620b.chunk.js"
+    "static/js/2.910e4aa8.chunk.js",
+    "static/css/main.1b9afd0e.chunk.css",
+    "static/js/main.0b6cfe9a.chunk.js"
   ]
 }
