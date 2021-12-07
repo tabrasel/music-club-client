@@ -26,6 +26,10 @@
 .icon {
   width: min(calc(22px + 0.6vw), 30px);
   height: min(calc(22px + 0.6vw), 30px);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .icon > p {
