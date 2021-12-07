@@ -9,7 +9,7 @@ import {
 
 import NavBar from '../NavBar/NavBar';
 import ClubView from '../ClubView/ClubView';
-import Round from '../Round/Round';
+import RoundView from '../RoundView/RoundView';
 
 function App() {
   return (
@@ -20,7 +20,7 @@ function App() {
         <div className="h-100 container">
           <Switch>
             <Route exact path="/" component={ClubView} />
-            <Route exact path="/round/:id" component={Round} />
+            <Route exact path="/round/:id" component={RoundView} />
           </Switch>
         </div>
       </div>
