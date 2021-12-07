@@ -1,6 +1,6 @@
 .ParticipantStatusIcon {
-  width: min(calc(320px + 0.88vw), 52px);
-  height: min(calc(320px + 0.88vw), 52px);
+  width: min(calc(33px + 0.9vw), 45px);
+  height: min(calc(33px + 0.9vw), 45px);
   position: relative;
   display: flex;
   justify-content: center;
@@ -12,7 +12,7 @@
   height: 100%;
   position: absolute;
   border-style: solid;
-  border-width: min(calc(0.5vw), 3px);
+  border-width: min(calc(2.2px + 0.06vw), 3px);
   border-color: transparent;
   border-radius: 50%;
   animation: spin 1s linear infinite;
