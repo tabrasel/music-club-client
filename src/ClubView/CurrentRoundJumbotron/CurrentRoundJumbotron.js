@@ -10,19 +10,20 @@ function CurrentRoundJumbotron() {
 
   const [round, setRound] = useState(null);
   const [participants, setParticipants] = useState([]);
+  const [albums, setAlbums] = useState([]);
 
   useEffect(() => {
-    const getRound = async () => {
+    const loadData = async () => {
       // Get club info
       const club = await fetchClub('04d9a851-61a1-476a-bc87-a3a30fc6a353');
 
-      // Get round info
+      // Fetch round info
       const round = await fetchRound(club.currentRoundId);
       setRound(round);
 
       if (round === null) return;
 
-      // Get participant info
+      // Fetch participant info
       const participantPromises = round.participantIds.map((participantId) => {
         return fetch('https://tb-music-club.herokuapp.com/api/member?id=' + participantId)
           .then(response => response.json());
@@ -36,9 +37,17 @@ function CurrentRoundJumbotron() {
         return a.firstName < b.firstName ? -1 : 1;
       });
       setParticipants(participants);
+
+      // Fetch album info
+      const albumPromises = round.albumIds.map((albumId) => {
+        return fetch('https://tb-music-club.herokuapp.com/api/album?id=' + albumId)
+          .then(response => response.json());
+      });
+      const albums = await Promise.all(albumPromises);
+      setAlbums(albums);
     };
 
-    getRound();
+    loadData();
   }, []);
 
   const fetchClub = async (id) => {
@@ -70,7 +79,10 @@ function CurrentRoundJumbotron() {
           <p className={styles.roundDate}>{ 'Day ' + dayNumber + ' since ' + startDateStr }</p>
         </div>
 
-        <ParticipantsList participants={participants} />
+        <ParticipantsList
+          participants={participants}
+          albums={albums}
+          picksPerParticipant={round.picksPerParticipant} />
       </div>
 
       <div className={styles.currentRoundThumbnail} style={{backgroundImage: 'url(' + thumbnailUrl + ')'}}></div>
