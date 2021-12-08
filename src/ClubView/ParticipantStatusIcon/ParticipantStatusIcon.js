@@ -4,7 +4,7 @@ function ParticipantStatusIcon({participant, albums, picksPerParticipant}) {
   // Determine if the participant has submitted all their picks for the round
   const isFinished = testIsFinished(participant, albums, picksPerParticipant);
 
-  const unfinishedStyle = {
+  const spinnerStyle = {
     backgroundColor: 'transparent',
     borderLeftColor: 'transparent',
     borderTopColor: participant.color,
@@ -16,16 +16,26 @@ function ParticipantStatusIcon({participant, albums, picksPerParticipant}) {
     backgroundColor: participant.color
   };
 
-  const finishedIcon = (<div className={styles.icon} style={finishedStyle}></div>);
-  const unfinishedIcon = (<div className={`${styles.icon} ${styles.unfinishedIcon}`} style={unfinishedStyle}></div>);
+  const finishedIcon = (
+    <div className={styles.finishedIcon} style={finishedStyle}>
+      <p>{participant.firstName[0] + participant.lastName[0]}</p>
+    </div>
+  );
+
+  const unfinishedIcon = (
+    <div className={styles.unfinishedIcon}>
+      <div className={styles.spinner} style={spinnerStyle}>
+      </div>
+
+      <p>{participant.firstName[0] + participant.lastName[0]}</p>
+    </div>
+  );
 
   return (
     <div className={styles.ParticipantStatusIcon}>
       {
         isFinished ? finishedIcon : unfinishedIcon
       }
-
-      <p>{participant.firstName[0] + participant.lastName[0]}</p>
     </div>
   );
 }

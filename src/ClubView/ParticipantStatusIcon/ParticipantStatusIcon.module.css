@@ -4,21 +4,37 @@
   max-width: min(calc(24px + 1.5vw), 50px);
   max-height: min(calc(24px + 1.5vw), 50px);
   position: relative;
+}
+
+.finishedIcon {
+  min-width: min(calc(24px + 1.5vw), 50px);
+  min-height: min(calc(24px + 1.5vw), 50px);
+  max-width: min(calc(24px + 1.5vw), 50px);
+  max-height: min(calc(24px + 1.5vw), 50px);
+  border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.icon {
+.unfinishedIcon {
   min-width: min(calc(24px + 1.5vw), 50px);
   min-height: min(calc(24px + 1.5vw), 50px);
   max-width: min(calc(24px + 1.5vw), 50px);
   max-height: min(calc(24px + 1.5vw), 50px);
-  position: absolute;
-  border-radius: 50%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.unfinishedIcon {
+.spinner {
+  min-width: min(calc(24px + 1.5vw), 50px);
+  min-height: min(calc(24px + 1.5vw), 50px);
+  max-width: min(calc(24px + 1.5vw), 50px);
+  max-height: min(calc(24px + 1.5vw), 50px);
+  border-radius: 50%;
+  position: absolute;
   border-style: solid;
   border-width: min(calc(2px + 0.09vw), 3px);
   border-color: transparent;
