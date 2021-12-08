@@ -9,7 +9,7 @@
   align-items: center;
 }
 
-.finishedIcon {
+.icon {
   min-width: min(calc(24px + 1.5vw), 50px);
   min-height: min(calc(24px + 1.5vw), 50px);
   max-width: min(calc(24px + 1.5vw), 50px);
@@ -19,12 +19,6 @@
 }
 
 .unfinishedIcon {
-  min-width: min(calc(24px + 1.5vw), 50px);
-  min-height: min(calc(24px + 1.5vw), 50px);
-  max-width: min(calc(24px + 1.5vw), 50px);
-  max-height: min(calc(24px + 1.5vw), 50px);
-  position: absolute;
-  border-radius: 50%;
   border-style: solid;
   border-width: min(calc(2px + 0.09vw), 3px);
   border-color: transparent;

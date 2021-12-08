@@ -16,8 +16,8 @@ function ParticipantStatusIcon({participant, albums, picksPerParticipant}) {
     backgroundColor: participant.color
   };
 
-  const finishedIcon = (<div className={styles.finishedIcon} style={finishedStyle}></div>);
-  const unfinishedIcon = (<div className={styles.unfinishedIcon} style={unfinishedStyle}></div>);
+  const finishedIcon = (<div className={styles.icon} style={finishedStyle}></div>);
+  const unfinishedIcon = (<div className={`${styles.icon} ${styles.unfinishedIcon}`} style={unfinishedStyle}></div>);
 
   return (
     <div className={styles.ParticipantStatusIcon}>
