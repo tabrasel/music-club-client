@@ -1,4 +1,6 @@
 .ParticipantsList {
   display: flex;
-  gap: min(calc(1vw), 15px);
+  gap: min(calc(5.76px + 0.36vw), 12px);
 }
+
+min-width: min(calc(24px + 1.5vw), 50px);
