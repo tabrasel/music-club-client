@@ -6,6 +6,7 @@ function MembersList({memberIds}) {
   const [members, setMembers] = useState([]);
 
   useEffect(() => {
+    if (memberIds === null) return;
     const fetchMembers = async () => {
       const memberPromises = memberIds.map((memberId) => {
         return fetch('https://tb-music-club.herokuapp.com/api/member?id=' + memberId)
@@ -15,7 +16,7 @@ function MembersList({memberIds}) {
       setMembers(members);
     };
     fetchMembers();
-  }, []);
+  }, [memberIds]);
 
   return (
     <div className={styles.MembersList}>
