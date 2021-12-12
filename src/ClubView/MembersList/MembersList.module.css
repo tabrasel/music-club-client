@@ -8,8 +8,8 @@
 }
 
 .memberIcon {
-  min-width: min(calc(24px + 1.5vw), 50px);
-  min-height: min(calc(24px + 1.5vw), 50px);
+  min-width: min(calc(17.28px + 1.08vw), 36px);
+  min-height: min(calc(17.28px + 1.08vw), 36px);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -18,10 +18,6 @@
 
 .memberIcon p {
   margin: 0;
+  font-size: min(calc(6.912px + 0.432vw), 14.4px);
   color: white;
 }
-
-/*
-min-width: min(calc(24px + 1.5vw), 50px);
-min-height: min(calc(24px + 1.5vw), 50px);
-*/
