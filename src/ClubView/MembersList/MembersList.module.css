@@ -1,0 +1,23 @@
+.MembersList {
+  width: 100%;
+  margin-top: min(calc(5.76px + 0.36vw), 12px);
+  margin-bottom: min(calc(5.76px + 0.36vw), 12px);
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+
+.memberIcon {
+  min-width: min(calc(17.28px + 1.08vw), 36px);
+  min-height: min(calc(17.28px + 1.08vw), 36px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+
+.memberIcon p {
+  margin: 0;
+  font-size: min(calc(6.912px + 0.432vw), 14.4px);
+  color: white;
+}
