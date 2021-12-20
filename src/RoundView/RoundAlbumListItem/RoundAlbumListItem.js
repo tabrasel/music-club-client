@@ -2,7 +2,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './RoundAlbumListItem.css';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHandshake, faArrowsAltH } from '@fortawesome/free-solid-svg-icons';
+import { faHandshake } from '@fortawesome/free-solid-svg-icons';
 
 import PickedTrackTable from '../PickedTrackTable/PickedTrackTable';
 
