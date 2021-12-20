@@ -2,12 +2,16 @@ import styles from './AlbumList.module.css';
 
 import RoundAlbumListItem from '../RoundAlbumListItem/RoundAlbumListItem';
 
-function AlbumList({albums, participants}) {
+function AlbumList({albums, participants, votesPerParticipant}) {
   return (
     <div className={styles.AlbumList}>
     {
       albums.map((album) => (
-        <RoundAlbumListItem album={album} participants={participants} key={album.id}/>
+        <RoundAlbumListItem
+          key={album.id}
+          album={album}
+          participants={participants}
+          votesPerParticipant={votesPerParticipant} />
       ))
     }
     </div>
