@@ -53,7 +53,10 @@ function Round() {
 
       <hr className="mt-3 mb-5" />
 
-      <AlbumList albums={albums} participants={participants} />
+      <AlbumList
+        albums={albums}
+        participants={participants}
+        votesPerParticipant={round.picksPerParticipant} />
     </div>
   );
 }

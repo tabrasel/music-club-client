@@ -1,12 +1,20 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './RoundAlbumListItem.css';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHandshake, faArrowsAltH } from '@fortawesome/free-solid-svg-icons';
+
 import PickedTrackTable from '../PickedTrackTable/PickedTrackTable';
 
-function RoundAlbumListItem({album, participants}) {
+function RoundAlbumListItem({album, participants, votesPerParticipant}) {
   const showPickedTrackTable = album.pickedTracks !== null && album.pickedTracks.length > 0;
 
   const poster = participants.filter(participant => participant.id === album.posterId)[0];
+
+  const participantsCount = participants.length;
+  const pickedTracksCount = album.pickedTracks.length;
+  const alignmentScore = (participantsCount * votesPerParticipant - pickedTracksCount) / (participantsCount * votesPerParticipant - votesPerParticipant);
+  const alignmentPercentage = Math.floor(alignmentScore * 100);
 
   return (
     <div className="RoundAlbumListItem">
@@ -19,7 +27,14 @@ function RoundAlbumListItem({album, participants}) {
               </div>
             </div>
             <h2 className="text-center">{album.title}</h2>
-            <h3 className="text-center">{album.artist}</h3>
+            <h3 className="text-center mb-4">{album.artist}</h3>
+            <div className="d-flex justify-content-between">
+              {
+                hasAllVotes(album, participants, votesPerParticipant)
+                ? <p title="Vote overlap score. There is 100% overlap if everyone votes for the same songs, and 0% overlap if everyone votes for different songs."><FontAwesomeIcon icon={faHandshake} /> {alignmentPercentage}%</p>
+                : <p className="missing-label">Missing votes</p>
+              }
+            </div>
           </div>
         </div>
 
@@ -35,6 +50,15 @@ function RoundAlbumListItem({album, participants}) {
       </div>
     </div>
   );
+}
+
+function hasAllVotes(album, participants, votesPerParticipant) {
+  let expectedVoteCount = votesPerParticipant * participants.length;
+  let voteCount = 0;
+  album.pickedTracks.forEach((pickedTrack) => { voteCount += pickedTrack.pickerIds.length });
+  console.log(expectedVoteCount);
+  console.log(voteCount);
+  return voteCount === expectedVoteCount;
 }
 
 export default RoundAlbumListItem;
