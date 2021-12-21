@@ -9,6 +9,7 @@ import {
 
 import NavBar from '../NavBar/NavBar';
 import ClubView from '../ClubView/ClubView';
+import MemberView from '../MemberView/MemberView';
 import RoundView from '../RoundView/RoundView';
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
           <Switch>
             <Route exact path="/" component={ClubView} />
             <Route exact path="/round/:id" component={RoundView} />
+            <Route exact path="/member/:id" component={MemberView} />
           </Switch>
         </div>
       </div>
