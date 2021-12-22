@@ -25,7 +25,7 @@ function MembersList({memberIds}) {
       {
         members.map((member) => {
           return (
-            <Link to={'/member/' + member.id}>
+            <Link to={'/member/' + member.id} style={{textDecoration: 'none'}}>
               <div className={styles.memberIcon} key={member.id} style={{backgroundColor: member.color}}>
                 <p>{member.firstName[0] + member.lastName[0]}</p>
               </div>
