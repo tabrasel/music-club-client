@@ -10,6 +10,7 @@ function MemberView() {
   const { id } = useParams();
   const [member, setMember] = useState(null);
   const [participatedRounds, setParticipatedRounds] = useState([]);
+  const [memberMatches, setMemberMatches] = useState([]);
 
   useEffect(() => {
     const getMember = async () => {
@@ -21,6 +22,10 @@ function MemberView() {
       const rounds = await fetchRounds(member.participatedRoundIds);
       rounds.sort((a, b) => { return a.number - b.number });
       setParticipatedRounds(rounds);
+
+      // Get member matches
+      const memberMatches = await fetchMemberMatches(id);
+      setMemberMatches(memberMatches);
     };
 
     getMember();
@@ -39,6 +44,12 @@ function MemberView() {
     });
     const rounds = await Promise.all(roundPromises);
     return rounds;
+  };
+
+  const fetchMemberMatches = async (id) => {
+    const res = await fetch(`https://tb-music-club.herokuapp.com/api/member-match?memberId=${id}&clubId=04d9a851-61a1-476a-bc87-a3a30fc6a353`);
+    const memberMatches = await res.json();
+    return memberMatches;
   };
 
   if (member === null) return null;
@@ -60,6 +71,21 @@ function MemberView() {
         {`Joined for round #${firstRound.number} on ${joinDateStr}. Has participated in ${participatedRoundCount} rounds
         so far—the latest being #${latestRound.number}.`}
       </p>
+
+      <p>
+        # votes shared with other club members:
+      </p>
+
+      <ol>
+        {
+          memberMatches.map((memberMatch) => {
+            const member = memberMatch.member;
+            return (
+              <li key={member.id}>{`${member.firstName} ${member.lastName} - ${memberMatch.matchCount}`}</li>
+            );
+          })
+        }
+      </ol>
     </div>
   );
 }
