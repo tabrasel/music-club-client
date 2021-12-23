@@ -68,8 +68,8 @@ function MemberView() {
       <h1>{member.firstName} {member.lastName}</h1>
 
       <p>
-        {`Joined for round #${firstRound.number} on ${joinDateStr}. Has participated in ${participatedRoundCount} rounds
-        so far—the latest being #${latestRound.number}.`}
+        {`Joined round #${firstRound.number} on ${joinDateStr} and has participated in ${participatedRoundCount - 1}
+        more rounds since—the latest being #${latestRound.number}.`}
       </p>
 
       <p>
