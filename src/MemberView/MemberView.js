@@ -106,7 +106,13 @@ function MemberView() {
 
   return (
     <div className={`${styles.MemberView} mt-3`}>
-      <h1>{member.firstName} {member.lastName}</h1>
+      <div className={`${styles.memberHeader} mb-3`}>
+        <div className={styles.memberIcon} style={{ backgroundColor: member.color }}>
+          <p>{member.firstName[0]}{member.lastName[0]}</p>
+        </div>
+
+        <h1>{member.firstName} {member.lastName}</h1>
+      </div>
 
       <p>
         {`${member.firstName} joined round #${firstRound.number} on ${joinDateStr} and has participated in ${participatedRoundCount - 1}
