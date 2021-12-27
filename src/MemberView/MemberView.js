@@ -64,33 +64,43 @@ function MemberView() {
   const firstRound = participatedRounds[0];
   const latestRound = participatedRounds[participatedRoundCount - 1];
 
-  const plotData = memberMatches !== null && memberMatches !== undefined ? memberMatches.map((memberMatch) => {
-    return {name: memberMatch.member.firstName, count: memberMatch.matchCount};
-  }) : null;
+  const plotData = (memberMatches !== null && memberMatches !== undefined)
+  ? memberMatches.map((memberMatch) => {
+    return {
+      name: memberMatch.member.firstName,
+      count: memberMatch.matchCount >= 0 ? memberMatch.matchCount : 0
+    };
+  })
+  : null;
 
   const memberMatchPlot = (plotData.length > 0) ?
-  <VictoryChart domainPadding={30} animate={{ duration: 500, easing: 'exp' }}>
+  <VictoryChart
+    domainPadding={30}
+    animate={{ duration: 600, easing: 'cubic' }}>
     <VictoryBar
       data={plotData}
       x="name"
       y="count"
-      labels={plotData.map((x) => x.count)}
-      style={{ data: { width: 40, fill: "#aaa" }, labels: { fontFamily: 'Poppins', fontSize: 12 } }}
+      labels={memberMatches.map((x) => x.matchCount >= 0 ? x.matchCount : 'NA')}
+      style={{ data: { width: 40, fill: "#888" }, labels: { fontFamily: 'Poppins', fontSize: 12, fill: "#888" } }}
     />
-      <VictoryAxis
-        style={{ tickLabels: { fontFamily: 'Poppins', fontSize: 12 } }}
-      />
-      <VictoryAxis
-        dependentAxis
-        style={{ tickLabels: { fontFamily: 'Poppins', fontSize: 12 } }}
-      />
-      <VictoryLabel
-        text="Votes Shared With Club Members"
-        x={225}
-        y={30}
-        textAnchor="middle"
-        style={{ fontFamily: 'Poppins', fontWeight: 'bold' }}
-      />
+    
+    <VictoryAxis
+      style={{ tickLabels: { fontFamily: 'Poppins', fontSize: 12 } }}
+    />
+
+    <VictoryAxis
+      dependentAxis
+      style={{ tickLabels: { fontFamily: 'Poppins', fontSize: 12 } }}
+    />
+
+    <VictoryLabel
+      text="Votes Shared With Club Members"
+      x={225}
+      y={30}
+      textAnchor="middle"
+      style={{ fontFamily: 'Poppins', fontWeight: 'bold' }}
+    />
   </VictoryChart>
   : null;
 
@@ -104,7 +114,7 @@ function MemberView() {
       </p>
 
       <div className="row">
-        <div className="col-8">
+        <div className="col-12">
           <h2></h2>
           {
             memberMatchPlot
