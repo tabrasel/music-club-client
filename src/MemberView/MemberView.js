@@ -2,6 +2,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import styles from './MemberView.module.css';
 
 import { DateTime } from 'luxon';
+import { VictoryAxis, VictoryBar, VictoryChart, VictoryLabel } from 'victory';
 
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
@@ -29,7 +30,7 @@ function MemberView() {
     };
 
     getMember();
-  }, []);
+  }, [id]);
 
   const fetchMember = async (id) => {
     const res = await fetch('https://tb-music-club.herokuapp.com/api/member?id=' + id);
@@ -63,29 +64,55 @@ function MemberView() {
   const firstRound = participatedRounds[0];
   const latestRound = participatedRounds[participatedRoundCount - 1];
 
+  const plotData = memberMatches !== null && memberMatches !== undefined ? memberMatches.map((memberMatch) => {
+    return {name: memberMatch.member.firstName, count: memberMatch.matchCount};
+  }) : null;
+
+  const memberMatchPlot = (plotData.length > 0) ?
+  <VictoryChart domainPadding={30} animate={{ duration: 500, easing: 'exp' }}>
+    <VictoryBar
+      data={plotData}
+      x="name"
+      y="count"
+      labels={plotData.map((x) => x.count)}
+      style={{ data: { width: 40, fill: "#aaa" }, labels: { fontFamily: 'Poppins', fontSize: 12 } }}
+    />
+      <VictoryAxis
+        style={{ tickLabels: { fontFamily: 'Poppins', fontSize: 12 } }}
+      />
+      <VictoryAxis
+        dependentAxis
+        style={{ tickLabels: { fontFamily: 'Poppins', fontSize: 12 } }}
+      />
+      <VictoryLabel
+        text="Votes Shared With Club Members"
+        x={225}
+        y={30}
+        textAnchor="middle"
+        style={{ fontFamily: 'Poppins', fontWeight: 'bold' }}
+      />
+  </VictoryChart>
+  : null;
+
   return (
     <div className={`${styles.MemberView} mt-3`}>
       <h1>{member.firstName} {member.lastName}</h1>
 
       <p>
-        {`Joined round #${firstRound.number} on ${joinDateStr} and has participated in ${participatedRoundCount - 1}
-        more rounds since—the latest being #${latestRound.number}.`}
+        {`${member.firstName} joined round #${firstRound.number} on ${joinDateStr} and has participated in ${participatedRoundCount - 1}
+        more since—the latest being #${latestRound.number}.`}
       </p>
 
-      <p>
-        # votes shared with other club members:
-      </p>
+      <div className="row">
+        <div className="col-8">
+          <h2></h2>
+          {
+            memberMatchPlot
+          }
+        </div>
+      </div>
 
-      <ol>
-        {
-          memberMatches.map((memberMatch) => {
-            const member = memberMatch.member;
-            return (
-              <li key={member.id}>{`${member.firstName} ${member.lastName} - ${memberMatch.matchCount}`}</li>
-            );
-          })
-        }
-      </ol>
+
     </div>
   );
 }
