@@ -76,7 +76,7 @@ function MemberView() {
   const memberMatchPlot = (plotData.length > 0) ?
   <VictoryChart
     domainPadding={30}
-    animate={{ duration: 600, easing: 'cubic' }}>
+    animate={{ duration: 500, easing: 'cubic' }}>
     <VictoryBar
       data={plotData}
       x="name"
@@ -84,7 +84,7 @@ function MemberView() {
       labels={memberMatches.map((x) => x.matchCount >= 0 ? x.matchCount : 'NA')}
       style={{ data: { width: 40, fill: "#888" }, labels: { fontFamily: 'Poppins', fontSize: 12, fill: "#888" } }}
     />
-    
+
     <VictoryAxis
       style={{ tickLabels: { fontFamily: 'Poppins', fontSize: 12 } }}
     />
@@ -95,11 +95,11 @@ function MemberView() {
     />
 
     <VictoryLabel
-      text="Votes Shared With Club Members"
+      text="Shared Votes"
       x={225}
       y={30}
       textAnchor="middle"
-      style={{ fontFamily: 'Poppins', fontWeight: 'bold' }}
+      style={{ fontFamily: 'Poppins', fontSize: 18, fontWeight: 'bold' }}
     />
   </VictoryChart>
   : null;
