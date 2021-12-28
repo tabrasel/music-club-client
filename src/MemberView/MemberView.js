@@ -7,6 +7,8 @@ import { VictoryAxis, VictoryBar, VictoryChart, VictoryLabel } from 'victory';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
+import MemberHeader from './MemberHeader/MemberHeader';
+
 function MemberView() {
   const { id } = useParams();
   const [member, setMember] = useState(null);
@@ -106,13 +108,7 @@ function MemberView() {
 
   return (
     <div className={`${styles.MemberView} mt-3`}>
-      <div className={`${styles.memberHeader} mb-3`}>
-        <div className={styles.memberIcon} style={{ backgroundColor: member.color }}>
-          <p>{member.firstName[0]}{member.lastName[0]}</p>
-        </div>
-
-        <h1>{member.firstName} {member.lastName}</h1>
-      </div>
+      <MemberHeader member={member} />
 
       <p>
         {`${member.firstName} joined round #${firstRound.number} on ${joinDateStr} and has participated in ${participatedRoundCount - 1}
@@ -121,14 +117,11 @@ function MemberView() {
 
       <div className="row">
         <div className="col-12">
-          <h2></h2>
           {
             memberMatchPlot
           }
         </div>
       </div>
-
-
     </div>
   );
 }
