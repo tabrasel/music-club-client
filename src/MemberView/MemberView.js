@@ -11,7 +11,7 @@ function MemberView() {
   const { id } = useParams();
   const [member, setMember] = useState(null);
   const [participatedRounds, setParticipatedRounds] = useState([]);
-  const [memberMatches, setMemberMatches] = useState([]);
+  const [sharedVotes, setSharedVotes] = useState([]);
 
   useEffect(() => {
     const getMember = async () => {
@@ -25,8 +25,8 @@ function MemberView() {
       setParticipatedRounds(rounds);
 
       // Get member matches
-      const memberMatches = await fetchMemberMatches(id);
-      setMemberMatches(memberMatches);
+      const sharedVotes = await fetchSharedVotes(id);
+      setSharedVotes(sharedVotes);
     };
 
     getMember();
@@ -47,10 +47,10 @@ function MemberView() {
     return rounds;
   };
 
-  const fetchMemberMatches = async (id) => {
-    const res = await fetch(`https://tb-music-club.herokuapp.com/api/member-match?memberId=${id}&clubId=04d9a851-61a1-476a-bc87-a3a30fc6a353`);
-    const memberMatches = await res.json();
-    return memberMatches;
+  const fetchSharedVotes = async (id) => {
+    const res = await fetch(`https://tb-music-club.herokuapp.com/api/shared-votes?memberId=${id}&clubId=04d9a851-61a1-476a-bc87-a3a30fc6a353`);
+    const sharedVotes = await res.json();
+    return sharedVotes;
   };
 
   if (member === null) return null;
@@ -64,11 +64,11 @@ function MemberView() {
   const firstRound = participatedRounds[0];
   const latestRound = participatedRounds[participatedRoundCount - 1];
 
-  const plotData = (memberMatches !== null && memberMatches !== undefined)
-  ? memberMatches.map((memberMatch) => {
+  const plotData = (sharedVotes !== null && sharedVotes !== undefined)
+  ? sharedVotes.map((memberMatch) => {
     return {
       name: memberMatch.member.firstName,
-      count: memberMatch.matchCount >= 0 ? memberMatch.matchCount : 0
+      count: memberMatch.sharedVotesCount >= 0 ? memberMatch.sharedVotesCount : 0
     };
   })
   : null;
@@ -81,7 +81,7 @@ function MemberView() {
       data={plotData}
       x="name"
       y="count"
-      labels={memberMatches.map((x) => x.matchCount >= 0 ? x.matchCount : 'NA')}
+      labels={sharedVotes.map((x) => x.sharedVotesCount >= 0 ? x.sharedVotesCount : 'NA')}
       style={{ data: { width: 40, fill: "#888" }, labels: { fontFamily: 'Poppins', fontSize: 12, fill: "#888" } }}
     />
 
