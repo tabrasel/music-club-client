@@ -1,15 +1,27 @@
 import styles from './MemberHeader.module.css';
 
 function MemberHeader({member}) {
-  if (member === null) return null;
+  const memberIconSkeleton = (
+    <div className={styles.memberIcon} style={{ backgroundColor: '#f3f3f3' }}></div>
+  );
+
+  const memberNameSkeleton = (
+    <h1 style={{ color: 'transparent' }}>Tate Brasel</h1>
+  );
 
   return (
     <div className={`${styles.memberHeader} mb-3`}>
-      <div className={styles.memberIcon} style={{ backgroundColor: member.color }}>
-        <p>{member.firstName[0]}{member.lastName[0]}</p>
-      </div>
+      {
+        (member === null) ? memberIconSkeleton :
+        <div className={styles.memberIcon} style={{ backgroundColor: member.color }}>
+          <p>{member.firstName[0]}{member.lastName[0]}</p>
+        </div>
+      }
 
-      <h1>{member.firstName} {member.lastName}</h1>
+      {
+        (member === null) ? memberNameSkeleton :
+        <h1>{member.firstName} {member.lastName}</h1>
+      }
     </div>
   );
 }

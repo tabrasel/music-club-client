@@ -13,6 +13,7 @@ function MemberView() {
   const { id } = useParams();
   const [member, setMember] = useState(null);
   const [participatedRounds, setParticipatedRounds] = useState([]);
+  const [joinDateStr, setJoinDateStr] = useState('');
 
   useEffect(() => {
     const getMember = async () => {
@@ -24,6 +25,9 @@ function MemberView() {
       const rounds = await fetchRounds(member.participatedRoundIds);
       rounds.sort((a, b) => { return a.number - b.number });
       setParticipatedRounds(rounds);
+
+      const joinDate = DateTime.fromISO(rounds[0].startDate);
+      setJoinDateStr(joinDate.toLocaleString(DateTime.DATE_FULL));
     };
 
     getMember();
@@ -44,27 +48,22 @@ function MemberView() {
     return rounds;
   };
 
-  if (member === null) return null;
-
-  if (participatedRounds.length === 0) return null;
-
-  const joinDate = DateTime.fromISO(participatedRounds[0].startDate);
-  const joinDateStr = joinDate.toLocaleString(DateTime.DATE_FULL);
-
-  const participatedRoundCount = participatedRounds.length;
-  const firstRound = participatedRounds[0];
-  const latestRound = participatedRounds[participatedRoundCount - 1];
+  const memberDescriptionSkeleton = (<p>Loading...</p>);
 
   return (
     <div className={`${styles.MemberView} mt-3`}>
       <MemberHeader member={member} />
 
-      <p>
-        {`${member.firstName} joined round #${firstRound.number} on ${joinDateStr} and has participated in ${participatedRoundCount - 1}
-        more since—the latest being #${latestRound.number}.`}
-      </p>
+      {
+        (member === null || participatedRounds.length === 0) ? memberDescriptionSkeleton :
+        <p>
+          {
+            `${member.firstName} joined round #${participatedRounds[0].number} on ${joinDateStr} and has participated in ${participatedRounds.length - 1} more since—the latest being #${participatedRounds[participatedRounds.length - 1].number}.`
+          }
+        </p>
+      }
 
-      <div className="row">
+      <div className="row g-0">
         <div className="col-12">
           <MemberSharedVotesPlot member={member} />
         </div>

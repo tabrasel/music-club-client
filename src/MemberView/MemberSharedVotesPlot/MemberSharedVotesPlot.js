@@ -1,4 +1,4 @@
-import { VictoryAxis, VictoryBar, VictoryChart, VictoryLabel } from 'victory';
+import { VictoryAxis, VictoryBar, VictoryChart, VictoryContainer, VictoryLabel } from 'victory';
 import { useState, useEffect } from 'react';
 
 function MemberSharedVotesPlot({member}) {
@@ -7,6 +7,8 @@ function MemberSharedVotesPlot({member}) {
 
   useEffect(() => {
     const loadData = async () => {
+      if (member === null) return;
+
       // Get shared votes
       const res = await fetch(`https://tb-music-club.herokuapp.com/api/shared-votes?memberId=${member.id}&clubId=04d9a851-61a1-476a-bc87-a3a30fc6a353`);
       const sharedVotes = await res.json();
@@ -24,10 +26,10 @@ function MemberSharedVotesPlot({member}) {
     loadData();
   }, [member]);
 
-  if (member === null) return null;
-  if (plotData.length === 0) return null;
+  const plotSkeleton = (<div style={{ width: '100%', height: '200px', backgroundColor: '#f3f3f3', borderRadius: '3px' }}></div>);
 
   return (
+    (plotData.length === 0) ? plotSkeleton :
     <VictoryChart
       domainPadding={30}
       animate={{ duration: 500, easing: 'cubic' }}>
@@ -36,7 +38,7 @@ function MemberSharedVotesPlot({member}) {
         x="name"
         y="count"
         labels={sharedVotes.map((x) => x.sharedVotesCount >= 0 ? x.sharedVotesCount : 'NA')}
-        style={{ data: { width: 40, fill: "#888" }, labels: { fontFamily: 'Poppins', fontSize: 12, fill: "#888" } }}
+        style={{ data: { width: 40, fill: "#313131" }, labels: { fontFamily: 'Poppins', fontSize: 12, fill: "#313131" } }}
       />
 
       <VictoryAxis
