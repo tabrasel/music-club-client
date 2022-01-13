@@ -1,5 +1,7 @@
 import styles from './MembersList.module.css';
 
+import { Link } from 'react-router-dom';
+
 import { useState, useEffect } from 'react';
 
 function MembersList({memberIds}) {
@@ -23,9 +25,11 @@ function MembersList({memberIds}) {
       {
         members.map((member) => {
           return (
-            <div className={styles.memberIcon} key={member.id} style={{backgroundColor: member.color}}>
-              <p>{member.firstName[0] + member.lastName[0]}</p>
-            </div>
+            <Link to={'/member/' + member.id} style={{textDecoration: 'none'}}>
+              <div className={styles.memberIcon} key={member.id} style={{backgroundColor: member.color}}>
+                <p>{member.firstName[0] + member.lastName[0]}</p>
+              </div>
+            </Link>
           );
         })
       }

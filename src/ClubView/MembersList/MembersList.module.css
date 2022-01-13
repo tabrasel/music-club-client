@@ -21,3 +21,7 @@
   font-size: min(calc(6.912px + 0.432vw), 14.4px);
   color: white;
 }
+
+.memberIcon a {
+  text-decoration: none;
+}
