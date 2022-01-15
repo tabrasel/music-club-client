@@ -8,6 +8,7 @@ import { useParams } from 'react-router-dom';
 
 import MemberHeader from './MemberHeader/MemberHeader';
 import MemberSharedVotesPlot from './MemberSharedVotesPlot/MemberSharedVotesPlot';
+import MemberGenresChart from './MemberGenresChart/MemberGenresChart';
 
 function MemberView() {
   const { id } = useParams();
@@ -63,9 +64,12 @@ function MemberView() {
         </p>
       }
 
-      <div className="row g-0">
-        <div className="col-12">
+      <div className="row">
+        <div className="col-6">
           <MemberSharedVotesPlot member={member} />
+        </div>
+        <div className="col-6">
+          <MemberGenresChart member={member} />
         </div>
       </div>
     </div>
