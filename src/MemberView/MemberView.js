@@ -64,12 +64,13 @@ function MemberView() {
         </p>
       }
 
-      <div className="row">
-        <div className="col-6">
-          <MemberSharedVotesPlot member={member} />
-        </div>
-        <div className="col-6">
+      <div className={styles.chartGallery}>
+        <div className={styles.chartArea}>
           <MemberGenresChart member={member} />
+        </div>
+
+        <div className={styles.chartArea}>
+          <MemberSharedVotesPlot member={member} />
         </div>
       </div>
     </div>
