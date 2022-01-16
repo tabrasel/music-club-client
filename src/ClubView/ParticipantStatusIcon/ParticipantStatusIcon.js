@@ -1,32 +1,15 @@
 import styles from './ParticipantStatusIcon.module.css';
 
 function ParticipantStatusIcon({participant, albums, picksPerParticipant}) {
-  // Determine if the participant has submitted all their picks for the round
-  const isFinished = testIsFinished(participant, albums, picksPerParticipant);
-
-  const spinnerStyle = {
-    backgroundColor: 'transparent',
-    borderLeftColor: 'transparent',
-    borderTopColor: participant.color,
-    borderRightColor: participant.color,
-    borderBottomColor: participant.color
-  };
-
-  const finishedStyle = {
-    backgroundColor: participant.color
-  };
-
-  const finishedIcon = (
-    <div className={styles.finishedIcon} style={finishedStyle}>
+  const unfinishedIcon = (
+    <div className={styles.unfinishedIcon}>
+      <div className={styles.spinner} style={{'--c': participant.color}}></div>
       <p>{participant.firstName[0] + participant.lastName[0]}</p>
     </div>
   );
 
-  const unfinishedIcon = (
-    <div className={styles.unfinishedIcon}>
-      <div className={styles.spinner} style={spinnerStyle}>
-      </div>
-
+  const finishedIcon = (
+    <div className={styles.finishedIcon} style={{backgroundColor: participant.color}}>
       <p>{participant.firstName[0] + participant.lastName[0]}</p>
     </div>
   );
@@ -34,19 +17,25 @@ function ParticipantStatusIcon({participant, albums, picksPerParticipant}) {
   return (
     <div className={styles.ParticipantStatusIcon}>
       {
-        isFinished ? finishedIcon : unfinishedIcon
+        isFinished(participant, albums, picksPerParticipant) ? finishedIcon : unfinishedIcon
       }
     </div>
   );
 }
 
-function testIsFinished(participant, albums, votesPerParticipant) {
+/**
+ * Determine if a participant has submitted all their picks for a round.
+ * @param participant         the participant to check on
+ * @param albums              the albums in the round
+ * @param votesPerParticipant the number of votes each participant can submit per album for the round
+ */
+function isFinished(participant, albums, votesPerParticipant) {
   for (let album of albums) {
     const participantPicks = album.pickedTracks.filter(pickedTrack => {
       return pickedTrack.pickerIds.includes(participant.id);
     });
 
-    if (participantPicks.length < votesPerParticipant)
+    if (participantPicks.length !== votesPerParticipant)
       return false;
   }
 
