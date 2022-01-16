@@ -40,7 +40,7 @@ function MemberGenresChart({member}) {
     loadData();
   }, [member]);
 
-  const chartSkeleton = (<div style={{ width: '100%', height: '200px', backgroundColor: '#f3f3f3', borderRadius: '3px' }}></div>);
+  const chartSkeleton = (<div style={{ width: '100%', height: '350px', backgroundColor: '#f3f3f3', borderRadius: '3px' }}></div>);
 
   return (
     (plotData.length === 0) ? chartSkeleton :
