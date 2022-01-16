@@ -26,10 +26,10 @@ function MemberSharedVotesPlot({member}) {
     loadData();
   }, [member]);
 
-  const plotSkeleton = (<div style={{ width: '100%', height: '200px', backgroundColor: '#f3f3f3', borderRadius: '3px' }}></div>);
+  const chartSkeleton = (<div style={{ width: '100%', height: '350px', backgroundColor: '#f3f3f3', borderRadius: '3px' }}></div>);
 
   return (
-    (plotData.length === 0) ? plotSkeleton :
+    (plotData.length === 0) ? chartSkeleton :
     <VictoryChart
       domainPadding={30}
       animate={{ duration: 500, easing: 'cubic' }}>
