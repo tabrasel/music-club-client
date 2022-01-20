@@ -1,6 +1,6 @@
 import chroma from 'chroma-js';
 import { useState, useEffect } from 'react';
-import { VictoryAxis, VictoryBar, VictoryChart, VictoryLabel, VictoryPie, VictoryTooltip } from 'victory';
+import { VictoryAxis, VictoryBar, VictoryChart, VictoryLabel, VictoryTooltip } from 'victory';
 
 function MemberReleaseChart({member}) {
   const [plotData, setPlotData] = useState([]);
