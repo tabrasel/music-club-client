@@ -9,6 +9,7 @@ import { useParams } from 'react-router-dom';
 import MemberHeader from './MemberHeader/MemberHeader';
 import MemberSharedVotesPlot from './MemberSharedVotesPlot/MemberSharedVotesPlot';
 import MemberGenresChart from './MemberGenresChart/MemberGenresChart';
+import MemberReleaseChart from './MemberReleaseChart/MemberReleaseChart';
 
 function MemberView() {
   const { id } = useParams();
@@ -65,12 +66,18 @@ function MemberView() {
       }
 
       <div className={styles.chartGallery}>
-        <div className={styles.chartArea}>
-          <MemberGenresChart member={member} />
-        </div>
+
 
         <div className={styles.chartArea}>
           <MemberSharedVotesPlot member={member} />
+        </div>
+
+        <div className={styles.chartArea}>
+          <MemberReleaseChart member={member} />
+        </div>
+
+        <div className={styles.chartArea}>
+          <MemberGenresChart member={member} />
         </div>
       </div>
     </div>
