@@ -2,6 +2,8 @@ import chroma from 'chroma-js';
 import { VictoryAxis, VictoryBar, VictoryChart, VictoryContainer, VictoryLabel } from 'victory';
 import { useState, useEffect } from 'react';
 
+import ChartPlaceholder from '../ChartPlaceholder';
+
 /**
  * Convert a genre name to a color.
  * @param genre genre name
@@ -57,7 +59,7 @@ function MemberGenresChart({member}) {
   const chartContainer = <VictoryContainer style={{ pointerEvents: "auto", userSelect: "auto", touchAction: "auto" }} />;
 
   return (
-    (plotData.length === 0) ? chartSkeleton :
+    (plotData.length === 0) ? <ChartPlaceholder aspectRatio={300 / 450} /> :
     <VictoryChart
       containerComponent={chartContainer}
       padding={{left: 180, right: 30, top: 50}}

@@ -3,6 +3,8 @@ import { useState, useEffect } from 'react';
 import { isMobile } from 'react-device-detect';
 import { VictoryAxis, VictoryBar, VictoryChart, VictoryContainer, VictoryLabel, VictoryTooltip } from 'victory';
 
+import ChartPlaceholder from '../ChartPlaceholder';
+
 function MemberReleaseChart({member}) {
   const [plotData, setPlotData] = useState([]);
   const [fillColors, setFillColors] = useState([]);
@@ -39,7 +41,7 @@ function MemberReleaseChart({member}) {
   const touchDraggableContainer = <VictoryContainer style={{ pointerEvents: "auto", userSelect: "auto", touchAction: "auto" }} />;
 
   return (
-    (plotData.length === 0) ? chartSkeleton :
+    (plotData.length === 0) ? <ChartPlaceholder aspectRatio={300 / 450} /> :
     <VictoryChart
       containerComponent={isMobile ? touchDraggableContainer : <VictoryContainer />}
       domainPadding={175 / plotData.length}
