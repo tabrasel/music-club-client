@@ -1,6 +1,6 @@
 import chroma from 'chroma-js';
 import { useState, useEffect } from 'react';
-import { VictoryAxis, VictoryBar, VictoryChart, VictoryLabel, VictoryTooltip } from 'victory';
+import { VictoryAxis, VictoryBar, VictoryChart, VictoryContainer, VictoryLabel, VictoryTooltip } from 'victory';
 
 function MemberReleaseChart({member}) {
   const [plotData, setPlotData] = useState([]);
@@ -31,11 +31,16 @@ function MemberReleaseChart({member}) {
     loadData();
   }, [member]);
 
+  // Define chart placeholder
   const chartSkeleton = (<div style={{ width: '100%', height: '350px', backgroundColor: '#f3f3f3', borderRadius: '3px' }}></div>);
+
+  // Define chart container that can scroll on mobile
+  const chartContainer = <VictoryContainer style={{ pointerEvents: "auto", userSelect: "auto", touchAction: "auto" }} />;
 
   return (
     (plotData.length === 0) ? chartSkeleton :
     <VictoryChart
+      containerComponent={chartContainer}
       domainPadding={175 / plotData.length}
       animate={{ duration: 500, easing: 'cubic' }}>
       <VictoryBar

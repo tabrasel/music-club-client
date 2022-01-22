@@ -1,4 +1,4 @@
-import { VictoryAxis, VictoryBar, VictoryChart, VictoryLabel, VictoryPie } from 'victory';
+import { VictoryAxis, VictoryBar, VictoryChart, VictoryContainer, VictoryLabel, VictoryPie } from 'victory';
 import { useState, useEffect } from 'react';
 
 function stringToColor(str) {
@@ -40,11 +40,16 @@ function MemberGenresChart({member}) {
     loadData();
   }, [member]);
 
+  // Define chart placeholder
   const chartSkeleton = (<div style={{ width: '100%', height: '350px', backgroundColor: '#f3f3f3', borderRadius: '3px' }}></div>);
+
+  // Define chart container that can scroll on mobile
+  const chartContainer = <VictoryContainer style={{ pointerEvents: "auto", userSelect: "auto", touchAction: "auto" }} />;
 
   return (
     (plotData.length === 0) ? chartSkeleton :
     <VictoryChart
+      containerComponent={chartContainer}
       padding={{left: 180, right: 30, top: 50}}
       domainPadding={15}
       animate={{ duration: 500, easing: 'cubic' }}>
