@@ -38,7 +38,6 @@ function MemberSharedVotesPlot({member}) {
         data={plotData}
         x="name"
         y="count"
-        labels={sharedVotes.map((x) => x.sharedVotesCount >= 0 ? x.sharedVotesCount : 'NA')}
         style={{ data: { width: 300 / plotData.length, fill: ({ datum }) => datum.color}, labels: { fontFamily: 'Poppins', fontSize: 12, fill: "#313131" } }}
       />
 
