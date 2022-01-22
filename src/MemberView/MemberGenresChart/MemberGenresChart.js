@@ -1,16 +1,26 @@
-import { VictoryAxis, VictoryBar, VictoryChart, VictoryContainer, VictoryLabel, VictoryPie } from 'victory';
+import chroma from 'chroma-js';
+import { VictoryAxis, VictoryBar, VictoryChart, VictoryContainer, VictoryLabel } from 'victory';
 import { useState, useEffect } from 'react';
 
-function stringToColor(str) {
+/**
+ * Convert a genre name to a color.
+ * @param genre genre name
+ * @return hex color
+ */
+function genreToColor(genre) {
   let hash = 0;
-  for (let i = 0; i < str.length; i++) {
-    hash = str.charCodeAt(i) + ((hash << 5) - hash);
-  }
+  for (let i = 0; i < genre.length; i++)
+    hash = genre.charCodeAt(i) + ((hash << 5) - hash);
   let color = '#';
   for (let i = 0; i < 3; i++) {
     let value = (hash >> (i * 8)) & 0xFF;
     color += ('00' + value.toString(16)).substr(-2);
   }
+
+  // Desaturate if too saturated and dark
+  const hsl = chroma(color).hsl();
+  color = (hsl[1] > 0.7 && hsl[2] < 0.6) ? chroma(color).desaturate(1) : color;
+
   return color;
 }
 
@@ -58,7 +68,7 @@ function MemberGenresChart({member}) {
         x="genre"
         y="count"
         labels={plotData.map((x) => x.count)}
-        style={{ data: { width: 15, fill: ({ datum }) => stringToColor(datum.genre)}, labels: { fontFamily: 'Poppins', fontSize: 12, fill: "#313131" } }}
+        style={{ data: { width: 15, fill: ({ datum }) => genreToColor(datum.genre)}, labels: { fontFamily: 'Poppins', fontSize: 12, fill: "#313131" } }}
         horizontal={true}
         labelComponent={<VictoryLabel dx={5}/>}
       />
