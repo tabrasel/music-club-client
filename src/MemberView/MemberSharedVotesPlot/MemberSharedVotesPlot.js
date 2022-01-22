@@ -17,7 +17,8 @@ function MemberSharedVotesPlot({member}) {
       // Prepare shared vote data for plotting
       const plotData = sharedVotes.map((memberSharedVotes) => ({
         name: memberSharedVotes.member.firstName,
-        count: memberSharedVotes.sharedVotesCount >= 0 ? memberSharedVotes.sharedVotesCount : 0
+        count: memberSharedVotes.sharedVotesCount >= 0 ? memberSharedVotes.sharedVotesCount : 0,
+        color: memberSharedVotes.member.color
       }));
 
       setPlotData(plotData);
@@ -31,14 +32,14 @@ function MemberSharedVotesPlot({member}) {
   return (
     (plotData.length === 0) ? chartSkeleton :
     <VictoryChart
-      domainPadding={30}
+      domainPadding={200 / plotData.length}
       animate={{ duration: 500, easing: 'cubic' }}>
       <VictoryBar
         data={plotData}
         x="name"
         y="count"
-        labels={sharedVotes.map((x) => x.sharedVotesCount >= 0 ? x.sharedVotesCount : 'NA')}
-        style={{ data: { width: 40, fill: "#313131" }, labels: { fontFamily: 'Poppins', fontSize: 12, fill: "#313131" } }}
+        labels={sharedVotes.map((x) => x.sharedVotesCount >= 0 ? '' : 'NA')}
+        style={{ data: { width: 300 / plotData.length, fill: ({ datum }) => datum.color}, labels: { fontFamily: 'Poppins', fontSize: 12, fill: "#313131" } }}
       />
 
       <VictoryAxis
