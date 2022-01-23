@@ -66,8 +66,6 @@ function MemberView() {
       }
 
       <div className={styles.chartGallery}>
-
-
         <div className={styles.chartArea}>
           <MemberSharedVotesPlot member={member} />
         </div>
