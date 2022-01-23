@@ -1,17 +1,16 @@
 .chartGallery {
   display: flex;
   flex-wrap: wrap;
-  justify-content: around;
-  gap: 1vw 1vw;
 }
 
 .chartArea {
   width: 100%;
+  padding: 1%;
 }
 
+/* Large screens */
 @media only screen and (min-width: 768px) {
   .chartArea {
-    width: 38vw;
-    min-width: 280px;
+    width: 50%;
   }
 }
