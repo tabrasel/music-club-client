@@ -1,6 +1,8 @@
 import { VictoryAxis, VictoryBar, VictoryChart, VictoryContainer, VictoryLabel } from 'victory';
 import { useState, useEffect } from 'react';
 
+import ChartPlaceholder from '../ChartPlaceholder';
+
 function MemberSharedVotesPlot({member}) {
   const [sharedVotes, setSharedVotes] = useState([]);
   const [plotData, setPlotData] = useState([]);
@@ -27,14 +29,11 @@ function MemberSharedVotesPlot({member}) {
     loadData();
   }, [member]);
 
-  // Define chart placeholder
-  const chartSkeleton = (<div style={{ width: '100%', height: '350px', backgroundColor: '#f3f3f3', borderRadius: '3px' }}></div>);
-
   // Define chart container that can scroll on mobile
   const chartContainer = <VictoryContainer style={{ pointerEvents: "auto", userSelect: "auto", touchAction: "auto" }} />;
 
   return (
-    (plotData.length === 0) ? chartSkeleton :
+    (plotData.length === 0) ? <ChartPlaceholder aspectRatio={300 / 450} /> :
     <VictoryChart
       containerComponent={chartContainer}
       domainPadding={200 / plotData.length}
