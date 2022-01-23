@@ -44,7 +44,7 @@ function MemberReleaseChart({member}) {
     (plotData.length === 0) ? <ChartPlaceholder aspectRatio={300 / 450} /> :
     <VictoryChart
       containerComponent={isMobile ? touchDraggableContainer : <VictoryContainer />}
-      domainPadding={175 / plotData.length}
+      domainPadding={200 / plotData.length}
       animate={{ duration: 500, easing: 'cubic' }}>
       <VictoryBar
         data={plotData}
