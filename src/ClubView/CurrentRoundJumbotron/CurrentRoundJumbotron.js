@@ -62,7 +62,13 @@ function CurrentRoundJumbotron() {
     return round;
   };
 
-  if (round === null) return null;
+  if (round === null) {
+    return (
+      <div className={`${styles.CurrentRoundJumbotron} jumbotron mb-5`} style={{ backgroundColor: '#f3f3f3' }}>
+        <div className={styles.currentRoundThumbnail}></div>
+      </div>
+    );
+  };
 
   const thumbnailUrl = 'https://tb-music-club.s3.us-west-2.amazonaws.com/round_thumbnails/' + round.id + '.jpeg';
 
