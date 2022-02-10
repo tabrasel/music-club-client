@@ -27,7 +27,7 @@ function RoundAlbumListItem({album, participants, votesPerParticipant}) {
               </div>
             </div>
             <h2 className="text-center">{album.title}</h2>
-            <h3 className="text-center mb-4">{album.artist}</h3>
+            <h3 className="text-center mb-4">{album.artists.join(', ')}</h3>
             <div className="d-flex justify-content-between">
               {
                 hasAllVotes(album, participants, votesPerParticipant)
