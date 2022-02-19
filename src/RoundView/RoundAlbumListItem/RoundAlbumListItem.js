@@ -43,8 +43,7 @@ function RoundAlbumListItem({album, participants, votesPerParticipant}) {
             showPickedTrackTable
             ? <PickedTrackTable
                 album={album}
-                participants={participants}
-                showAllTracks={false} />
+                participants={participants} />
             : <p>Picks not posted</p>
           }
         </div>
