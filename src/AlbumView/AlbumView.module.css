@@ -1,0 +1,33 @@
+.AlbumView h1 {
+  font-weight: bold;
+}
+
+.AlbumView h2 {
+  color: #aaa;
+}
+
+.albumImg {
+  width: 250px;
+  height: 250px;
+  border-radius: 3px;
+  box-shadow: rgba(0, 0, 0, 0.5) 0px 4px 8px 0px;
+}
+
+.genreTagList {
+  max-width: 500px;
+}
+
+.genreTag {
+  display: inline-block;
+  padding: 5px 5px;
+  border-radius: 3px;
+  background-color: #aaa;
+  color: #fff;
+  margin-right: 4px;
+  margin-bottom: 4px;
+  font-size: 12px;
+}
+
+.genreTag p {
+  margin: 0;
+}
