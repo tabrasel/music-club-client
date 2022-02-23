@@ -33,6 +33,33 @@ function AlbumView() {
         </div>
         <img src={album.imageUrl} />
       </div>
+
+      <table className={`table mb-0`}>
+        <thead>
+          <tr>
+            <th scope="col" style={{width: '5%', textAlign: 'right'}}>#</th>
+            <th scope="col">Title</th>
+            <th scope="col" style={{textAlign: 'right'}}>Length</th>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            album.tracks.map((track) => {
+              const durationStr = Duration.fromMillis(track.duration).toFormat('m:ss')
+
+              return (
+                <tr>
+                  <td style={{textAlign: 'right'}}>{track.trackNumber}.</td>
+                  <td>{track.title}</td>
+                  <td style={{textAlign: 'right'}}>{durationStr}</td>
+                </tr>
+              );
+            })
+          }
+        </tbody>
+      </table>
+
+
     </div>
   );
 }
