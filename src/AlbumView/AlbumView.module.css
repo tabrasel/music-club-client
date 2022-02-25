@@ -31,3 +31,20 @@
 .genreTag p {
   margin: 0;
 }
+
+.chartGallery {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.chartArea {
+  width: 100%;
+  padding: 1%;
+}
+
+/* Large screens */
+@media only screen and (min-width: 768px) {
+  .chartArea {
+    width: 50%;
+  }
+}

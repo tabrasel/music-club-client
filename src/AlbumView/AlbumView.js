@@ -6,6 +6,8 @@ import { DateTime, Duration } from 'luxon';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
+import TrackMoodChart from './TrackMoodChart';
+
 function AlbumView() {
   const { id } = useParams();
   const [album, setAlbum] = useState(null);
@@ -77,7 +79,11 @@ function AlbumView() {
         </tbody>
       </table>
 
-
+      <div className={styles.chartGallery}>
+        <div className={styles.chartArea}>
+          <TrackMoodChart tracks={album.tracks} />
+        </div>
+      </div>
     </div>
   );
 }
