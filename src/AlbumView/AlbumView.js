@@ -7,6 +7,7 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
 import TrackMoodChart from './TrackMoodChart';
+import TrackPropertiesChart from './TrackPropertiesChart';
 
 function AlbumView() {
   const { id } = useParams();
@@ -82,6 +83,10 @@ function AlbumView() {
       <div className={styles.chartGallery}>
         <div className={styles.chartArea}>
           <TrackMoodChart tracks={album.tracks} />
+        </div>
+
+        <div className={styles.chartArea}>
+          <TrackPropertiesChart tracks={album.tracks} />
         </div>
       </div>
     </div>
