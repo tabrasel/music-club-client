@@ -6,6 +6,7 @@ import { DateTime, Duration } from 'luxon';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
+import TrackContextChart from './TrackContextChart';
 import TrackMoodChart from './TrackMoodChart';
 import TrackPropertiesChart from './TrackPropertiesChart';
 
@@ -87,6 +88,10 @@ function AlbumView() {
 
         <div className={styles.chartArea}>
           <TrackPropertiesChart tracks={album.tracks} />
+        </div>
+
+        <div className={styles.chartArea}>
+          <TrackContextChart tracks={album.tracks} />
         </div>
       </div>
     </div>
