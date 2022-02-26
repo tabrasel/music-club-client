@@ -1,7 +1,7 @@
 import { VictoryAxis, VictoryBar, VictoryChart, VictoryContainer, VictoryLabel } from 'victory';
 import { useState, useEffect } from 'react';
 
-import ChartPlaceholder from '../ChartPlaceholder';
+import ChartPlaceholder from '../../ChartPlaceholder';
 
 function MemberSharedVotesPlot({member}) {
   const [sharedVotes, setSharedVotes] = useState([]);

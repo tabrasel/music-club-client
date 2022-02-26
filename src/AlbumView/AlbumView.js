@@ -6,6 +6,8 @@ import { DateTime, Duration } from 'luxon';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
+import TrackMoodChart from './TrackMoodChart';
+
 function AlbumView() {
   const { id } = useParams();
   const [album, setAlbum] = useState(null);
@@ -26,16 +28,16 @@ function AlbumView() {
 
   return (
     <div className={`${styles.AlbumView} mt-3`}>
-      <div className="d-flex justify-content-between mb-4">
+      <div className="d-flex justify-content-between mb-5">
         <div className="">
-          <div className="d-flex flex-column">
+          <div className="h-100 d-flex flex-column">
             <div>
               <h1>{album.title}</h1>
-              <h2 className="mb-5">{album.artists.join(', ')}</h2>
-              <p className="mb-1">{releaseDateLabel}  •  {album.tracks.length} tracks</p>
+              <h2>{album.artists.join(', ')}</h2>
+              <p>{releaseDateLabel}  •  {album.tracks.length} tracks</p>
             </div>
 
-            <div className={`${styles.genreTagList} flex-grow-1`}>
+            <div className={styles.genreTagList}>
               {
                 album.artistGenres.map((genre) => {
                   return (
@@ -52,7 +54,7 @@ function AlbumView() {
         <img className={`${styles.albumImg}`} src={album.imageUrl} />
       </div>
 
-      <table className={`table mb-0`}>
+      <table className={`table mb-4`}>
         <thead>
           <tr>
             <th scope="col" style={{width: '5%', textAlign: 'right'}}>#</th>
@@ -77,7 +79,11 @@ function AlbumView() {
         </tbody>
       </table>
 
-
+      <div className={styles.chartGallery}>
+        <div className={styles.chartArea}>
+          <TrackMoodChart tracks={album.tracks} />
+        </div>
+      </div>
     </div>
   );
 }
