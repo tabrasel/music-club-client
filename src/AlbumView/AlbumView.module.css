@@ -15,6 +15,11 @@
 
 .genreTagList {
   max-width: 500px;
+  display: flex;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  flex-grow: 1;
+  gap: 5px;
 }
 
 .genreTag {
@@ -23,8 +28,6 @@
   border-radius: 3px;
   background-color: #aaa;
   color: #fff;
-  margin-right: 4px;
-  margin-bottom: 4px;
   font-size: 12px;
 }
 
