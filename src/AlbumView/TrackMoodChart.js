@@ -12,19 +12,19 @@ function TrackMoodChart({tracks}) {
       if (tracks === null) return;
 
       const danceabilityValues = tracks.map((track) => {
-        if (track.audioFeatures === null)
+        if (!('audioFeatures' in track))
           return null;
         return track.audioFeatures.danceability
       });
 
       const valenceValues = tracks.map((track) => {
-        if (track.audioFeatures === null)
+        if (!('audioFeatures' in track))
           return null;
         return track.audioFeatures.valence
       });
 
       const energyValues = tracks.map((track) => {
-        if (track.audioFeatures === null)
+        if (!('audioFeatures' in track))
           return null;
         return track.audioFeatures.energy
       });
