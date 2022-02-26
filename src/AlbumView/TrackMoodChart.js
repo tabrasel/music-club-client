@@ -30,9 +30,9 @@ function TrackMoodChart({tracks}) {
       });
 
       const chartData = [
-        { x: 1, y: danceabilityValues },
-        { x: 2, y: valenceValues },
-        { x: 3, y: energyValues }
+        { x: 1, y: valenceValues },
+        { x: 2, y: energyValues },
+        { x: 3, y: danceabilityValues }
       ];
 
       setChartData(chartData);
@@ -51,16 +51,19 @@ function TrackMoodChart({tracks}) {
     (chartData.length === 0) ? <ChartPlaceholder aspectRatio={300 / 450} /> :
     <VictoryChart
       containerComponent={chartContainer}
-      domainPadding={{x: [50, 50]}}
+      width={250}
+      height={250}
+      padding={{left: 30, right: 30, top: 60, bottom: 25}}
+      domainPadding={{x: [30, 30]}}
       animate={{ duration: 500, easing: 'cubic' }}>
       <VictoryBoxPlot
-        boxWidth={30}
+        boxWidth={25}
         data={chartData}
-        categories={{ x: ['danceability', 'valence', 'energy'] }}
+        categories={{ x: ['valence', 'energy', 'danceability'] }}
       />
 
       <VictoryAxis
-        style={{ tickLabels: { fontFamily: 'Poppins', fontSize: 12 } }}
+        style={{ tickLabels: { fontFamily: 'Poppins', fontSize: 10 } }}
       />
 
       <VictoryAxis
@@ -68,15 +71,15 @@ function TrackMoodChart({tracks}) {
         domain={{y: [0, 1]}}
         tickValues={[0.0, 0.2, 0.4, 0.6, 0.8, 1.0]}
         tickFormat={(t) => t.toFixed(1)}
-        style={{ tickLabels: { fontFamily: 'Poppins', fontSize: 12 } }}
+        style={{ tickLabels: { fontFamily: 'Poppins', fontSize: 10 } }}
       />
 
       <VictoryLabel
         text="Mood"
-        x={225}
+        x={125}
         y={30}
         textAnchor="middle"
-        style={{ fontFamily: 'Poppins', fontSize: 18, fontWeight: 'bold' }}
+        style={{ fontFamily: 'Poppins', fontSize: 16, fontWeight: 'bold' }}
       />
     </VictoryChart>
   );
