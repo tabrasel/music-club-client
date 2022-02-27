@@ -17,9 +17,10 @@
   max-width: 500px;
   display: flex;
   align-items: flex-end;
+  align-content: flex-end;
   flex-wrap: wrap;
   flex-grow: 1;
-  gap: 5px;
+  gap: 4px;
 }
 
 .genreTag {
