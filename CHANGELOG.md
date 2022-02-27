@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-## Unreleased
+## 2022-02-27
 
 * Added album pages.
-* Added toggle to show all a posted album's tracks or just those picked.
+* Added toggle to show all of a posted album's tracks or just those picked.
