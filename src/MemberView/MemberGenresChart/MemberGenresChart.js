@@ -2,7 +2,7 @@ import chroma from 'chroma-js';
 import { VictoryAxis, VictoryBar, VictoryChart, VictoryContainer, VictoryLabel } from 'victory';
 import { useState, useEffect } from 'react';
 
-import ChartPlaceholder from '../ChartPlaceholder';
+import ChartPlaceholder from '../../ChartPlaceholder';
 
 /**
  * Convert a genre name to a color.

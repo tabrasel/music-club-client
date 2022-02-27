@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { isMobile } from 'react-device-detect';
 import { VictoryAxis, VictoryBar, VictoryChart, VictoryContainer, VictoryLabel, VictoryTooltip } from 'victory';
 
-import ChartPlaceholder from '../ChartPlaceholder';
+import ChartPlaceholder from '../../ChartPlaceholder';
 
 function MemberReleaseChart({member}) {
   const [plotData, setPlotData] = useState([]);

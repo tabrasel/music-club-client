@@ -1,6 +1,8 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import styles from './RoundAlbumListItem.module.css';
 
+import { Link } from 'react-router-dom';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHandshake } from '@fortawesome/free-solid-svg-icons';
 
@@ -26,8 +28,11 @@ function RoundAlbumListItem({album, participants, votesPerParticipant}) {
                 <p className="m-0">{poster.firstName[0] + poster.lastName[0]}</p>
               </div>
             </div>
-            <h2 className="text-center">{album.title}</h2>
-            <h3 className="text-center mb-4">{album.artist}</h3>
+            <Link to={'/album/' + album.id} style={{textDecoration: 'none'}}>
+              <h2 className="text-center">{album.title}</h2>
+            </Link>
+
+            <h3 className="text-center mb-4">{album.artists.join(', ')}</h3>
             <div className="d-flex justify-content-between">
               {
                 hasAllVotes(album, participants, votesPerParticipant)

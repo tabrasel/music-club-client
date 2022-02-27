@@ -1,0 +1,96 @@
+.AlbumHeader {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.AlbumHeader h1 {
+  text-align: center;
+  font-weight: bold;
+}
+
+.AlbumHeader h2 {
+  margin-bottom: 6vw;
+  text-align: center;
+  color: #aaa;
+}
+
+.albumInfo {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.albumMetadata {
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  flex-grow: 1;
+}
+
+.albumMetadata p {
+  margin: 0;
+}
+
+.genreTagList {
+  display: flex;
+  align-items: flex-end;
+  align-content: flex-end;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.genreTag {
+  display: inline-block;
+  padding: 5px 5px;
+  border-radius: 3px;
+  background-color: #aaa;
+  color: #fff;
+  font-size: 12px;
+}
+
+.genreTag p {
+  margin: 0;
+}
+
+.albumImgContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.albumImg {
+  width: 60%;
+  height: 60%;
+  margin-bottom: 6vw;
+  border-radius: 3px;
+  box-shadow: rgba(0, 0, 0, 0.5) 0px 4px 8px 0px;
+}
+
+/* Large screens */
+@media only screen and (min-width: 768px) {
+  .AlbumHeader {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .AlbumHeader h1 {
+    text-align: left;
+  }
+
+  .AlbumHeader h2 {
+    margin-bottom: 0;
+    text-align: left;
+  }
+
+  .albumImgContainer {
+    flex-grow: 1;
+    justify-content: flex-end;
+  }
+
+  .albumImg {
+    width: 250px;
+    height: 250px;
+    margin-bottom: 0;
+  }
+}
