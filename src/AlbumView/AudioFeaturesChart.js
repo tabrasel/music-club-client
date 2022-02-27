@@ -22,8 +22,6 @@ function AudioFeaturesChart({ tracks, features, colors, title }) {
       const boxData = createBoxData(tracks, features, boxColors);
       const pointData = createPointData(tracks, features, pointColors);
 
-      console.log(pointData);
-
       setBoxData(boxData);
       setPointData(pointData);
       setHasLoaded(true);
@@ -31,12 +29,6 @@ function AudioFeaturesChart({ tracks, features, colors, title }) {
 
     loadData();
   }, [tracks]);
-
-  // Define chart placeholder
-  const chartSkeleton = (<div style={{ width: '100%', height: '350px', backgroundColor: '#f3f3f3', borderRadius: '3px' }}></div>);
-
-  // Define chart container that can scroll on mobile
-  const chartContainer = <VictoryContainer style={{ pointerEvents: "auto", userSelect: "auto", touchAction: "auto" }} />;
 
   // Define chart container that can scroll on mobile
   const touchDraggableContainer = <VictoryContainer style={{ pointerEvents: "auto", userSelect: "auto", touchAction: "auto" }} />;
