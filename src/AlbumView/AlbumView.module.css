@@ -1,39 +1,9 @@
-.AlbumView h1 {
-  font-weight: bold;
+th {
+  font-size: min(calc(10px + 0.5vw), 16px);
 }
 
-.AlbumView h2 {
-  color: #aaa;
-}
-
-.albumImg {
-  width: 250px;
-  height: 250px;
-  border-radius: 3px;
-  box-shadow: rgba(0, 0, 0, 0.5) 0px 4px 8px 0px;
-}
-
-.genreTagList {
-  max-width: 500px;
-  display: flex;
-  align-items: flex-end;
-  align-content: flex-end;
-  flex-wrap: wrap;
-  flex-grow: 1;
-  gap: 4px;
-}
-
-.genreTag {
-  display: inline-block;
-  padding: 5px 5px;
-  border-radius: 3px;
-  background-color: #aaa;
-  color: #fff;
-  font-size: 12px;
-}
-
-.genreTag p {
-  margin: 0;
+td {
+  font-size: min(calc(10px + 0.5vw), 16px);
 }
 
 .chartGallery {
