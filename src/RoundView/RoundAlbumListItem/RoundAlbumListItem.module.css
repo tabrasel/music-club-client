@@ -2,6 +2,11 @@
   font-size: min(calc(15px + .6vw), 24px);
   font-style: italic;
   color: black;
+  transition-duration: 0.1s;
+}
+
+.RoundAlbumListItem h2:hover {
+  color: #666;
 }
 
 .RoundAlbumListItem h3 {
@@ -18,9 +23,25 @@
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
+  position: relative;
   background-size: cover;
   border-radius: 3px;
   box-shadow: rgba(0, 0, 0, 0.5) 0px 4px 8px 0px;
+}
+
+.iconOverlay {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  border-radius: 3px;
+  background-color: transparent;
+  transition-delay: 0.1s;
+}
+
+.iconOverlay:hover {
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 .posterIcon {
@@ -39,4 +60,8 @@
 
 .missingLabel {
   color: red;
+}
+
+.albumLink {
+
 }
