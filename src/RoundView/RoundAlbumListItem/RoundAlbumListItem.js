@@ -23,16 +23,21 @@ function RoundAlbumListItem({album, participants, votesPerParticipant}) {
       <div className="row">
         <div className="col-sm-4">
           <div className="d-flex flex-column align-items-center">
-            <div className={`${styles.postedAlbumIcon} mb-3`} style={{backgroundImage: 'url(' + album.imageUrl + ')'}}>
-              <div className={styles.posterIcon} style={{backgroundColor: poster.color}}>
-                <p className="m-0">{poster.firstName[0] + poster.lastName[0]}</p>
+            <Link to={'/album/' + album.id} style={{textDecoration: 'none'}}>
+              <div className={`${styles.postedAlbumIcon} mb-3`} style={{backgroundImage: 'url(' + album.imageUrl + ')'}}>
+                <div className={styles.posterIcon} style={{backgroundColor: poster.color}}>
+                  <p className="m-0">{poster.firstName[0] + poster.lastName[0]}</p>
+                </div>
+                <div className={styles.iconOverlay}></div>
               </div>
-            </div>
+            </Link>
+
             <Link to={'/album/' + album.id} style={{textDecoration: 'none'}}>
               <h2 className="text-center">{album.title}</h2>
             </Link>
 
             <h3 className="text-center mb-4">{album.artists.join(', ')}</h3>
+
             <div className="d-flex justify-content-between">
               {
                 hasAllVotes(album, participants, votesPerParticipant)
