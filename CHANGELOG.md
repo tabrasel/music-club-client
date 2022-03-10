@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## Unreleased
+
+* Added round album heartbeat charts.
+
 ## 2022-02-27
 
 * Added album pages.
