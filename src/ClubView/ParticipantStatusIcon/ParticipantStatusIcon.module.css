@@ -46,7 +46,7 @@
         transparent 0 calc(360deg/var(--dashCount)));
   -webkit-mask:radial-gradient(farthest-side,transparent calc(100% - var(--dashThickness)),#fff calc(100% - var(--dashThickness) + 1px));
           mask:radial-gradient(farthest-side,transparent calc(100% - var(--dashThickness)),#fff calc(100% - var(--dashThickness) + 1px));
-  animation: spin 15s linear infinite;
+  animation: spin 25s linear infinite;
 }
 
 /* keep the spinner square */
