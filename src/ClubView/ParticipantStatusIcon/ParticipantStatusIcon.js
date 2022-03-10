@@ -31,10 +31,7 @@ function ParticipantStatusIcon({participant, albums, picksPerParticipant}) {
  */
 function isFinished(participant, albums, votesPerParticipant) {
   for (let album of albums) {
-    const participantPicks = album.pickedTracks.filter(pickedTrack => {
-      return pickedTrack.pickerIds.includes(participant.id);
-    });
-
+    const participantPicks = album.tracks.filter((track) => track.pickerIds.includes(participant.id));
     if (participantPicks.length !== votesPerParticipant)
       return false;
   }
