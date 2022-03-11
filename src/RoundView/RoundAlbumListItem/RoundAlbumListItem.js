@@ -12,12 +12,12 @@ import HeartbeatChart from './HeartbeatChart';
 import PickedTrackTable from '../PickedTrackTable/PickedTrackTable';
 
 function RoundAlbumListItem({album, participants, votesPerParticipant}) {
-  const showPickedTrackTable = album.pickedTracks !== null && album.pickedTracks.length > 0;
+  const showPickedTrackTable = album.tracks !== null && album.tracks.length > 0;
 
   const poster = participants.filter(participant => participant.id === album.posterId)[0];
 
   const participantsCount = participants.length;
-  const pickedTracksCount = album.pickedTracks.length;
+  const pickedTracksCount = album.tracks.filter((track) => track.pickerIds.length > 0).length;
   const alignmentScore = (participantsCount * votesPerParticipant - pickedTracksCount) / (participantsCount * votesPerParticipant - votesPerParticipant);
   const alignmentPercentage = Math.floor(alignmentScore * 100);
 
@@ -40,14 +40,16 @@ function RoundAlbumListItem({album, participants, votesPerParticipant}) {
         <h3 className="text-center mb-3">{album.artists.join(', ')}</h3>
 
         {
-          hasAllVotes(album, participants, votesPerParticipant)
+          hasAllVotes(album.tracks, participants.length, votesPerParticipant)
           ? <p className="mb-2" title="Vote overlap score. There is 100% overlap if everyone votes for the same songs, and 0% overlap if everyone votes for different songs."><FontAwesomeIcon icon={faHandshake} /> {alignmentPercentage}%</p>
           : <p className={`${styles.missingLabel} mb-2`}>Missing votes</p>
         }
 
-        <div className="mb-4">
-          <HeartbeatChart album={album} />
-        </div>
+        {
+          hasAllVotes(album.tracks, participants.length, votesPerParticipant)
+          ? <div className="mb-4"><HeartbeatChart album={album} /></div>
+          : null
+        }
       </div>
 
       <div className="col-sm-8">
@@ -63,11 +65,18 @@ function RoundAlbumListItem({album, participants, votesPerParticipant}) {
   );
 }
 
-function hasAllVotes(album, participants, votesPerParticipant) {
-  let expectedVoteCount = votesPerParticipant * participants.length;
-  let voteCount = 0;
-  album.pickedTracks.forEach((pickedTrack) => { voteCount += pickedTrack.pickerIds.length });
-  return voteCount === expectedVoteCount;
+/**
+ * Determines whether an album has received the expected number of votes from each participant.
+ * @param tracks              album tracks
+ * @param participantsCount   number of participants
+ * @param votesPerParticipant number of votes a participant can cast
+ */
+function hasAllVotes(tracks, participantsCount, votesPerParticipant) {
+  let trackVoteCounts = tracks.map((track) => track.pickerIds.length);
+  let totalVoteCount = trackVoteCounts.reduce((sum, count) => sum + count, 0);
+  let expectedVoteCount = votesPerParticipant * participantsCount;
+
+  return totalVoteCount === expectedVoteCount;
 }
 
 export default RoundAlbumListItem;
