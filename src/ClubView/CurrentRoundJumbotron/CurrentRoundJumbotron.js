@@ -1,9 +1,12 @@
+// Import stylesheets
 import styles from './CurrentRoundJumbotron.module.css';
 
-import { useState, useEffect } from 'react';
-
+// Import packages
 import { DateTime } from 'luxon';
+import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
+// Import components
 import ParticipantsList from '../ParticipantsList/ParticipantsList';
 
 function CurrentRoundJumbotron() {
@@ -77,22 +80,24 @@ function CurrentRoundJumbotron() {
   const startDateStr = startDate.toLocaleString(DateTime.DATE_FULL);
 
   return (
-    <div className={`${styles.CurrentRoundJumbotron} jumbotron d-flex justify-content-between mb-5`}>
-      <div className="d-flex flex-column flex-grow-1 justify-content-between">
-        <div>
-          <h2 className="m-0">Now playing</h2>
-          <h1 className="m-0">Round {round.number}</h1>
-          <p className={styles.roundDate}>{ 'Day ' + dayNumber + ' since ' + startDateStr }</p>
+    <Link to={'/round/' + round.id} style={{ textDecoration: 'none' }}>
+      <div className={`${styles.CurrentRoundJumbotron} jumbotron d-flex justify-content-between mb-5`}>
+        <div className="d-flex flex-column flex-grow-1 justify-content-between">
+          <div>
+            <h2 className="m-0" >Now playing</h2>
+            <h1 className="m-0">Round {round.number}</h1>
+            <p className={styles.roundDate}>{ 'Day ' + dayNumber + ' since ' + startDateStr }</p>
+          </div>
+
+          <ParticipantsList
+            participants={participants}
+            albums={albums}
+            picksPerParticipant={round.picksPerParticipant} />
         </div>
 
-        <ParticipantsList
-          participants={participants}
-          albums={albums}
-          picksPerParticipant={round.picksPerParticipant} />
+        <div className={styles.currentRoundThumbnail} style={{backgroundImage: 'url(' + thumbnailUrl + ')'}}></div>
       </div>
-
-      <div className={styles.currentRoundThumbnail} style={{backgroundImage: 'url(' + thumbnailUrl + ')'}}></div>
-    </div>
+    </Link>
   );
 }
 
