@@ -1,6 +1,12 @@
 .CurrentRoundJumbotron {
   background-color: black;
   padding: min(calc(0px + 2.133vw), 20px);
+  transition-duration: 0.15s;
+}
+
+.CurrentRoundJumbotron:hover {
+  background-color: #222;
+  cursor: pointer;
 }
 
 .CurrentRoundJumbotron h1 {
