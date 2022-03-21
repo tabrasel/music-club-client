@@ -46,7 +46,7 @@ function HeartbeatChart({album}) {
         interpolation="catmullRom"
         style={{
           strokeLinecap: 'round',
-          data: { stroke: 'black' }
+          data: { stroke: '#aaa' }
         }}
       />
 
