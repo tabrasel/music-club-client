@@ -4,6 +4,7 @@
 }
 
 .AlbumHeader h1 {
+  font-size: 56px;
   text-align: center;
   font-weight: bold;
 }
@@ -27,10 +28,6 @@
   flex-direction: column;
   justify-content: flex-end;
   flex-grow: 1;
-}
-
-.albumMetadata p {
-  margin: 0;
 }
 
 .genreTagList {

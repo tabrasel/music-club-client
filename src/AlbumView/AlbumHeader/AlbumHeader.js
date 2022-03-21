@@ -14,11 +14,11 @@ function AlbumHeader({album}) {
         <div className={styles.albumInfo}>
           <div>
             <h1>{album.title}</h1>
-            <h2>{album.artists.join(', ')}</h2>
+            <h2 className="mb-5">{album.artists.join(', ')}</h2>
           </div>
 
           <div className={styles.albumMetadata}>
-            <p>{releaseYear}  •  {album.tracks.length} tracks</p>
+            <p className="mb-2">{releaseYear}  •  {album.tracks.length} tracks</p>
 
             <div className={styles.genreTagList}>
               {
