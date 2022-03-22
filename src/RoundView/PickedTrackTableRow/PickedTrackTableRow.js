@@ -1,6 +1,9 @@
+// Import stylesheets
 import styles from './PickedTrackTableRow.module.css';
 
-import MemberIcon from '../../MemberIcon/MemberIcon';
+// Import components
+//import MemberIcon from '../../MemberIcon/MemberIcon';
+import { MemberIconSmall } from '../../MemberIcons/MemberIcons';
 
 function PickedTrackTableRow({pickedTrack, pickers, isTopTrack}) {
   return (
@@ -8,13 +11,9 @@ function PickedTrackTableRow({pickedTrack, pickers, isTopTrack}) {
       <td style={{textAlign: 'right'}}>{pickedTrack.trackNumber}.</td>
       <td>{pickedTrack.title}</td>
       <td>
-        <div className="d-flex justify-content-end">
+        <div className={styles.pickerList}>
           {
-            pickers.map((picker) => (
-              <MemberIcon
-                key={picker.id}
-                member={picker} />
-            ))
+            pickers.map((picker) => <MemberIconSmall key={picker.id} member={picker} />)
           }
         </div>
       </td>

@@ -2,3 +2,9 @@
   font-size: min(calc(10px + 0.5vw), 16px);
   color: black;
 }
+
+.pickerList {
+  display: flex;
+  justify-content: flex-end;
+  gap: 4px;
+}
