@@ -1,6 +1,6 @@
 .RoundAlbumListItem h2 {
   font-size: min(calc(15px + .6vw), 24px);
-  font-style: italic;
+  font-weight: bold;
   color: black;
   transition-duration: 0.1s;
 }
@@ -37,7 +37,7 @@
   bottom: 0;
   border-radius: 3px;
   background-color: transparent;
-  transition-delay: 0.1s;
+  transition-duration: 0.1s;
 }
 
 .iconOverlay:hover {
@@ -64,4 +64,10 @@
 
 .albumLink {
 
+}
+
+.MissingVotesInfo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
