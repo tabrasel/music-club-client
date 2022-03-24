@@ -1,17 +1,6 @@
-.MemberIcon {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
-}
-
 .MemberIcon p {
   margin: 0;
   color: white;
-}
-
-.MemberIcon a {
-  text-decoration: none;
 }
 
 .MemberIconSmall {
