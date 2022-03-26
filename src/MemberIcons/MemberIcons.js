@@ -6,60 +6,57 @@ import chroma from 'chroma-js';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-// Define Link style
-const StyledLink = styled(Link)`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
-  text-decoration: none;
-	background-color: ${(props) => props.defaultColor};
-  transition-duration: 0.15s;
-	:hover {
-		cursor: pointer;
-    transform: translateY(-2px);
-	}
-  :active {
-    background-color: ${(props) => props.hoverColor};
-  }
-`;
 
-function MemberIconSmall({ member }) {
-  return <MemberIcon member={member} sizeClass={styles.MemberIconSmall} />
-}
-
-function MemberIconMedium({ member }) {
-  return <MemberIcon member={member} sizeClass={styles.MemberIconMedium} />
-}
-
-function MemberIconLarge({ member }) {
-  return <MemberIcon member={member} sizeClass={styles.MemberIconLarge} />
-}
-
-function MemberIcon({ member, sizeClass, isLoading = false }) {
-  const defaultColor = member.color;
-  const hoverColor = chroma(defaultColor).darken();
-
+function MemberIcon({ member, sizeClass, isLoading = false, defaultFontColor = 'white', loadingFontColor = 'black' }) {
   const initials = member.firstName[0].toUpperCase() + member.lastName[0].toUpperCase();
 
-  const defaultType = (
-    <StyledLink
+  let defaultColor = member.color;
+  let hoverColor = chroma(defaultColor).darken();
+
+  const defaultIcon = (
+    <Link
       to={`/member/${member.id}`}
-      className={`${styles.MemberIcon} ${sizeClass}`}
-      defaultColor={defaultColor}
-      hoverColor={hoverColor}>
-      <p>{initials}</p>
-    </StyledLink>
+      className={`${styles.link} ${sizeClass}`}
+      style={{ textDecoration: 'none', '--defaultColor': defaultColor, '--hoverColor': hoverColor }}>
+      <p style={{ color: defaultFontColor }}>{initials}</p>
+    </Link>
   );
 
-  const loadingType = (
-    <div className={`${styles.unfinishedIcon} ${sizeClass}`}>
-      <div className={styles.spinner} style={{'--c': defaultColor}}></div>
-      <p>{initials}</p>
-    </div>
+  const loadingIcon = (
+    <Link
+      to={`/member/${member.id}`}
+      className={`${styles.link} ${sizeClass}`}
+      style={{ textDecoration: 'none', '--defaultColor': 'transparent', '--hoverColor':'transparent' }}>
+      <div className={styles.spinner} style={{ '--c': defaultColor }}></div>
+      <p style={{ color: loadingFontColor }}>{initials}</p>
+    </Link>
   );
 
-  return (isLoading ? loadingType : defaultType);
+  return isLoading ? loadingIcon : defaultIcon;
+}
+
+function MemberIconSmall({ member, isLoading, defaultFontColor, loadingFontColor }) {
+  return <MemberIcon member={member}
+    sizeClass={styles.MemberIconSmall}
+    isLoading={isLoading}
+    defaultFontColor={defaultFontColor}
+    loadingFontColor={loadingFontColor} />
+}
+
+function MemberIconMedium({ member, isLoading, defaultFontColor, loadingFontColor}) {
+  return <MemberIcon member={member}
+    sizeClass={styles.MemberIconMedium}
+    isLoading={isLoading}
+    defaultFontColor={defaultFontColor}
+    loadingFontColor={loadingFontColor} />
+}
+
+function MemberIconLarge({ member, isLoading, defaultFontColor, loadingFontColor }) {
+  return <MemberIcon member={member}
+    sizeClass={styles.MemberIconLarge}
+    isLoading={isLoading}
+    defaultFontColor={defaultFontColor}
+    loadingFontColor={loadingFontColor} />
 }
 
 export { MemberIconSmall, MemberIconMedium, MemberIconLarge };

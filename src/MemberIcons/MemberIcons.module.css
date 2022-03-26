@@ -25,14 +25,23 @@
   font-size: min(calc(9px + 0.8vw), 21px);
 }
 
-.unfinishedIcon {
+.link {
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
+  border-radius: 50%;
+  background-color: var(--defaultColor);
+  transition-duration: 0.15s;
 }
 
-.unfinishedIcon p {
+.link:hover {
+  /*transform: translateY(-3px);*/
+  background-color: var(--hoverColor);
+  cursor: pointer;
+}
+
+.link p {
   margin: 0;
 }
 
@@ -49,11 +58,10 @@
   display: inline-block;
   border-radius: 50%;
   background:
-    repeating-conic-gradient(
-        var(--c)    0 calc(360deg/var(--dashCount) - var(--dashGap)),
-        transparent 0 calc(360deg/var(--dashCount)));
-  -webkit-mask:radial-gradient(farthest-side,transparent calc(100% - var(--dashThickness)),#fff calc(100% - var(--dashThickness) + 1px));
-          mask:radial-gradient(farthest-side,transparent calc(100% - var(--dashThickness)),#fff calc(100% - var(--dashThickness) + 1px));
+    repeating-conic-gradient(var(--c) 0 calc(360deg/var(--dashCount) - var(--dashGap)), transparent 0 calc(360deg/var(--dashCount)));
+    -webkit-mask: radial-gradient(farthest-side,transparent calc(100% - var(--dashThickness)), #fff calc(100% - var(--dashThickness) + 1px));
+    mask: radial-gradient(farthest-side, transparent calc(100% - var(--dashThickness)),#fff calc(100% - var(--dashThickness) + 1px)
+  );
   animation: spin 25s linear infinite;
 }
 
