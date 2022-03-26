@@ -4,8 +4,9 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 
-* Added round album heartbeat charts.
-* Can click on the 'Now playing' headline in the main screen to view the current round.
+* Added heartbeat charts to round albums.
+* Clicking the 'Now playing' headline in the main screen will now navigate to the current round.
+* Clicking any member icon will now navigate to their page.
 
 ## 2022-02-27
 
