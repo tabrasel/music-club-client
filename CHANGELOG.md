@@ -5,6 +5,7 @@ All notable changes to this project will be documented in this file.
 ## Unreleased
 
 * Added heartbeat charts to round albums.
+* Round albums now show which participants have not submitted votes. 
 * Clicking the 'Now playing' headline in the main screen will now navigate to the current round.
 * Clicking any member icon will now navigate to their page.
 
