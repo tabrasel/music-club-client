@@ -4,8 +4,6 @@ import styles from './MemberIcons.module.css';
 // Import packages
 import chroma from 'chroma-js';
 import { Link } from 'react-router-dom';
-import styled from 'styled-components';
-
 
 function MemberIcon({ member, sizeClass, isLoading = false, defaultFontColor = 'white', loadingFontColor = 'black' }) {
   const initials = member.firstName[0].toUpperCase() + member.lastName[0].toUpperCase();
