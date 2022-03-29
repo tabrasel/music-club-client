@@ -4,11 +4,6 @@
   transition-duration: 0.15s;
 }
 
-.CurrentRoundJumbotron:hover {
-  background-color: #222;
-  cursor: pointer;
-}
-
 .CurrentRoundJumbotron h1 {
   font-size: min(calc(0px + 8vw), 75px);
   color: white;
@@ -30,4 +25,9 @@
   height: min(calc(90px + 10vw), 225px);
   border-radius: 3px;
   background-size: cover;
+  transition-duration: 0.15s;
+}
+
+.currentRoundThumbnail:hover {
+  box-shadow: rgba(255, 255, 255, 0.5) 0px 0px 10px 4px;
 }

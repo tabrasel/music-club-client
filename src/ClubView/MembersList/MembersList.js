@@ -2,7 +2,6 @@
 import styles from './MembersList.module.css';
 
 // Import packages
-import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
 // Import components
@@ -27,7 +26,7 @@ function MembersList({memberIds}) {
   return (
     <div className={styles.MembersList}>
     {
-      members.map((member) => <MemberIconSmall member={member} />)
+      members.map((member) => <MemberIconSmall key={member.id} member={member} />)
     }
     </div>
   );

@@ -1,6 +1,7 @@
+// Import stylesheets
 import styles from './ParticipantsList.module.css';
 
-import ParticipantStatusIcon from '../ParticipantStatusIcon/ParticipantStatusIcon';
+// Import components
 import { MemberIconMedium } from '../../MemberIcons/MemberIcons';
 
 function ParticipantsList({participants, albums, picksPerParticipant}) {

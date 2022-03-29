@@ -20,10 +20,8 @@ function ClubView() {
 
   return (
     <div className="h-100">
-      <MembersList memberIds={ club ? club.participantIds : null } />
-
-      <CurrentRoundJumbotron />
-
+      <MembersList memberIds={club ? club.participantIds : null} />
+      <CurrentRoundJumbotron club={club} />
       <PastRoundsList />
     </div>
   );

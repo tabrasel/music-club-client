@@ -95,18 +95,4 @@ function createParticipantVotes(participants, tracks) {
   return participantVotes;
 }
 
-/**
- * Determines whether an album has received the expected number of votes from each participant.
- * @param tracks              album tracks
- * @param participantsCount   number of participants
- * @param votesPerParticipant number of votes a participant can cast
- */
-function hasAllVotes(tracks, participantsCount, votesPerParticipant) {
-  let trackVoteCounts = tracks.map((track) => track.pickerIds.length);
-  let totalVoteCount = trackVoteCounts.reduce((sum, count) => sum + count, 0);
-  let expectedVoteCount = votesPerParticipant * participantsCount;
-
-  return totalVoteCount === expectedVoteCount;
-}
-
 export default RoundAlbumListItem;
