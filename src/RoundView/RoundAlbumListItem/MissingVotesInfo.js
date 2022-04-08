@@ -7,10 +7,10 @@ import { MemberIconSmall } from '../../MemberIcons/MemberIcons';
 
 function MissingVotesInfo({ unfinishedParticipants }) {
   return (
-    <div>
+    <div className="d-flex flex-column align-items-center">
       <p className={`${styles.missingLabel} mb-2`}>Missing votes</p>
 
-      <div className="d-flex justify-content-center">
+      <div className={styles.missingVotesParticipantsList}>
       {
         unfinishedParticipants.map((unfinishedParticipant) => {
           return (
