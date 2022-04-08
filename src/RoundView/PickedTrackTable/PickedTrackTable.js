@@ -9,7 +9,7 @@ import { useState } from 'react';
 import PickedTrackTableRow from '../PickedTrackTableRow/PickedTrackTableRow';
 
 function PickedTrackTable({album, participants}) {
-  const [showAllTracks, setShowAllTracks] = useState(false);
+  const [showAllTracks, setShowAllTracks] = useState(true);
 
   const visibleTracks = showAllTracks ? album.tracks : album.tracks.filter((track) => track.pickerIds.length > 0);
 
