@@ -71,3 +71,9 @@
   justify-content: center;
   align-items: center;
 }
+
+.missingVotesParticipantsList {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
