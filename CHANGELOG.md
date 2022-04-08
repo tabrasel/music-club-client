@@ -4,6 +4,8 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 
+* All tracks in a round album are shown by default.
+
 ## 2022-03-28
 
 * Added heartbeat charts to round albums.
