@@ -112,7 +112,7 @@ function CurrentRoundJumbotron({club}) {
   const thumbnailUrl = 'https://tb-music-club.s3.us-west-2.amazonaws.com/round_thumbnails/' + round.id + '.jpeg';
 
   const startDate = DateTime.fromISO(round.startDate);
-  const dayNumber = Math.floor(DateTime.now().diff(startDate, 'days').days);
+  const dayNumber = Math.floor(DateTime.now().diff(startDate, 'days').days) + 1;
   const startDateStr = startDate.toLocaleString(DateTime.DATE_FULL);
 
   return (
@@ -121,7 +121,7 @@ function CurrentRoundJumbotron({club}) {
         <div>
           <h2 className="m-0" >Now playing</h2>
           <h1 className="m-0">Round {round.number}</h1>
-          <p className={styles.roundDate}>{ 'Day ' + dayNumber + ' since ' + startDateStr }</p>
+          <p className={styles.roundDate}>{ `Day ${dayNumber} • Started ${startDateStr}` }</p>
         </div>
 
         <ParticipantsList
