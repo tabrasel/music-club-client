@@ -130,9 +130,8 @@ function CurrentRoundJumbotron({club}) {
           picksPerParticipant={round.picksPerParticipant} />
       </div>
 
-      <Link to={'/round/' + round.id} style={{ textDecoration: 'none' }}>
-        <div className={styles.currentRoundThumbnail} style={{backgroundImage: 'url(' + thumbnailUrl + ')'}}></div>
-      </Link>
+
+      <div className={styles.currentRoundThumbnail} style={{backgroundImage: 'url(' + thumbnailUrl + ')'}}></div>
     </div>
   );
 }
