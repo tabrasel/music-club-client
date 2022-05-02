@@ -5,8 +5,8 @@ All notable changes to this project will be documented in this file.
 ## Unreleased
 
 * All tracks in a round album are shown by default.
-* Updated the format of the current round's progress label.
 * The current round page can no longer be entered.
+* Various UI tweaks.
 
 ## 2022-03-28
 
