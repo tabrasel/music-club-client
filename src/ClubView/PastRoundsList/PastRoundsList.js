@@ -9,6 +9,7 @@ import Spinner from '../../Spinner/Spinner.js';
 function PastRoundsList() {
 
   const [roundListItemsData, setRoundListItemsData] = useState([]);
+  const [isDoneLoading, setIsDoneLoading] = useState(false);
 
   useEffect(() => {
     const getPastRounds = async () => {
@@ -35,6 +36,7 @@ function PastRoundsList() {
       });
 
       setRoundListItemsData(tempListItems);
+      setIsDoneLoading(true);
     };
     getPastRounds();
   }, []);
@@ -51,18 +53,15 @@ function PastRoundsList() {
     return rounds;
   };
 
+  let roundListItems = roundListItemsData.map(
+    (itemData) => <RoundListItem key={itemData.round.id} round={itemData.round} />
+  );
+
   return (
     <div className={`${styles.PastRoundsList} d-flex flex-column align-items-center`}>
-      <h2 className="mb-2">Past Rounds</h2>
+      <h2 className="mb-3">Past Rounds</h2>
       <div className="d-flex justify-content-center flex-wrap">
-        {
-          roundListItemsData.map((itemData) =>
-            <RoundListItem
-              key={itemData.round.id}
-              round={itemData.round}
-            />
-          )
-        }
+        { isDoneLoading ? roundListItems : <Spinner /> }
       </div>
     </div>
   );
