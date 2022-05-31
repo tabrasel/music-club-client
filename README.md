@@ -24,15 +24,17 @@ The Music Club Client is hosted by GitHub Pages and can be visited at:
 
 1. In your local repo, checkout the `dev` branch and pull.
 
-2. Move all items in the 'Unreleased' section of `CHANGELOG.md` to a new section with the version number: yyyy-mm-dd.  
+2. Update the version number in `package.json` to `yyyy.mm.dd`.
 
-3. In GitHub, create a pull request to merge `dev` into the `main` branch. Review and merge if everything looks okay.
+3. Move all items in the 'Unreleased' section of `CHANGELOG.md` to a new section with the version number: yyyy-mm-dd.  
 
-4. In your local repo, checkout the `main` branch and pull those changes you just merged. Only the `main` branch of the music-club-client repository should ever be deployed to production.
+4. In GitHub, create a pull request to merge `dev` into the `main` branch. Review and merge if everything looks okay.
 
-5. In the command line, run:
+5. In your local repo, checkout the `main` branch and pull those changes you just merged. Only the `main` branch of the music-club-client repository should ever be deployed to production.
+
+6. In the command line, run:
 ```
 npm run deploy
 ```
 
-8. Visit [https://tatebrasel.com/music-club-client/](https://tatebrasel.com/music-club-client/) and make sure the site loads. It may take a few minutes to update to the newly deployed version.
+7. Visit [https://tatebrasel.com/music-club-client/](https://tatebrasel.com/music-club-client/) and make sure the site loads. It may take a few minutes to update to the newly deployed version.
