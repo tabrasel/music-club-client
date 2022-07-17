@@ -40,8 +40,7 @@ function AudioFeaturesChart({ tracks, features, colors, title }) {
       width={250}
       height={250}
       padding={{left: 30, right: 30, top: 60, bottom: 25}}
-      domainPadding={{x: [40, 40]}}
-      animate={{ duration: 500, easing: 'cubic' }}>
+      domainPadding={{x: [40, 40]}}>
       <VictoryBoxPlot
         boxWidth={35}
         data={boxData}
