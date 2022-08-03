@@ -37,6 +37,7 @@ function MemberSharedVotesPlot({member}) {
     <VictoryChart
       containerComponent={chartContainer}
       domainPadding={200 / plotData.length}
+      padding={{left: 35, right: 1, top: 1, bottom: 25}}
       animate={{ duration: 500, easing: 'cubic' }}>
       <VictoryBar
         data={plotData}
@@ -53,14 +54,6 @@ function MemberSharedVotesPlot({member}) {
       <VictoryAxis
         dependentAxis
         style={{ tickLabels: { fontFamily: 'Poppins', fontSize: 12 } }}
-      />
-
-      <VictoryLabel
-        text="Shared Votes"
-        x={225}
-        y={30}
-        textAnchor="middle"
-        style={{ fontFamily: 'Poppins', fontSize: 18, fontWeight: 'bold' }}
       />
     </VictoryChart>
   );

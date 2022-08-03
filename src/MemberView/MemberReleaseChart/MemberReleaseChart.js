@@ -45,6 +45,7 @@ function MemberReleaseChart({member}) {
     <VictoryChart
       containerComponent={isMobile ? touchDraggableContainer : <VictoryContainer />}
       domainPadding={200 / plotData.length}
+      padding={{left: 35, right: 1, top: 1, bottom: 25}}
       animate={{ duration: 500, easing: 'cubic' }}>
       <VictoryBar
         data={plotData}
@@ -71,14 +72,6 @@ function MemberReleaseChart({member}) {
         dependentAxis
         tickFormat={(t) => Math.round(t)}
         style={{ tickLabels: { fontFamily: 'Poppins', fontSize: 12 } }}
-      />
-
-      <VictoryLabel
-        text="Posted Albums by Decade"
-        x={225}
-        y={30}
-        textAnchor="middle"
-        style={{ fontFamily: 'Poppins', fontSize: 18, fontWeight: 'bold' }}
       />
     </VictoryChart>
   );

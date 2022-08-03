@@ -70,17 +70,23 @@ function MemberView() {
       <div className={styles.chartGallery}>
         <div className={styles.chartArea}>
           <div>
-            <h1>Posted Genres</h1>
+            <h1 className="mb-3">Posted Genres</h1>
             <MemberGenresChart member={member} />
           </div>
         </div>
 
         <div className={styles.chartArea}>
-          <MemberSharedVotesPlot member={member} />
+          <div>
+            <h1 className="mb-3">Posted Albums By Decade</h1>
+            <MemberReleaseChart member={member} />
+          </div>
         </div>
 
         <div className={styles.chartArea}>
-          <MemberReleaseChart member={member} />
+          <div>
+            <h1 className="mb-3">Shared Votes</h1>
+            <MemberSharedVotesPlot member={member} />
+          </div>
         </div>
       </div>
     </div>

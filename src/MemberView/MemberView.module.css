@@ -9,7 +9,7 @@
 }
 
 .chartArea h1 {
-  font-size: min(calc(10px + 1.5vw), 28px);
+  font-size: min(calc(16px + 0.8vw), 28px);
   text-align: center;
   color: black;
   font-weight: bold;
