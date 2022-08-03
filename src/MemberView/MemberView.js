@@ -56,26 +56,37 @@ function MemberView() {
     <div className={`${styles.MemberView} mt-3`}>
       <MemberHeader member={member} />
 
-      {
-        (member === null || participatedRounds.length === 0) ? memberDescriptionSkeleton :
-        <p>
-          {
-            `${member.firstName} joined round #${participatedRounds[0].number} on ${joinDateStr} and has participated in ${participatedRounds.length - 1} more since—the latest being #${participatedRounds[participatedRounds.length - 1].number}.`
-          }
-        </p>
-      }
+      <div className='d-flex'>
+        {
+          (member === null || participatedRounds.length === 0) ? memberDescriptionSkeleton :
+          <p>
+            {
+              `${member.firstName} joined round #${participatedRounds[0].number} on ${joinDateStr} and has participated in ${participatedRounds.length - 1} more since—the latest being #${participatedRounds[participatedRounds.length - 1].number}.`
+            }
+          </p>
+        }
+      </div>
 
       <div className={styles.chartGallery}>
         <div className={styles.chartArea}>
-          <MemberSharedVotesPlot member={member} />
+          <div>
+            <h1 className="mb-3">Posted Genres</h1>
+            <MemberGenresChart member={member} />
+          </div>
         </div>
 
         <div className={styles.chartArea}>
-          <MemberReleaseChart member={member} />
+          <div>
+            <h1 className="mb-3">Posted Albums By Decade</h1>
+            <MemberReleaseChart member={member} />
+          </div>
         </div>
 
         <div className={styles.chartArea}>
-          <MemberGenresChart member={member} />
+          <div>
+            <h1 className="mb-3">Shared Votes</h1>
+            <MemberSharedVotesPlot member={member} />
+          </div>
         </div>
       </div>
     </div>
