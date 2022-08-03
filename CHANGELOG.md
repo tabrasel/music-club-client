@@ -4,10 +4,11 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 
+* Switched members' posted artist genre barchart with a wordcloud.
 * All tracks in a round album are shown by default.
 * The current round page can no longer be entered.
-* Various UI tweaks.
 * Fixed an issue where track names in album audio feature charts were displaying as RGB strings.
+* Various UI tweaks.
 
 ## 2022-03-28
 
