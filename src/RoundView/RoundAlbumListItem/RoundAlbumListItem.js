@@ -9,8 +9,10 @@ import { Link } from 'react-router-dom';
 
 // Import components
 import HeartbeatChart from './HeartbeatChart';
+import { MemberIconSmall } from '../../MemberIcons/MemberIcons';
 import MissingVotesInfo from './MissingVotesInfo'
 import PickedTrackTable from '../PickedTrackTable/PickedTrackTable';
+
 
 function RoundAlbumListItem({ album, participants, votesPerParticipant }) {
   const showPickedTrackTable = album.tracks !== null && album.tracks.length > 0;
@@ -29,13 +31,13 @@ function RoundAlbumListItem({ album, participants, votesPerParticipant }) {
   return (
     <div className={`${styles.RoundAlbumListItem} row`}>
       <div className="col-sm-4 d-flex flex-column align-items-center">
+        <div className={`${styles.posterHeader} d-flex align-items-center mb-3`}>
+          <MemberIconSmall key={poster.id} member={poster} />
+          <p className="m-0">posted</p>
+        </div>
+
         <Link to={'/album/' + album.id} style={{textDecoration: 'none'}}>
-          <div className={`${styles.postedAlbumIcon} mb-3`} style={{backgroundImage: 'url(' + album.imageUrl + ')'}}>
-            <div className={styles.posterIcon} style={{backgroundColor: poster.color}}>
-              <p className="m-0">{poster.firstName[0] + poster.lastName[0]}</p>
-            </div>
-            <div className={styles.iconOverlay}></div>
-          </div>
+          <img className={`${styles.postedAlbumIcon} mb-4`} src={album.imageUrl}/>
         </Link>
 
         <Link to={'/album/' + album.id} style={{textDecoration: 'none'}}>

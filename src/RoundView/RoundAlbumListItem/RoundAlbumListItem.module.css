@@ -14,12 +14,15 @@
   color: gray;
 }
 
+.posterHeader {
+  grid-gap: 5px;
+}
+
 .postedAlbumIcon {
   min-width: 200px;
   min-height: 200px;
   max-width: 200px;
   max-height: 200px;
-  padding: 10px;
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
@@ -62,9 +65,7 @@
   color: red;
 }
 
-.albumLink {
-
-}
+.albumLink { }
 
 .MissingVotesInfo {
   display: flex;
