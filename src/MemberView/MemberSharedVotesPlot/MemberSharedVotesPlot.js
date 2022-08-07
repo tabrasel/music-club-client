@@ -1,4 +1,4 @@
-import { VictoryAxis, VictoryBar, VictoryChart, VictoryContainer, VictoryLabel } from 'victory';
+import { VictoryAxis, VictoryBar, VictoryChart, VictoryContainer } from 'victory';
 import { useState, useEffect } from 'react';
 
 import ChartPlaceholder from '../../ChartPlaceholder';

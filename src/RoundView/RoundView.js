@@ -1,5 +1,4 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import styles from './RoundView.module.css';
 
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';

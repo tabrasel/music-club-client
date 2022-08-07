@@ -1,5 +1,4 @@
 import chroma from 'chroma-js';
-import { VictoryAxis, VictoryBar, VictoryChart, VictoryContainer, VictoryLabel } from 'victory';
 import { useState, useEffect } from 'react';
 import ReactWordcloud from 'react-wordcloud';
 
@@ -51,12 +50,6 @@ function MemberGenresChart({member}) {
 
     loadData();
   }, [member]);
-
-  // Define chart placeholder
-  const chartSkeleton = (<div style={{ width: '100%', height: '350px', backgroundColor: '#f3f3f3', borderRadius: '3px' }}></div>);
-
-  // Define chart container that can scroll on mobile
-  const chartContainer = <VictoryContainer style={{ pointerEvents: "auto", userSelect: "auto", touchAction: "auto" }} />;
 
   const options = {
     enableTooltip: false,

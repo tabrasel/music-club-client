@@ -4,7 +4,6 @@ import styles from './CurrentRoundJumbotron.module.css';
 // Import packages
 import { DateTime } from 'luxon';
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 
 // Import components
 import ParticipantsList from '../ParticipantsList/ParticipantsList';

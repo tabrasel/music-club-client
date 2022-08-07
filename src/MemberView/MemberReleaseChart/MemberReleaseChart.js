@@ -1,7 +1,7 @@
 import chroma from 'chroma-js';
 import { useState, useEffect } from 'react';
 import { isMobile } from 'react-device-detect';
-import { VictoryAxis, VictoryBar, VictoryChart, VictoryContainer, VictoryLabel, VictoryTooltip } from 'victory';
+import { VictoryAxis, VictoryBar, VictoryChart, VictoryContainer, VictoryTooltip } from 'victory';
 
 import ChartPlaceholder from '../../ChartPlaceholder';
 
@@ -33,9 +33,6 @@ function MemberReleaseChart({member}) {
 
     loadData();
   }, [member]);
-
-  // Define chart placeholder
-  const chartSkeleton = (<div style={{ width: '100%', height: '350px', backgroundColor: '#f3f3f3', borderRadius: '3px' }}></div>);
 
   // Define chart container that can scroll on mobile
   const touchDraggableContainer = <VictoryContainer style={{ pointerEvents: "auto", userSelect: "auto", touchAction: "auto" }} />;
