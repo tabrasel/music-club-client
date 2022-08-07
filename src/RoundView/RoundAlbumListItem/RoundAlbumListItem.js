@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 
 // Import components
 import HeartbeatChart from './HeartbeatChart';
-import { MemberIconSmall } from '../../MemberIcons/MemberIcons';
+import { MemberIconMedium } from '../../MemberIcons/MemberIcons';
 import MissingVotesInfo from './MissingVotesInfo'
 import PickedTrackTable from '../PickedTrackTable/PickedTrackTable';
 
@@ -30,38 +30,45 @@ function RoundAlbumListItem({ album, participants, votesPerParticipant }) {
 
   return (
     <div className={`${styles.RoundAlbumListItem} row`}>
-      <div className="col-sm-4 d-flex flex-column align-items-center">
-        <div className={`${styles.posterHeader} d-flex align-items-center mb-3`}>
-          <MemberIconSmall key={poster.id} member={poster} />
-          <p className="m-0">posted</p>
+      <div className={`${styles.albumInfoArea} col-lg-4`}>
+        <div className="d-flex flex-column align-items-center">
+          <div className={`${styles.posterHeader} d-flex align-items-center mb-3`}>
+            <MemberIconMedium key={poster.id} member={poster} />
+            <p className="m-0">posted</p>
+          </div>
+
+          <Link to={'/album/' + album.id} style={{textDecoration: 'none'}}>
+            <img className={`${styles.postedAlbumImg}`} src={album.imageUrl}/>
+          </Link>
         </div>
 
-        <Link to={'/album/' + album.id} style={{textDecoration: 'none'}}>
-          <img className={`${styles.postedAlbumIcon} mb-4`} src={album.imageUrl}/>
-        </Link>
+        <div className="flex-grow-1">
+          <div className={styles.albumDescription}>
+            <Link to={'/album/' + album.id} style={{textDecoration: 'none'}}>
+              <h2 className="text-center">{album.title}</h2>
+            </Link>
 
-        <Link to={'/album/' + album.id} style={{textDecoration: 'none'}}>
-          <h2 className="text-center">{album.title}</h2>
-        </Link>
+            <h3 className="text-center mb-2">{album.artists.join(', ')}</h3>
 
-        <h3 className="text-center mb-3">{album.artists.join(', ')}</h3>
+            <div className={`${styles.albumStatsArea} mb-0`}>
+              {
+                isComplete
+                ? <div className="m-0"><HeartbeatChart album={album} title="Hello" /></div>
+                : null
+              }
 
-        <div className={`${styles.albumStatsArea} mb-4`}>
-          {
-            isComplete
-            ? <div className="m-0"><HeartbeatChart album={album} title="Hello" /></div>
-            : null
-          }
-
-          {
-            isComplete
-            ? <p className="m-0" title="Vote overlap score. There is 100% overlap if everyone votes for the same songs, and 0% overlap if everyone votes for different songs."><FontAwesomeIcon icon={faHandshake} /> {alignmentPercentage}%</p>
-            : <MissingVotesInfo unfinishedParticipants={unfinishedParticipants}/>
-          }
+              {
+                isComplete
+                ? <p className="m-0" title="Vote overlap score. There is 100% overlap if everyone votes for the same songs, and 0% overlap if everyone votes for different songs."><FontAwesomeIcon icon={faHandshake} /> {alignmentPercentage}%</p>
+                : <MissingVotesInfo unfinishedParticipants={unfinishedParticipants}/>
+              }
+            </div>
+          </div>
         </div>
+
       </div>
 
-      <div className="col-sm-8">
+      <div className="col-lg-8">
         {
           showPickedTrackTable
           ? <PickedTrackTable
@@ -100,3 +107,7 @@ function createParticipantVotes(participants, tracks) {
 }
 
 export default RoundAlbumListItem;
+
+/*
+
+*/
