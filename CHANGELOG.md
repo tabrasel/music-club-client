@@ -2,7 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
-## Unreleased
+## 2022-08-07
+
+* Switched members' posted artist genre barchart with a wordcloud.
+* All tracks in a round album are shown by default.
+* The page for the current round can no longer be visited.
+* Fixed an issue where track names in album audio feature charts were displaying as RGB strings.
+* Various UI tweaks.
+
+## 2022-03-28
 
 * Added heartbeat charts to round albums.
 * Round albums now show which participants have not submitted votes.

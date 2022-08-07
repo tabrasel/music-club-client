@@ -8,6 +8,13 @@
   padding: 1%;
 }
 
+.chartArea h1 {
+  font-size: min(calc(16px + 0.8vw), 28px);
+  text-align: center;
+  color: black;
+  font-weight: bold;
+}
+
 /* Large screens */
 @media only screen and (min-width: 768px) {
   .chartArea {

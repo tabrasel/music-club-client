@@ -1,5 +1,4 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import styles from './RoundView.module.css';
 
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
@@ -37,7 +36,7 @@ function Round() {
     };
 
     getRound();
-  }, []);
+  }, [id]);
 
   const fetchRound = async (id) => {
     const res = await fetch('https://tb-music-club.herokuapp.com/api/round?id=' + id);

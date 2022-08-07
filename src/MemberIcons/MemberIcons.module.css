@@ -8,6 +8,7 @@
   max-width: min(calc(16px + 1vw), 32px);
   min-height: min(calc(16px + 1vw), 32px);
   max-height: min(calc(16px + 1vw), 32px);
+  --dashThickness: min(calc(1px + 0.25vw), 2px);
 }
 
 .MemberIconMedium {
@@ -15,6 +16,7 @@
   max-width: min(calc(24px + 1.5vw), 48px);
   min-height: min(calc(24px + 1.5vw), 48px);
   max-height: min(calc(24px + 1.5vw), 48px);
+  --dashThickness: min(calc(1px + 0.25vw), 3px);
 }
 
 .MemberIconSmall p {
@@ -36,7 +38,6 @@
 }
 
 .link:hover {
-  /*transform: translateY(-3px);*/
   background-color: var(--hoverColor);
   cursor: pointer;
 }
@@ -49,7 +50,7 @@
 .spinner {
   --dashGap: 10deg;
   --dashCount: 12;
-  --dashThickness: 3px;
+
   min-width: 100%;
   min-height: 100%;
   max-width: 100%;

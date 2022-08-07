@@ -9,7 +9,7 @@ import { useState } from 'react';
 import PickedTrackTableRow from '../PickedTrackTableRow/PickedTrackTableRow';
 
 function PickedTrackTable({album, participants}) {
-  const [showAllTracks, setShowAllTracks] = useState(false);
+  const [showAllTracks, setShowAllTracks] = useState(true);
 
   const visibleTracks = showAllTracks ? album.tracks : album.tracks.filter((track) => track.pickerIds.length > 0);
 
@@ -46,7 +46,7 @@ function PickedTrackTable({album, participants}) {
         </tbody>
       </table>
 
-      <div className="d-flex justify-content-center mb-2">
+      <div className="d-flex justify-content-center mb-4">
         <button className={styles.tracksToggleButton} onClick={toggleShowAllTracks}>
           <p>
             {

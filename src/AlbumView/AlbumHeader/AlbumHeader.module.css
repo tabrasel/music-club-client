@@ -4,12 +4,13 @@
 }
 
 .AlbumHeader h1 {
-  font-size: 56px;
+  font-size: min(calc(20px + 3vw), 56px);
   text-align: center;
   font-weight: bold;
 }
 
 .AlbumHeader h2 {
+  font-size: min(calc(12.8px + 1.9vw), 36px);
   margin-bottom: 6vw;
   text-align: center;
   color: #aaa;

@@ -1,7 +1,7 @@
 import chroma from 'chroma-js';
 import { useState, useEffect } from 'react';
 import { isMobile } from 'react-device-detect';
-import { VictoryAxis, VictoryBar, VictoryChart, VictoryContainer, VictoryLabel, VictoryTooltip } from 'victory';
+import { VictoryAxis, VictoryBar, VictoryChart, VictoryContainer, VictoryTooltip } from 'victory';
 
 import ChartPlaceholder from '../../ChartPlaceholder';
 
@@ -34,9 +34,6 @@ function MemberReleaseChart({member}) {
     loadData();
   }, [member]);
 
-  // Define chart placeholder
-  const chartSkeleton = (<div style={{ width: '100%', height: '350px', backgroundColor: '#f3f3f3', borderRadius: '3px' }}></div>);
-
   // Define chart container that can scroll on mobile
   const touchDraggableContainer = <VictoryContainer style={{ pointerEvents: "auto", userSelect: "auto", touchAction: "auto" }} />;
 
@@ -45,6 +42,7 @@ function MemberReleaseChart({member}) {
     <VictoryChart
       containerComponent={isMobile ? touchDraggableContainer : <VictoryContainer />}
       domainPadding={200 / plotData.length}
+      padding={{left: 35, right: 1, top: 1, bottom: 25}}
       animate={{ duration: 500, easing: 'cubic' }}>
       <VictoryBar
         data={plotData}
@@ -71,14 +69,6 @@ function MemberReleaseChart({member}) {
         dependentAxis
         tickFormat={(t) => Math.round(t)}
         style={{ tickLabels: { fontFamily: 'Poppins', fontSize: 12 } }}
-      />
-
-      <VictoryLabel
-        text="Posted Albums by Decade"
-        x={225}
-        y={30}
-        textAnchor="middle"
-        style={{ fontFamily: 'Poppins', fontSize: 18, fontWeight: 'bold' }}
       />
     </VictoryChart>
   );
