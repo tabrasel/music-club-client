@@ -36,7 +36,7 @@ function Round() {
     };
 
     getRound();
-  }, []);
+  }, [id]);
 
   const fetchRound = async (id) => {
     const res = await fetch('https://tb-music-club.herokuapp.com/api/round?id=' + id);

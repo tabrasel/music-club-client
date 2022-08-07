@@ -38,7 +38,7 @@ function RoundAlbumListItem({ album, participants, votesPerParticipant }) {
           </div>
 
           <Link to={'/album/' + album.id} style={{textDecoration: 'none'}}>
-            <img className={`${styles.postedAlbumImg}`} src={album.imageUrl}/>
+            <img className={`${styles.postedAlbumImg}`} src={album.imageUrl} alt={`${album.title} cover art`} />
           </Link>
         </div>
 
