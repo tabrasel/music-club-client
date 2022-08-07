@@ -1,7 +1,7 @@
 // Import packages
 import { useState, useEffect } from 'react';
 import { isMobile } from 'react-device-detect';
-import { VictoryAxis, VictoryChart, VictoryContainer, VictoryLine } from 'victory';
+import { VictoryArea, VictoryAxis, VictoryChart, VictoryContainer } from 'victory';
 
 // Import components
 import ChartPlaceholder from '../../ChartPlaceholder';
@@ -14,9 +14,13 @@ function HeartbeatChart({album}) {
     const loadData = async () => {
       if (album === null) return;
 
-      const pointData = album.tracks.map((track, i) => {
-        return { x: i, y: track.pickerIds.length }
+      let pointData = album.tracks.map((track, i) => {
+        return { x: i + 1, y: track.pickerIds.length, y0: track.pickerIds.length * -1 }
       });
+
+      // Flatten the start and end of the waveform
+      pointData.unshift({x: 0, y: 0, y0: 0});
+      pointData.push({x: album.tracks.length + 1, y: 0, y0: 0});
 
       setPointData(pointData);
       setHasLoaded(true);
@@ -40,17 +44,17 @@ function HeartbeatChart({album}) {
       width={200}
       height={50}
       padding={0}
-      domain={{ x: [-0.5, pointData.length - 0.5], y: [-0.5, 4.5] }}>
-      <VictoryLine
+      domain={{ y: [-4.5, 4.5] }}>
+      <VictoryArea
         data={pointData}
-        interpolation="catmullRom"
-        style={{
-          strokeLinecap: 'round',
-          data: { stroke: '#aaa' }
-        }}
-      />
+        interpolation="monotoneX" />
 
-      <VictoryAxis style={{ axis: { stroke: 'transparent' } }} />
+      <VictoryAxis
+        style={{
+          axis: { stroke: 'transparent' },
+          ticks: {stroke: 'transparent' },
+          tickLabels: { fill: 'transparent' }
+        }} />
     </VictoryChart>
   );
 }

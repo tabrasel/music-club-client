@@ -67,6 +67,12 @@
 
 .albumLink { }
 
+.albumStatsArea {
+  display: flex;
+  align-items: center;
+  grid-gap: 15px;
+}
+
 .MissingVotesInfo {
   display: flex;
   justify-content: center;

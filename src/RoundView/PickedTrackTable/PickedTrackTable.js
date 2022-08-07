@@ -46,7 +46,7 @@ function PickedTrackTable({album, participants}) {
         </tbody>
       </table>
 
-      <div className="d-flex justify-content-center mb-2">
+      <div className="d-flex justify-content-center mb-4">
         <button className={styles.tracksToggleButton} onClick={toggleShowAllTracks}>
           <p>
             {

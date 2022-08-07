@@ -46,17 +46,19 @@ function RoundAlbumListItem({ album, participants, votesPerParticipant }) {
 
         <h3 className="text-center mb-3">{album.artists.join(', ')}</h3>
 
-        {
-          isComplete
-          ? <p className="mb-2" title="Vote overlap score. There is 100% overlap if everyone votes for the same songs, and 0% overlap if everyone votes for different songs."><FontAwesomeIcon icon={faHandshake} /> {alignmentPercentage}%</p>
-          : <MissingVotesInfo unfinishedParticipants={unfinishedParticipants}/>
-        }
+        <div className={`${styles.albumStatsArea} mb-4`}>
+          {
+            isComplete
+            ? <div className="m-0"><HeartbeatChart album={album} title="Hello" /></div>
+            : null
+          }
 
-        {
-          isComplete
-          ? <div className="mb-4"><HeartbeatChart album={album} /></div>
-          : null
-        }
+          {
+            isComplete
+            ? <p className="m-0" title="Vote overlap score. There is 100% overlap if everyone votes for the same songs, and 0% overlap if everyone votes for different songs."><FontAwesomeIcon icon={faHandshake} /> {alignmentPercentage}%</p>
+            : <MissingVotesInfo unfinishedParticipants={unfinishedParticipants}/>
+          }
+        </div>
       </div>
 
       <div className="col-sm-8">
