@@ -1,12 +1,10 @@
-.RoundParticipantsKey .participantName {
-  margin: 0;
-  font-size: min(calc(5px + 1.125vw), 20px);
+.RoundParticipantsKey h2 {
+  font-size: min(calc(8px + 1.125vw), 20px);
   text-align: right;
-  color: black;
+  color: gray;
 }
 
-.RoundParticipantsKey .participantListItem {
+.participantsList {
   display: flex;
-  align-items: center;
-  gap: 10px;
+  grid-gap: min(calc(3px + 0.5vw), 8px);
 }
