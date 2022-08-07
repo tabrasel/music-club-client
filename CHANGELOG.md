@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-## Unreleased
+## 2022-08-07
 
 * Switched members' posted artist genre barchart with a wordcloud.
 * All tracks in a round album are shown by default.
