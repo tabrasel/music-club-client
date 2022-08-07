@@ -8,7 +8,3 @@
   font-size: min(calc(5px + 1.125vw), 20px);
   color: gray;
 }
-
-.roundDescription {
-  font-size: min(calc(4px + 0.9vw), 16px);
-}
