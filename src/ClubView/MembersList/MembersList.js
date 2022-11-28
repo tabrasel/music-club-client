@@ -4,6 +4,9 @@ import styles from './MembersList.module.css';
 // Import packages
 import { useState, useEffect } from 'react';
 
+// Import services
+import { getMemberAsync } from '../../services/MemberService';
+
 // Import components
 import { MemberIconSmall } from '../../MemberIcons/MemberIcons';
 
@@ -12,14 +15,13 @@ function MembersList({memberIds}) {
 
   useEffect(() => {
     if (memberIds === null) return;
+
     const fetchMembers = async () => {
-      const memberPromises = memberIds.map((memberId) => {
-        return fetch('https://tb-music-club.herokuapp.com/api/member?id=' + memberId)
-          .then((res) => res.json());
-      });
-      const members = await Promise.all(memberPromises);
+      const promises = memberIds.map((memberId) => getMemberAsync(memberId));
+      const members = await Promise.all(promises);
       setMembers(members);
     };
+
     fetchMembers();
   }, [memberIds]);
 

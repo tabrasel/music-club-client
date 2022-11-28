@@ -1,25 +1,29 @@
+// Import styles
 import 'bootstrap/dist/css/bootstrap.min.css';
 import styles from './AlbumView.module.css';
 
+// Import packages
 import { Duration } from 'luxon';
-
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
+// Import components
 import AlbumHeader from './AlbumHeader/AlbumHeader';
 import AudioFeaturesChart from './AudioFeaturesChart';
+
+// Import services
+import { getAlbumAsync } from '../services/AlbumService';
 
 function AlbumView() {
   const { id } = useParams();
   const [album, setAlbum] = useState(null);
 
   useEffect(() => {
-    const getAlbum = async () => {
-      const albumRes = await fetch('https://tb-music-club.herokuapp.com/api/album?id=' + id);
-      const album = await albumRes.json();
+    const loadAlbum = async () => {
+      const album = await getAlbumAsync(id);
       setAlbum(album);
     };
-    getAlbum();
+    loadAlbum();
   }, [id]);
 
   if (album === null) return null;

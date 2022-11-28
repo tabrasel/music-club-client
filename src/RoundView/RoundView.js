@@ -1,13 +1,20 @@
+// Import styles
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+// Import packages
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
+// Import components
 import RoundHeader from './RoundHeader/RoundHeader';
 import AlbumList from './AlbumList/AlbumList';
 
-function Round() {
+// Import services
+import { getAlbumAsync } from '../services/AlbumService';
+import { getMemberAsync } from '../services/MemberService';
+import { getRoundAsync } from '../services/RoundService';
 
+function Round() {
   const { id } = useParams();
   const [round, setRound] = useState(null);
   const [participants, setParticipants] = useState([]);
@@ -16,33 +23,25 @@ function Round() {
   useEffect(() => {
     const getRound = async () => {
       // Get round info
-      const round = await fetchRound(id);
+      const round = await getRoundAsync(id);
       setRound(round);
 
       // Get participant info
       const participants = await fetchParticipants(round);
       participants.sort((a, b) => {
-        if (a.lastName < b.lastName)
-          return -1;
-        else if (a.lastName > b.lastName)
-          return 1;
+        if (a.lastName < b.lastName) return -1;
+        else if (a.lastName > b.lastName) return 1;
         return a.firstName < b.firstName ? -1 : 1;
       });
       setParticipants(participants);
 
       // Get album info
-      const albums = await fetchAlbums(round);
+      const albums = await fetchAlbums(round.albumIds);
       setAlbums(albums);
     };
 
     getRound();
   }, [id]);
-
-  const fetchRound = async (id) => {
-    const res = await fetch('https://tb-music-club.herokuapp.com/api/round?id=' + id);
-    const round = await res.json();
-    return round;
-  };
 
   if (round === null) return null;
 
@@ -61,18 +60,12 @@ function Round() {
 }
 
 function fetchParticipants(round) {
-  const participantPromises = round.participantIds.map((participantId) => {
-    return fetch('https://tb-music-club.herokuapp.com/api/member?id=' + participantId)
-      .then(response => response.json());
-  });
-  return Promise.all(participantPromises)
+  const promises = round.participantIds.map((participantId) => getMemberAsync(participantId));
+  return Promise.all(promises)
 }
 
-function fetchAlbums(round) {
-  const albumPromises = round.albumIds.map((albumId) => {
-    return fetch('https://tb-music-club.herokuapp.com/api/album?id=' + albumId)
-      .then(response => response.json());
-  });
+function fetchAlbums(albumIds) {
+  const albumPromises = albumIds.map((albumId) => getAlbumAsync(albumId));
   return Promise.all(albumPromises);
 }
 

@@ -8,6 +8,11 @@ import { useState, useEffect } from 'react';
 // Import components
 import ParticipantsList from '../ParticipantsList/ParticipantsList';
 
+// Import services
+import { getAlbumAsync } from '../../services/AlbumService';
+import { getMemberAsync } from '../../services/MemberService';
+import { getRoundAsync, getRoundsAsync } from '../../services/RoundService';
+
 function CurrentRoundJumbotron({club}) {
   const [hasCurrentRound, setHasCurrentRound] = useState(false);
   const [round, setRound] = useState(null);
@@ -17,8 +22,10 @@ function CurrentRoundJumbotron({club}) {
   const [albums, setAlbums] = useState([]);
 
   useEffect(() => {
+    if (club === null) return;
+
     const loadData = async () => {
-      let rounds = await fetchRounds();
+      let rounds = await getRoundsAsync();
       rounds = rounds.sort((round1, round2) => round1.number - round2.number);
       setRounds(rounds);
       setNextRoundNumber(rounds[rounds.length - 1].number + 1);
@@ -26,50 +33,29 @@ function CurrentRoundJumbotron({club}) {
       // Fetch current round
       setHasCurrentRound(club.currentRoundId !== null);
       if (!(club.currentRoundId !== null)) return;
-      const round = await fetchRound(club.currentRoundId);
+      const round = await getRoundAsync(club.currentRoundId);
       setRound(round);
 
       if (round === null) return;
 
       // Fetch participants
-      const participantPromises = round.participantIds.map((participantId) => {
-        return fetch('https://tb-music-club.herokuapp.com/api/member?id=' + participantId)
-          .then(response => response.json());
-      });
+      const participantPromises = round.participantIds.map((participantId) => getMemberAsync(participantId));
       const participants = await Promise.all(participantPromises);
       participants.sort((a, b) => {
-        if (a.lastName < b.lastName)
-          return -1;
-        else if (a.lastName > b.lastName)
-          return 1;
+        if (a.lastName < b.lastName) return -1;
+        else if (a.lastName > b.lastName) return 1;
         return a.firstName < b.firstName ? -1 : 1;
       });
       setParticipants(participants);
 
       // Fetch albums
-      const albumPromises = round.albumIds.map((albumId) => {
-        return fetch('https://tb-music-club.herokuapp.com/api/album?id=' + albumId)
-          .then(response => response.json());
-      });
+      const albumPromises = round.albumIds.map((albumId) => getAlbumAsync(albumId));
       const albums = await Promise.all(albumPromises);
       setAlbums(albums);
     };
 
-    if (club === null) return;
     loadData();
   }, [club]);
-
-  const fetchRound = async (id) => {
-    const res = await fetch('https://tb-music-club.herokuapp.com/api/round?id=' + id);
-    const round = await res.json();
-    return round;
-  };
-
-  const fetchRounds = async () => {
-    const res = await fetch('https://tb-music-club.herokuapp.com/api/rounds');
-    const rounds = await res.json();
-    return rounds;
-  };
 
   // Display loading skeleton
   if (club === null) {
