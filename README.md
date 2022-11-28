@@ -13,7 +13,7 @@ This is a web frontend that provides a way to browse information about Music Clu
 
 3. Implement the feature. When doing so, try to make clean and modular commits that follow [Conventional Commit](https://www.conventionalcommits.org/en/v1.0.0/) guidelines.
 
-4. Document the feature in the `CHANGELOG,md` under 'Unreleased'.
+4. If the feature is client-facing, document it in the `CHANGELOG,md` under 'Unreleased'.
 
 5. In GitHub, create a pull request to merge the feature branch into `dev`. Review and merge if everything looks okay.
 

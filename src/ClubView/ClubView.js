@@ -1,21 +1,26 @@
+// Import styles
 import './ClubView.css';
 
+// Import packages
 import { useState, useEffect } from 'react';
 
+// Import components
 import CurrentRoundJumbotron from './CurrentRoundJumbotron/CurrentRoundJumbotron';
 import MembersList from './MembersList/MembersList';
 import PastRoundsList from './PastRoundsList/PastRoundsList';
+
+// Import services
+import { getClubAsync } from '../services/ClubService';
 
 function ClubView() {
   const [club, setClub] = useState(null);
 
   useEffect(() => {
-    const fetchClub = async () => {
-      const res = await fetch('https://tb-music-club.herokuapp.com/api/club?id=04d9a851-61a1-476a-bc87-a3a30fc6a353');
-      const club = await res.json();
+    const loadClub = async () => {
+      const club = await getClubAsync('04d9a851-61a1-476a-bc87-a3a30fc6a353')
       setClub(club);
     };
-    fetchClub();
+    loadClub();
   }, []);
 
   return (
