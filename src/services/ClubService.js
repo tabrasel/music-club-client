@@ -1,4 +1,4 @@
-const apiUri = 'https://music-club-service.uw.r.appspot.com/api';
+const apiUri = process.env.REACT_APP_MUSIC_CLUB_API_URI;
 
 /**
  * Gets a club by its ID.
