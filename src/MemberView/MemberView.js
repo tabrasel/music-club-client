@@ -1,15 +1,21 @@
+// Import styles
 import 'bootstrap/dist/css/bootstrap.min.css';
 import styles from './MemberView.module.css';
 
+// Import packages
 import { DateTime } from 'luxon';
-
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
+// Import components
 import MemberHeader from './MemberHeader/MemberHeader';
 import MemberSharedVotesPlot from './MemberSharedVotesPlot/MemberSharedVotesPlot';
 import MemberGenresChart from './MemberGenresChart/MemberGenresChart';
 import MemberReleaseChart from './MemberReleaseChart/MemberReleaseChart';
+
+// Import services
+import { getRoundAsync } from '../services/RoundService';
+import { getMemberAsync } from '../services/MemberService';
 
 function MemberView() {
   const { id } = useParams();
@@ -18,12 +24,12 @@ function MemberView() {
   const [joinDateStr, setJoinDateStr] = useState('');
 
   useEffect(() => {
-    const getMember = async () => {
+    const loadMemberData = async () => {
       // Get member info
-      const member = await fetchMember(id);
+      const member = await getMemberAsync(id);
       setMember(member);
 
-      // Get rounds info
+      // Get round info
       const rounds = await fetchRounds(member.participatedRoundIds);
       rounds.sort((a, b) => { return a.number - b.number });
       setParticipatedRounds(rounds);
@@ -32,20 +38,11 @@ function MemberView() {
       setJoinDateStr(joinDate.toLocaleString(DateTime.DATE_FULL));
     };
 
-    getMember();
+    loadMemberData();
   }, [id]);
 
-  const fetchMember = async (id) => {
-    const res = await fetch('https://tb-music-club.herokuapp.com/api/member?id=' + id);
-    const member = await res.json();
-    return member;
-  };
-
   const fetchRounds = async (roundIds) => {
-    const roundPromises = roundIds.map((roundId) => {
-      return fetch('https://tb-music-club.herokuapp.com/api/round?id=' + roundId)
-        .then((res) => res.json());
-    });
+    const roundPromises = roundIds.map((roundId) => getRoundAsync(roundId));
     const rounds = await Promise.all(roundPromises);
     return rounds;
   };

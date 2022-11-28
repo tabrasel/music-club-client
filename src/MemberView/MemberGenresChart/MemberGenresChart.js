@@ -1,13 +1,18 @@
+// Import packages
 import chroma from 'chroma-js';
 import { useState, useEffect } from 'react';
 import ReactWordcloud from 'react-wordcloud';
 
+// Import components
 import ChartPlaceholder from '../../ChartPlaceholder';
 
+// Import services
+import { getMemberGenresAsync } from '../../services/MemberService';
+
 /**
- * Convert a string to a color.
- * @param str a string
- * @return hex color
+ * Converts a string to a color.
+ * @param str  the string to convert
+ * @return     a hex color string
  */
 function stringToColor(str) {
   let hash = 0;
@@ -19,7 +24,6 @@ function stringToColor(str) {
     color += ('00' + value.toString(16)).substr(-2);
   }
 
-
   let hsl = chroma(color).hsl();
   color = (hsl[2] > 0.6) ? chroma(color).darken(1) : color;
   hsl = chroma(color).hsl();
@@ -29,23 +33,18 @@ function stringToColor(str) {
 }
 
 function MemberGenresChart({member}) {
-  const [plotData, setPlotData] = useState([]);
+  const [chartData, setChartData] = useState([]);
 
   useEffect(() => {
     const loadData = async () => {
       if (member === null) return;
 
-      // Get shared votes
-      const res = await fetch(`https://tb-music-club.herokuapp.com/api/member-genres?memberId=${member.id}`);
-      const genres = await res.json();
-
-      // Format genre data for plotting
+      const genres = await getMemberGenresAsync(member.id)
       const plotData = genres.map((genre) => ({
         text: genre.genre,
         value: genre.albumTitles.length
       }));
-
-      setPlotData(plotData);
+      setChartData(plotData);
     };
 
     loadData();
@@ -60,13 +59,12 @@ function MemberGenresChart({member}) {
     fontFamily: "sans-serif",
   };
 
-  const callbacks = {
-    getWordColor: (word) => stringToColor(word.text),
-  }
+  const callbacks = { getWordColor: (word) => stringToColor(word.text) };
 
   return (
-    (plotData.length === 0) ? <ChartPlaceholder aspectRatio={300 / 450} /> :
-      <ReactWordcloud words={plotData} options={options} callbacks={callbacks} />
+    (chartData.length === 0)
+    ? <ChartPlaceholder aspectRatio={300 / 450} />
+    : <ReactWordcloud words={chartData} options={options} callbacks={callbacks} />
   );
 }
 
