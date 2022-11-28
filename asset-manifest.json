@@ -1,23 +1,23 @@
 {
   "files": {
     "main.css": "/music-club-client/static/css/main.70a7108f.chunk.css",
-    "main.js": "/music-club-client/static/js/main.72b1f4ec.chunk.js",
-    "main.js.map": "/music-club-client/static/js/main.72b1f4ec.chunk.js.map",
+    "main.js": "/music-club-client/static/js/main.b2dc56dd.chunk.js",
+    "main.js.map": "/music-club-client/static/js/main.b2dc56dd.chunk.js.map",
     "runtime-main.js": "/music-club-client/static/js/runtime-main.f5af9e1c.js",
     "runtime-main.js.map": "/music-club-client/static/js/runtime-main.f5af9e1c.js.map",
     "static/css/2.0a9ec390.chunk.css": "/music-club-client/static/css/2.0a9ec390.chunk.css",
-    "static/js/2.fec217a1.chunk.js": "/music-club-client/static/js/2.fec217a1.chunk.js",
-    "static/js/2.fec217a1.chunk.js.map": "/music-club-client/static/js/2.fec217a1.chunk.js.map",
+    "static/js/2.1a3039ed.chunk.js": "/music-club-client/static/js/2.1a3039ed.chunk.js",
+    "static/js/2.1a3039ed.chunk.js.map": "/music-club-client/static/js/2.1a3039ed.chunk.js.map",
     "index.html": "/music-club-client/index.html",
     "static/css/2.0a9ec390.chunk.css.map": "/music-club-client/static/css/2.0a9ec390.chunk.css.map",
     "static/css/main.70a7108f.chunk.css.map": "/music-club-client/static/css/main.70a7108f.chunk.css.map",
-    "static/js/2.fec217a1.chunk.js.LICENSE.txt": "/music-club-client/static/js/2.fec217a1.chunk.js.LICENSE.txt"
+    "static/js/2.1a3039ed.chunk.js.LICENSE.txt": "/music-club-client/static/js/2.1a3039ed.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.f5af9e1c.js",
     "static/css/2.0a9ec390.chunk.css",
-    "static/js/2.fec217a1.chunk.js",
+    "static/js/2.1a3039ed.chunk.js",
     "static/css/main.70a7108f.chunk.css",
-    "static/js/main.72b1f4ec.chunk.js"
+    "static/js/main.b2dc56dd.chunk.js"
   ]
 }
